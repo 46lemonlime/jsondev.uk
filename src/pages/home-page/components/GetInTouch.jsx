@@ -13,7 +13,7 @@ const GetInTouch = () => {
   return (
     <section
       id="contact"
-      className={`${styles.marginY} ${styles.padding} flex md:flex-row flex-col items-start md:items-center justify-between gap-8 bg-black-gradient-2 border border-borderSubtle rounded-2xl box-shadow`}
+      className={`${styles.marginY} ${styles.padding} flex md:flex-row flex-col items-start md:items-center justify-between gap-8 bg-surface border border-borderSubtle rounded-2xl shadow-card`}
     >
       <div className="flex-1 flex flex-col">
         <Badge variant="telemetry" pulse className="mb-3 self-start">

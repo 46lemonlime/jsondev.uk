@@ -1,7 +1,7 @@
 /**
  * @file src/index.css
  * @description Global stylesheet configuring Tailwind directives, CSS variables,
- * background gradient utilities, focus rings, and reduced-motion overrides.
+ * Caribbean green palette tokens, focus rings, and reduced-motion overrides.
  * @responsibility Global styling base, theme custom properties, and motion accessibility.
  */
 
@@ -10,25 +10,32 @@
 @tailwind utilities;
 
 :root {
-  --bg-canvas: #07090e;
-  --bg-surface: #0f131d;
-  --bg-surface-elevated: #161b28;
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-accent: rgba(255, 0, 79, 0.45);
-  --accent-crimson: #ff004f;
-  --accent-telemetry: #a3e635;
-  --black-gradient: linear-gradient(
-    145deg,
-    rgba(22, 27, 40, 0.9) 0%,
-    rgba(15, 19, 29, 0.95) 100%
-  );
+  --bg-canvas: #101110;
+  --bg-surface: #181A17;
+  --bg-surface-elevated: #20231E;
+  --border-subtle: #30342C;
+  --border-accent: rgba(0, 204, 153, 0.35);
+
+  /* Caribbean Green Palette */
+  --accent-primary: #00CC99;
+  --accent-hover: #00B588;
+  --accent-dark: #009E77;
+  --accent-deep: #005A44;
+  --accent-highlight: #17D1A3;
+  --accent-soft: #81E8CE;
+  --accent-green-black: #001611;
+
+  /* Backward compatibility aliases */
+  --accent-lime: #00CC99;
+  --accent-crimson: #00CC99;
+  --accent-telemetry: #00CC99;
   --card-shadow: 0px 20px 50px -12px rgba(0, 0, 0, 0.65);
 }
 
 @layer base {
   body {
     background-color: var(--bg-canvas);
-    color: #f8fafc;
+    color: #F1F2EC;
     font-family: "Inter", "Poppins", sans-serif;
   }
 
@@ -38,27 +45,34 @@
   input:focus-visible,
   select:focus-visible,
   textarea:focus-visible {
-    outline: 2px solid var(--accent-crimson);
+    outline: 2px solid var(--accent-primary);
     outline-offset: 2px;
   }
 }
 
-/* Subtle technical grid surface utility */
+/* Technical grid surface: subdued neutral-grey lines with restrained faint green warmth */
 .bg-tech-grid {
-  background-size: 32px 32px;
-  background-image: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0.025) 1px,
-      transparent 1px
-    ),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(162, 166, 156, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(162, 166, 156, 0.07) 1px, transparent 1px);
+}
+
+/* Subtle dot intersection accent on larger 108px major increments */
+.bg-tech-dots {
+  background-size: 108px 108px;
+  background-image: radial-gradient(
+    circle,
+    rgba(0, 204, 153, 0.12) 1px,
+    transparent 1px
+  );
 }
 
 .navLink::after {
   content: "";
   width: 0%;
   height: 2px;
-  background-color: #ff004f;
+  background-color: #00CC99;
   position: absolute;
   left: 0;
   bottom: -6px;
@@ -73,10 +87,10 @@
 .text-gradient {
   background: linear-gradient(
     135deg,
-    #fff1f2 0%,
-    #fda4af 35%,
-    #fb7185 65%,
-    #ff004f 100%
+    #FFFFFF 0%,
+    #F1F2EC 35%,
+    #81E8CE 70%,
+    #00CC99 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -84,31 +98,7 @@
 }
 
 .bg-secondary-gradient {
-  background: linear-gradient(135deg, #ff1a66 0%, #ff004f 65%, #be123c 100%);
-}
-
-.bg-black-gradient {
-  background: var(--black-gradient);
-}
-
-.bg-black-gradient-2 {
-  background: linear-gradient(
-    160deg,
-    rgba(22, 27, 40, 0.92) 0%,
-    rgba(11, 14, 22, 0.98) 100%
-  );
-}
-
-.bg-gray-gradient {
-  background: linear-gradient(
-    153.47deg,
-    rgba(255, 255, 255, 0.04) 0%,
-    #0f131d 95.11%
-  );
-}
-
-.bg-discount-gradient {
-  background: linear-gradient(125.17deg, #161b28 0%, #0f131d 100%);
+  background: linear-gradient(135deg, #17D1A3 0%, #00CC99 65%, #00B588 100%);
 }
 
 .box-shadow {
@@ -131,14 +121,15 @@
 }
 
 .feature-card {
-  border: 1px solid transparent;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
   transition: background-color 0.25s ease, border-color 0.25s ease,
     box-shadow 0.25s ease;
 }
 
 .feature-card:hover {
-  background: var(--black-gradient);
-  border-color: var(--border-subtle);
+  background-color: var(--bg-surface-elevated);
+  border-color: var(--border-accent);
   box-shadow: var(--card-shadow);
 }
 
@@ -149,55 +140,59 @@
 .feedback-card,
 .project-card,
 .service-card {
-  background: var(--black-gradient);
+  background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   transition: transform 0.25s ease, border-color 0.25s ease,
-    box-shadow 0.25s ease;
+    background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .feedback-card:hover,
 .project-card:hover,
 .service-card:hover {
   transform: translateY(-4px);
+  background-color: var(--bg-surface-elevated);
   border-color: var(--border-accent);
   box-shadow: var(--card-shadow);
 }
 
-/* GPU-friendly ambient radial glows */
-.blue__gradient {
-  background: radial-gradient(
-    circle,
-    rgba(30, 58, 138, 0.22) 0%,
-    rgba(7, 9, 14, 0) 70%
-  );
+/* Atmospheric Caribbean Green Hero Glow: Centered backlight halo with depth and soft diffusion */
+.hero__ambient__glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 130%;
+  height: 124%;
+  max-width: 680px;
+  max-height: 840px;
   pointer-events: none;
+  z-index: 0;
+  border-radius: 36%;
+  background: 
+    /* Primary vibrant core halo radiating directly behind card */
+    radial-gradient(
+      ellipse 62% 70% at 50% 50%,
+      rgba(0, 204, 153, 0.38) 0%,
+      rgba(0, 204, 153, 0.24) 38%,
+      rgba(0, 181, 136, 0.12) 60%,
+      rgba(16, 17, 16, 0) 80%
+    ),
+    /* Secondary wide aura creating smooth transition into dark canvas */
+    radial-gradient(
+      ellipse 78% 85% at 50% 50%,
+      rgba(23, 209, 163, 0.18) 0%,
+      rgba(0, 204, 153, 0.08) 48%,
+      rgba(16, 17, 16, 0) 75%
+    );
+  filter: blur(44px);
 }
 
-.red__gradient {
-  background: radial-gradient(
-    circle,
-    rgba(255, 0, 79, 0.16) 0%,
-    rgba(7, 9, 14, 0) 70%
-  );
-  pointer-events: none;
-}
-
-.pink__gradient {
-  background: radial-gradient(
-    circle,
-    rgba(244, 63, 94, 0.14) 0%,
-    rgba(7, 9, 14, 0) 70%
-  );
-  pointer-events: none;
-}
-
-.white__gradient {
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.07) 0%,
-    rgba(7, 9, 14, 0) 70%
-  );
-  pointer-events: none;
+@media (max-width: 640px) {
+  .hero__ambient__glow {
+    width: 116%;
+    height: 112%;
+    filter: blur(28px);
+  }
 }
 
 .social-media-icon {
@@ -216,19 +211,19 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
-  -webkit-text-fill-color: #f8fafc !important;
+  -webkit-text-fill-color: #F1F2EC !important;
 }
 
 /* Dropdown select menu styling */
 select:required:invalid {
-  color: #64748b;
+  color: #72776C;
 }
 option[value=""][disabled] {
   display: none;
 }
 option {
-  background-color: #0f131d;
-  color: #f8fafc;
+  background-color: #181A17;
+  color: #F1F2EC;
 }
 
 /* Respect user reduced motion preferences */

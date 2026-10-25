@@ -19,8 +19,7 @@ const AboutIntro = () => {
       {/* Section 1: About Header & Narrative */}
       <section className={`${layout.section} items-center gap-12 relative`}>
         <div className={layout.sectionInfo}>
-          <div className="absolute z-[0] w-[40%] h-[40%] right-20 top-1/3 rounded-full red__gradient" />
-          <Badge variant="crimson" className="mb-4">
+          <Badge variant="accent" className="mb-4">
             PROFILE // BACKGROUND &amp; FOUNDATIONS
           </Badge>
           <h1 className={styles.heading1}>About Me</h1>
@@ -67,8 +66,6 @@ const AboutIntro = () => {
 
       {/* Section 2: Technical Skills, Education & CS Roadmap */}
       <section className={`${styles.paddingY} relative`}>
-        <div className="absolute z-[0] w-[40%] h-[40%] left-10 top-1/2 rounded-full blue__gradient opacity-60" />
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start relative z-[1]">
           <div className="lg:col-span-5 flex flex-col items-start">
             <SectionHeader
@@ -107,7 +104,7 @@ const AboutIntro = () => {
             >
               <div>
                 <div className="flex flex-wrap items-center justify-between gap-2 pb-4 mb-4 border-b border-borderSubtle">
-                  <span className="font-mono text-[12px] font-semibold text-crimson-soft">
+                  <span className="font-mono text-[12px] font-semibold text-accent">
                     {job.period}
                   </span>
                   <span className="font-mono text-[11px] text-textMuted">

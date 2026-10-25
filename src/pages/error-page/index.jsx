@@ -11,14 +11,13 @@ import { Button, Badge } from "../../components";
 
 const Error = () => {
   return (
-    <div className={`bg-canvas ${styles.paddingX} ${styles.flexCenter}`}>
+    <div className={`w-full ${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
         <section
           className={`flex md:flex-row flex-col ${styles.paddingY} items-center gap-12`}
         >
           <div className="flex-1 flex flex-col items-start relative">
-            <div className="absolute z-[0] w-[40%] h-[40%] right-20 top-1/2 rounded-full red__gradient" />
-            <Badge variant="crimson" className="mb-4">
+            <Badge variant="accent" className="mb-4">
               HTTP 404 // ROUTE NOT FOUND
             </Badge>
             <h1 className={styles.heading1}>Page Not Found</h1>

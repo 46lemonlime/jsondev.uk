@@ -134,12 +134,12 @@ const ContactForm = () => {
   };
 
   const inputBaseClasses =
-    "bg-canvas text-textPrimary placeholder:text-textMuted border border-borderSubtle rounded-lg w-full px-3.5 py-2.5 mt-1.5 font-sans text-[15px] focus:border-crimson focus:ring-1 focus:ring-crimson transition-colors";
+    "bg-canvas text-textPrimary placeholder:text-textMuted border border-borderSubtle rounded-lg w-full px-3.5 py-2.5 mt-1.5 font-sans text-[15px] focus:border-accent focus:ring-1 focus:ring-accent transition-colors";
 
   return (
     <section
       aria-labelledby="contact-form-heading"
-      className={`${styles.marginY} ${styles.padding} bg-black-gradient-2 border border-borderSubtle rounded-2xl box-shadow`}
+      className={`${styles.marginY} ${styles.padding} bg-surface border border-borderSubtle rounded-2xl shadow-card`}
     >
       <div className="mb-8">
         <Badge variant="neutral" className="mb-3">
@@ -152,10 +152,10 @@ const ContactForm = () => {
         {/* Transparent notice on lack of automated email transmission */}
         <div
           role="note"
-          className="mt-4 p-4 rounded-xl bg-surface border border-crimson/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+          className="mt-4 p-4 rounded-xl bg-surface border border-accent/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
         >
           <p className={`${styles.paragraph2} text-textPrimary`}>
-            <strong className="font-mono text-[13px] uppercase tracking-wider text-crimson-soft block mb-1">
+            <strong className="font-mono text-[13px] uppercase tracking-wider text-accent block mb-1">
               Notice // Direct Form Delivery Unavailable
             </strong>
             Automated email submission is not configured on this static site, so
@@ -170,7 +170,7 @@ const ContactForm = () => {
               href="https://www.linkedin.com/in/jpplazasanchez/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-crimson-soft underline hover:text-white"
+              className="text-accent underline hover:text-white"
             >
               LinkedIn
             </a>
@@ -192,7 +192,7 @@ const ContactForm = () => {
               htmlFor="contact-name"
               className="block font-mono font-medium text-[13px] text-textPrimary"
             >
-              Name <span className="text-crimson">*</span>
+              Name <span className="text-accent">*</span>
             </label>
             <input
               id="contact-name"
@@ -215,7 +215,7 @@ const ContactForm = () => {
               <p
                 id="contact-name-error"
                 role="alert"
-                className="font-sans text-[13px] text-crimson-soft mt-1.5"
+                className="font-sans text-[13px] text-accent mt-1.5"
               >
                 {formik.errors.name}
               </p>
@@ -229,7 +229,7 @@ const ContactForm = () => {
                 htmlFor="contact-email"
                 className="block font-mono font-medium text-[13px] text-textPrimary"
               >
-                Email <span className="text-crimson">*</span>
+                Email <span className="text-accent">*</span>
               </label>
               <input
                 id="contact-email"
@@ -254,7 +254,7 @@ const ContactForm = () => {
                 <p
                   id="contact-email-error"
                   role="alert"
-                  className="font-sans text-[13px] text-crimson-soft mt-1.5"
+                  className="font-sans text-[13px] text-accent mt-1.5"
                 >
                   {formik.errors.email}
                 </p>
@@ -291,7 +291,7 @@ const ContactForm = () => {
                 <p
                   id="contact-phone-error"
                   role="alert"
-                  className="font-sans text-[13px] text-crimson-soft mt-1.5"
+                  className="font-sans text-[13px] text-accent mt-1.5"
                 >
                   {formik.errors.phone}
                 </p>
@@ -305,7 +305,7 @@ const ContactForm = () => {
               htmlFor="contact-subject"
               className="block font-mono font-medium text-[13px] text-textPrimary"
             >
-              Subject <span className="text-crimson">*</span>
+              Subject <span className="text-accent">*</span>
             </label>
             <select
               id="contact-subject"
@@ -341,7 +341,7 @@ const ContactForm = () => {
               <p
                 id="contact-subject-error"
                 role="alert"
-                className="font-sans text-[13px] text-crimson-soft mt-1.5"
+                className="font-sans text-[13px] text-accent mt-1.5"
               >
                 {formik.errors.subject}
               </p>
@@ -354,7 +354,7 @@ const ContactForm = () => {
               htmlFor="contact-message"
               className="block font-mono font-medium text-[13px] text-textPrimary"
             >
-              Message <span className="text-crimson">*</span>
+              Message <span className="text-accent">*</span>
             </label>
             <textarea
               id="contact-message"
@@ -378,7 +378,7 @@ const ContactForm = () => {
               <p
                 id="contact-message-error"
                 role="alert"
-                className="font-sans text-[13px] text-crimson-soft mt-1.5"
+                className="font-sans text-[13px] text-accent mt-1.5"
               >
                 {formik.errors.message}
               </p>
@@ -410,8 +410,8 @@ const ContactForm = () => {
                 <span
                   className={`font-mono text-[12px] font-semibold uppercase tracking-wider ${
                     copyStatus === "copied"
-                      ? "text-telemetry"
-                      : "text-crimson-soft"
+                      ? "text-accent"
+                      : "text-accent-soft"
                   }`}
                 >
                   {copyStatus === "copied"
@@ -443,7 +443,7 @@ const ContactForm = () => {
                   href="https://www.linkedin.com/in/jpplazasanchez/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-crimson-soft underline hover:text-white"
+                  className="text-accent underline hover:text-white"
                 >
                   LinkedIn
                 </a>{" "}
@@ -460,7 +460,7 @@ const ContactForm = () => {
                 rows="7"
                 value={preparedMessage}
                 onClick={handleSelectFallbackText}
-                className="w-full font-mono text-[12px] text-textSecondary bg-canvas p-3.5 rounded-lg border border-borderSubtle focus:border-crimson focus:ring-1 focus:ring-crimson resize-y"
+                className="w-full font-mono text-[12px] text-textSecondary bg-canvas p-3.5 rounded-lg border border-borderSubtle focus:border-accent focus:ring-1 focus:ring-accent resize-y"
               />
             </div>
           )}

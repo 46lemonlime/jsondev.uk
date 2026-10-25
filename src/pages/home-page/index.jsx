@@ -12,7 +12,7 @@ import { Hero, Projects, Products, GetInTouch } from "./components";
 
 const Home = () => {
   return (
-    <div className={`bg-canvas ${styles.paddingX} ${styles.flexCenter}`}>
+    <div className={`w-full ${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
         <Hero />
         <Projects />

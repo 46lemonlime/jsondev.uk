@@ -31,7 +31,7 @@ const RouteLoadingFallback = () => (
   >
     <div className="inline-flex items-center gap-3 px-4 py-2.5 rounded-xl bg-surface border border-borderSubtle font-mono text-[13px] text-textSecondary">
       <span
-        className="w-2 h-2 rounded-full bg-crimson animate-pulse"
+        className="w-2 h-2 rounded-full bg-accent animate-pulse"
         aria-hidden="true"
       />
       <span>Loading view...</span>

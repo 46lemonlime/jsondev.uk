@@ -41,7 +41,7 @@ const FeedbackCard = ({ content, name, title }) => {
       <div className="flex flex-row items-center pt-4 border-t border-borderSubtle">
         <div
           aria-hidden="true"
-          className="w-[44px] h-[44px] rounded-full bg-crimson-muted border border-crimson/30 flex items-center justify-center font-mono font-semibold text-[14px] text-crimson-soft shrink-0"
+          className="w-[44px] h-[44px] rounded-full bg-surfaceElevated border border-accent/30 flex items-center justify-center font-mono font-semibold text-[14px] text-accent-soft shrink-0"
         >
           {initials}
         </div>

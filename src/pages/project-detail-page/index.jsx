@@ -37,11 +37,9 @@ const ProjectDetail = ({ projectSlug }) => {
         .filter(Boolean);
 
   return (
-    <div className={`bg-canvas ${styles.paddingX} ${styles.flexCenter}`}>
+    <div className={`w-full ${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
         <article className={`${styles.paddingY} relative`}>
-          <div className="absolute z-[0] w-[40%] h-[40%] right-10 top-20 rounded-full red__gradient" />
-
           {/* Breadcrumb & Status Bar */}
           <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b border-borderSubtle relative z-[1]">
             <Link
@@ -60,8 +58,8 @@ const ProjectDetail = ({ projectSlug }) => {
                 <Badge
                   variant={
                     project.status.toLowerCase().includes("live")
-                      ? "telemetry"
-                      : "crimson"
+                      ? "accent"
+                      : "neutral"
                   }
                   pulse={project.status.toLowerCase().includes("live")}
                 >
@@ -136,7 +134,7 @@ const ProjectDetail = ({ projectSlug }) => {
               </div>
 
               <div>
-                <h2 className="font-mono text-[12px] font-semibold uppercase tracking-wider text-crimson-soft mb-3">
+                <h2 className="font-mono text-[12px] font-semibold uppercase tracking-wider text-accent mb-3">
                   Technology Stack
                 </h2>
                 <div className="flex flex-wrap gap-2">
@@ -164,7 +162,7 @@ const ProjectDetail = ({ projectSlug }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 relative z-[1]">
               {project.problem && (
                 <section className={`${styles.surfaceCard} p-7`}>
-                  <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-crimson-soft">
+                  <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-accent">
                     01 // CONTEXT &amp; PROBLEM
                   </span>
                   <h2 className={`${styles.heading4} mt-2 mb-3`}>
@@ -176,7 +174,7 @@ const ProjectDetail = ({ projectSlug }) => {
 
               {project.solution && (
                 <section className={`${styles.surfaceCard} p-7`}>
-                  <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-crimson-soft">
+                  <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-accent">
                     02 // APPROACH &amp; IMPLEMENTATION
                   </span>
                   <h2 className={`${styles.heading4} mt-2 mb-3`}>
@@ -193,7 +191,7 @@ const ProjectDetail = ({ projectSlug }) => {
             <section
               className={`${styles.surfaceCard} p-7 mb-12 relative z-[1]`}
             >
-              <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-crimson-soft">
+              <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-accent">
                 03 // KEY DETAILS
               </span>
               <h2 className={`${styles.heading4} mt-2 mb-4`}>
@@ -206,7 +204,7 @@ const ProjectDetail = ({ projectSlug }) => {
                     className={`${styles.paragraph2} flex items-start gap-3`}
                   >
                     <span
-                      className="inline-block w-1.5 h-1.5 rounded-full bg-crimson mt-2.5 shrink-0"
+                      className="inline-block w-1.5 h-1.5 rounded-full bg-accent mt-2.5 shrink-0"
                       aria-hidden="true"
                     />
                     <span>{item}</span>

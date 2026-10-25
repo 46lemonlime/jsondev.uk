@@ -87,7 +87,7 @@ const ProjectCard = ({
 
         <Link
           to={link}
-          className="inline-flex items-center gap-2 font-mono text-[13px] font-semibold text-crimson-soft hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 font-mono text-[13px] font-semibold text-accent hover:text-white transition-colors"
         >
           <span>{ctaLabel}</span>
           <span aria-hidden="true">→</span>

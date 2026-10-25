@@ -13,8 +13,6 @@ import { Button, SectionHeader, GetRoadmap } from "../../../components";
 const Products = () => {
   return (
     <section id="capabilities" className={`${styles.paddingY} relative`}>
-      <div className="absolute z-[0] -right-1/4 top-1/4 w-[50%] h-[50%] rounded-full blue__gradient" />
-
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 relative z-[1]">
         <SectionHeader
           eyebrow="02 // TECHNICAL PROFILE"
@@ -37,7 +35,7 @@ const Products = () => {
           >
             <div>
               <div className="flex items-center justify-between gap-3 mb-5">
-                <span className="font-mono text-[12px] font-medium text-crimson-soft">
+                <span className="font-mono text-[12px] font-medium text-accent">
                   {item.code}
                 </span>
                 <div className="w-11 h-11 rounded-lg bg-surfaceElevated border border-borderSubtle flex items-center justify-center p-2">

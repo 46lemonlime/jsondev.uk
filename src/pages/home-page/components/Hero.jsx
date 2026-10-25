@@ -9,7 +9,7 @@ import React from "react";
 import { TypeAnimation } from "react-type-animation";
 
 import styles, { layout } from "../../../style";
-import { me, cv, github, linkedin } from "../../../assets";
+import { heroIllustration, cv, github, linkedin } from "../../../assets";
 import { Button, Badge } from "../../../components";
 import Stats from "./Stats";
 import GetCV from "./GetCV";
@@ -19,10 +19,10 @@ const Hero = () => {
     <div>
       <section
         id="hero"
-        className={`${layout.section} items-center gap-10 relative`}
+        className={`${layout.section} items-center gap-10 lg:gap-14 xl:gap-16 relative`}
       >
         {/* Left Column: Introduction & Actions */}
-        <div className={`flex-1 ${styles.flexStart} flex-col z-[2]`}>
+        <div className={`flex-1 ${styles.flexStart} flex-col z-[2] w-full`}>
           <Badge variant="telemetry" pulse className="mb-5">
             Currently Open for Full-Remote &amp; UK Opportunities
           </Badge>
@@ -41,7 +41,7 @@ const Hero = () => {
 
           <div className="mt-4 flex items-center gap-2">
             <span
-              className="font-mono text-crimson font-semibold text-[16px]"
+              className="font-mono text-accent font-semibold text-[16px]"
               aria-hidden="true"
             >
               &gt;
@@ -56,7 +56,7 @@ const Hero = () => {
                 2500,
               ]}
               speed={50}
-              className="font-mono font-medium text-[16px] sm:text-[18px] leading-[28px] text-crimson-soft bg-surfaceElevated border border-borderSubtle rounded-lg px-3 py-1"
+              className="font-mono font-medium text-[16px] sm:text-[18px] leading-[28px] text-accent-soft bg-surfaceElevated border border-borderSubtle rounded-lg px-3 py-1"
               wrapper="div"
               repeat={Infinity}
             />
@@ -131,35 +131,37 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right Column: Portrait Card */}
+        {/* Right Column: Hero Illustration Card */}
         <div
-          className={`flex-1 flex ${styles.flexCenter} md:my-0 my-8 relative`}
+          className={`flex-1 flex ${styles.flexCenter} md:my-0 my-8 relative w-full`}
         >
-          <div className="relative z-[5] p-3 rounded-3xl bg-surface border border-borderSubtle shadow-card max-w-[400px] w-full">
-            <div className="overflow-hidden rounded-2xl aspect-square bg-surfaceElevated">
+          {/* Caribbean Green Ambient Glow: Layered atmospheric backlight behind card */}
+          <div
+            className="hero__ambient__glow"
+            aria-hidden="true"
+          />
+
+          <div className="relative z-[5] p-3 sm:p-3.5 rounded-3xl bg-surface border border-borderSubtle shadow-card w-full max-w-[360px] xs:max-w-[380px] sm:max-w-[440px] md:max-w-[460px] lg:max-w-[490px] xl:max-w-[520px]">
+            <div className="overflow-hidden rounded-2xl aspect-[3/4] bg-surfaceElevated">
               <img
-                src={me}
-                alt="Portrait of Jeison Plaza Sanchez"
-                width="400"
-                height="400"
-                className="w-full h-full object-cover"
+                src={heroIllustration}
+                alt="Pixel art developer workstation illustration featuring a multi-monitor desk setup, glowing terminal screens, and a rainy city night view"
+                width="764"
+                height="1024"
+                className="w-full h-full object-cover object-center"
               />
             </div>
             <div className="mt-3 px-2 py-1.5 flex items-center justify-between font-mono text-[12px] text-textMuted">
               <span>LOC // MANCHESTER, UK</span>
-              <span className="text-telemetry flex items-center gap-1.5">
+              <span className="text-accent flex items-center gap-1.5">
                 <span
-                  className="w-1.5 h-1.5 rounded-full bg-telemetry"
+                  className="w-1.5 h-1.5 rounded-full bg-accent"
                   aria-hidden="true"
                 />
                 CS50x // DEV
               </span>
             </div>
           </div>
-
-          {/* Ambient Glow Elements */}
-          <div className="absolute z-[0] w-[70%] h-[70%] top-1/4 pink__gradient" />
-          <div className="absolute z-[0] w-[60%] h-[60%] bottom-10 red__gradient" />
         </div>
 
         <div className={`ss:hidden ${styles.flexCenter} w-full mt-2`}>

@@ -16,7 +16,7 @@ The personal software development portfolio of **Jeison Porfirio Plaza Sanchez (
 
 - **Primary Goal**: Present verified software engineering capabilities, computer science training (Harvard CS50x), and real-world operational strengths.
 - **Intended Audience**: Engineering leads, recruiters, and collaborators seeking dedicated software developers with strong problem-solving fundamentals.
-- **Visual Design System**: *Direction C: Dual Accent* — Dark Obsidian canvas (`#07090e`), elevated surface cards (`#0f131d`), Crimson primary actions (`#ff004f`), and Tactical Telemetry status badges (`#a3e635`). Typographic hierarchy combines Space Grotesk (display), Inter (body), and JetBrains Mono (telemetry & code).
+- **Visual Design System**: Dark, atmospheric, technical developer aesthetic — Near-black Canvas (`#101110`), layered dark surface cards (`#181A17`, `#20231E`), subtle structural borders (`#30342C`), Caribbean Green primary accent (`#00CC99`), and tactical telemetry status badges. Grounded by a subtle fixed viewport grid with faint green intersection nodes and a custom pixel-art workbench hero illustration framed with a layered ambient glow. Typographic hierarchy combines Space Grotesk (display), Inter (body), and JetBrains Mono (telemetry & code).
 
 ---
 
@@ -39,7 +39,7 @@ The personal software development portfolio of **Jeison Porfirio Plaza Sanchez (
   - Verified profiles and Manchester, UK location details.
 - **Modern Performance & Architecture**:
   - Route code-splitting with `React.lazy` and `Suspense` for all secondary pages.
-  - Accessible keyboard navigation with visible focus rings (`focus-visible:outline-crimson`), semantic HTML landmarks (`header`, `main`, `footer`, `nav`, `article`, `aside`), and `prefers-reduced-motion` overrides.
+  - Accessible keyboard navigation with visible focus rings (`focus-visible:outline-accent`), semantic HTML landmarks (`header`, `main`, `footer`, `nav`, `article`, `aside`), and `prefers-reduced-motion` overrides.
   - Client-side title manager synchronizing document title on every route change.
   - Dedicated 404 error page with recovery navigation.
 
@@ -136,12 +136,12 @@ jsondev.uk/
 │   ├── assets/                   # Centralized media, brand graphics, and icons
 │   │   ├── brand/                # Logo SVG and PNG files
 │   │   ├── icons/                # Category, project, and social SVGs
-│   │   ├── images/               # Portraits, maps, and illustrations
+│   │   ├── images/               # Pixel-art hero illustration, location map, and vector graphics
 │   │   ├── cv.pdf                # Authentic curriculum vitae document
 │   │   └── index.js              # Asset barrel export registry
 │   ├── components/               # Shared reusable UI primitives
 │   │   ├── Layout/               # Header, Footer, Navbar, and ScrollToTop
-│   │   ├── Badge.jsx             # Status tag component (neutral, crimson, telemetry)
+│   │   ├── Badge.jsx             # Status tag component (neutral, accent, telemetry)
 │   │   ├── Button.jsx            # Polymorphic button/anchor primitive
 │   │   ├── FeedbackCard.jsx      # Testimonial quote card
 │   │   ├── GetRoadmap.jsx        # Notion CS roadmap CTA button
@@ -191,7 +191,7 @@ jsondev.uk/
   - Route document titles in [`ScrollToTop.jsx`](./src/components/Layout/ScrollToTop.jsx) resolve dynamically from the project data catalog.
 - **Performance & Lazy Loading**: Secondary routes are split into separate JavaScript chunks using `React.lazy` and `Suspense`, preventing unnecessary overhead on initial landing load.
 - **Accessibility & UX**:
-  - Full keyboard focusability with high-contrast crimson focus rings.
+  - Full keyboard focusability with high-contrast Caribbean green focus rings.
   - Skip-to-content bypass link for screen reader and keyboard visitors.
   - Media queries respecting `prefers-reduced-motion: reduce`.
   - Semantic landmarks (`<header>`, `<main>`, `<footer>`, `<article>`, `<aside>`).
@@ -232,7 +232,7 @@ Legacy uppercase and previous site paths redirect seamlessly:
 - **Environment Variables**: No external environment variables (`.env`) are required or used. The application is completely self-contained and operates purely client-side.
 - **Configuration Files**:
   - [`vite.config.js`](./vite.config.js): Configures Vite and `@vitejs/plugin-react`.
-  - [`tailwind.config.js`](./tailwind.config.js): Extends color tokens (`canvas`, `surface`, `crimson`, `telemetry`), fonts (`Space Grotesk`, `Inter`, `JetBrains Mono`), and registers `@tailwindcss/forms`.
+  - [`tailwind.config.js`](./tailwind.config.js): Extends color tokens (`canvas`, `surface`, `accent`, `telemetry`), fonts (`Space Grotesk`, `Inter`, `JetBrains Mono`), and registers `@tailwindcss/forms`.
   - [`postcss.config.js`](./postcss.config.js): Connects Tailwind and Autoprefixer.
   - [`vercel.json`](./vercel.json): Configures SPA client-side routing rewrites for Vercel edge deployment.
   - [`package.json`](./package.json): Defines module scripts, core dependencies, and dev tool versions.

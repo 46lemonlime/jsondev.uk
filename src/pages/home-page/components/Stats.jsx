@@ -19,7 +19,7 @@ const Stats = () => {
           key={stat.id}
           className={`${styles.surfaceCard} p-5 flex flex-col justify-between`}
         >
-          <span className="font-mono text-[11px] font-semibold tracking-wider uppercase text-crimson-soft">
+          <span className="font-mono text-[11px] font-semibold tracking-wider uppercase text-accent">
             {stat.label}
           </span>
           <p className="font-display font-bold text-[24px] leading-[1.2] text-textPrimary mt-2">

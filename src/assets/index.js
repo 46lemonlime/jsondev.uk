@@ -13,7 +13,7 @@ import brandSvg from "./brand/logo.svg";
 import cv from "./cv.pdf";
 
 // Profile & Visual Images
-import me from "./images/me.jpg";
+import heroIllustration from "./images/hero_pixel_workbench.jpg";
 import project00 from "./images/project00.svg";
 import error_img from "./images/404.svg";
 import aboutme from "./images/aboutme.svg";
@@ -47,7 +47,7 @@ export {
   logo,
   brandSvg,
   cv,
-  me,
+  heroIllustration,
   project00,
   error_img,
   aboutme,

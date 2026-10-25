@@ -30,13 +30,12 @@ const Projects = () => {
   });
 
   return (
-    <div className={`bg-canvas ${styles.paddingX} ${styles.flexCenter}`}>
+    <div className={`w-full ${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
         {/* Page Header Section */}
         <section className={`flex md:flex-row flex-col ${styles.paddingY} items-center gap-10 relative`}>
           <div className="flex-1 flex flex-col items-start relative z-[2]">
-            <div className="absolute z-[0] w-[40%] h-[40%] right-10 top-1/2 rounded-full red__gradient" />
-            <Badge variant="crimson" className="mb-4">
+            <Badge variant="accent" className="mb-4">
               PORTFOLIO // SOFTWARE &amp; TOOLING
             </Badge>
             <h1 className={styles.heading1}>Projects</h1>
@@ -99,7 +98,7 @@ const Projects = () => {
                     onClick={() => setActiveFilter(cat.id)}
                     className={`font-mono text-[13px] font-medium px-4 py-2 rounded-lg border transition-colors ${
                       isSelected
-                        ? "bg-crimson text-white border-crimson"
+                        ? "bg-accent text-canvas font-semibold border-accent"
                         : "bg-surface text-textSecondary border-borderSubtle hover:text-textPrimary hover:border-borderAccent"
                     }`}
                   >

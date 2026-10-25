@@ -52,7 +52,7 @@ const Footer = () => (
                           href={item.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`${styles.paragraph2} hover:text-crimson-soft transition-colors duration-200 inline-flex items-center gap-1`}
+                          className={`${styles.paragraph2} hover:text-accent transition-colors duration-200 inline-flex items-center gap-1`}
                         >
                           <span>{item.name}</span>
                           <span aria-hidden="true" className="text-[12px]">
@@ -62,7 +62,7 @@ const Footer = () => (
                       ) : (
                         <Link
                           to={item.link}
-                          className={`${styles.paragraph2} hover:text-crimson-soft transition-colors duration-200`}
+                          className={`${styles.paragraph2} hover:text-accent transition-colors duration-200`}
                         >
                           {item.name}
                         </Link>

@@ -13,13 +13,12 @@ import ContactForm from "./components/ContactForm";
 
 const Contact = () => {
   return (
-    <div className={`bg-canvas ${styles.paddingX} ${styles.flexCenter}`}>
+    <div className={`w-full ${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
         <section
           className={`flex md:flex-row flex-col ${styles.paddingY} items-center gap-12 relative`}
         >
           <div className="flex-1 flex flex-col items-start relative z-[2]">
-            <div className="absolute z-[0] w-[40%] h-[40%] right-20 top-1/2 rounded-full red__gradient" />
             <Badge variant="telemetry" pulse className="mb-4">
               Manchester, UK // Open to Remote Opportunities
             </Badge>

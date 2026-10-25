@@ -25,7 +25,7 @@ const styles = {
     "font-display font-bold tracking-tight ss:text-[52px] text-[36px] text-textPrimary ss:leading-[1.15] leading-[1.2] w-full",
 
   subheading:
-    "font-mono font-medium xs:text-[14px] text-[13px] tracking-wider leading-[22px] text-crimson-soft uppercase",
+    "font-mono font-medium xs:text-[14px] text-[13px] tracking-wider leading-[22px] text-accent uppercase",
 
   heading2:
     "font-display font-bold tracking-tight xs:text-[40px] text-[30px] text-textPrimary xs:leading-[1.2] leading-[1.25] w-full",

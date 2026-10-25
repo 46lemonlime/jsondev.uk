@@ -16,7 +16,7 @@ const ContactInfo = () => {
       className="lg:col-span-5 flex flex-col gap-6 w-full"
     >
       <div className={`${styles.surfaceCard} p-6`}>
-        <h3 className="font-mono text-[12px] font-semibold uppercase tracking-wider text-crimson-soft mb-4">
+        <h3 className="font-mono text-[12px] font-semibold uppercase tracking-wider text-accent mb-4">
           Verified Details &amp; Profiles
         </h3>
 

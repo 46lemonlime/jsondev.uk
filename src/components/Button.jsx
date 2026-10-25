@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const variants = {
   primary:
-    "bg-secondary-gradient text-white font-semibold border border-crimson-hover/40 shadow-crimson hover:brightness-110",
+    "bg-secondary-gradient text-canvas font-semibold border border-accent/40 shadow-accent hover:brightness-105",
   secondary:
     "bg-surfaceElevated text-textPrimary font-medium border border-borderSubtle hover:border-borderAccent hover:bg-surface",
   ghost:
@@ -44,7 +44,7 @@ const Button = ({
   children,
   ...rest
 }) => {
-  const baseClasses = `inline-flex items-center justify-center gap-2 py-3.5 px-6 font-sans text-[16px] leading-[1.2] rounded-[10px] transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-crimson ${
+  const baseClasses = `inline-flex items-center justify-center gap-2 py-3.5 px-6 font-sans text-[16px] leading-[1.2] rounded-[10px] transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
     variants[variant] || variants.primary
   } ${styles}`;
 

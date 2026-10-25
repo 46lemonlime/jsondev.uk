@@ -10,7 +10,7 @@ import styles from "../../../style";
 const FeatureCard = ({ icon, title, content }) => (
   <article className={`${styles.surfaceCard} flex flex-row items-start p-6 gap-4`}>
     <div
-      className={`w-14 h-14 rounded-xl ${styles.flexCenter} bg-crimson-muted border border-crimson/30 shrink-0`}
+      className={`w-14 h-14 rounded-xl ${styles.flexCenter} bg-surfaceElevated border border-accent/30 shrink-0`}
     >
       <img
         loading="lazy"

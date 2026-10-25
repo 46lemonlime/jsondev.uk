@@ -1,6 +1,6 @@
 /**
  * @file src/components/Badge.jsx
- * @description Reusable status badge primitive with support for neutral, crimson, and telemetry variants.
+ * @description Reusable status badge primitive with support for neutral, accent, and telemetry variants.
  * @responsibility Render small metadata tags with optional animated telemetry status indicators.
  */
 
@@ -10,14 +10,16 @@ const badgeVariants = {
   neutral:
     "bg-surfaceElevated text-textSecondary border-borderSubtle",
   crimson:
-    "bg-crimson-muted text-crimson-soft border-crimson/30",
+    "bg-accent/10 text-accent border-accent/30",
   telemetry:
-    "bg-telemetry-muted text-telemetry border-telemetry/30",
+    "bg-accent/10 text-accent border-accent/30",
+  accent:
+    "bg-accent/10 text-accent border-accent/30",
 };
 
 /**
  * @param {Object} props
- * @param {'neutral'|'crimson'|'telemetry'} [props.variant='neutral'] - Visual badge theme.
+ * @param {'neutral'|'accent'|'telemetry'|'crimson'} [props.variant='neutral'] - Visual badge theme.
  * @param {boolean} [props.pulse=false] - Whether to show an animated pulsing telemetry dot.
  * @param {string} [props.className=''] - Additional CSS classes.
  * @param {React.ReactNode} props.children - Badge content.
@@ -36,7 +38,7 @@ const Badge = ({
     >
       {pulse && (
         <span
-          className="w-2 h-2 rounded-full bg-telemetry animate-pulse"
+          className="w-2 h-2 rounded-full bg-accent animate-pulse"
           aria-hidden="true"
         />
       )}

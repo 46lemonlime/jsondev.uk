@@ -117,7 +117,7 @@ const Navbar = () => {
                   className={({ isActive }) =>
                     `block w-full py-2 px-3 rounded-lg font-sans text-[15px] transition-colors ${
                       isActive
-                        ? "bg-crimson-muted text-textPrimary font-semibold border border-crimson/30"
+                        ? "bg-accent/10 text-accent font-semibold border border-accent/30"
                         : "text-textSecondary hover:text-textPrimary hover:bg-surfaceElevated"
                     }`
                   }
@@ -133,7 +133,7 @@ const Navbar = () => {
               href={cv}
               download="Jeison_Sanchez_CV.pdf"
               onClick={() => setToggle(false)}
-              className="block w-full text-center font-mono text-[13px] font-medium py-2.5 px-4 rounded-lg bg-secondary-gradient text-white"
+              className="block w-full text-center font-mono text-[13px] font-semibold py-2.5 px-4 rounded-lg bg-secondary-gradient text-canvas"
             >
               Download CV
             </a>

@@ -275,7 +275,7 @@ export const projects = [
     highlights: [
       "Corrected legacy copy-paste metadata (previously mislabelled as a VBA project) and restructured around a modular React + Vite architecture.",
       "Implemented hybrid client-side routing with backward-compatible redirects for legacy project links.",
-      "Designed with a custom obsidian and crimson design system, semantic HTML landmarks, keyboard focus visibility, and reduced-motion support.",
+      "Designed with a custom dark Caribbean green design system, semantic HTML landmarks, keyboard focus visibility, and reduced-motion support.",
     ],
     verificationNote:
       "Verified in repository: Full source code is present in this workspace and deployed at jsondev.uk.",

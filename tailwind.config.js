@@ -1,6 +1,6 @@
 /**
  * @file tailwind.config.js
- * @description Tailwind CSS configuration for the Direction C obsidian/crimson design system.
+ * @description Tailwind CSS configuration for the jsondev.uk Caribbean green design system.
  * @responsibility Define design tokens, custom colors, typography families, and theme extensions.
  */
 
@@ -12,32 +12,47 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Legacy & Core Brand Tokens
-        primary: "#07090e",
-        secondary: "#ff004f",
-        tertiary: "#fda4af",
-        dimWhite: "#94a3b8",
-        dimBlue: "rgba(255, 0, 79, 0.08)",
+        // Base canvas and layered dark surfaces
+        canvas: "#101110",
+        surface: "#181A17",
+        surfaceElevated: "#20231E",
+        borderSubtle: "#30342C",
+        borderAccent: "rgba(0, 204, 153, 0.35)",
 
-        // Direction C: Dual Accent (Crimson Protocol + Tactical Telemetry)
-        canvas: "#07090e",
-        surface: "#0f131d",
-        surfaceElevated: "#161b28",
-        borderSubtle: "rgba(255, 255, 255, 0.08)",
-        borderAccent: "rgba(255, 0, 79, 0.45)",
-        textPrimary: "#f8fafc",
-        textSecondary: "#94a3b8",
-        textMuted: "#64748b",
+        // Typography
+        textPrimary: "#F1F2EC",
+        textSecondary: "#A2A69C",
+        textMuted: "#72776C",
+
+        // Primary Accent: Caribbean Green Palette
+        accent: {
+          DEFAULT: "#00CC99",
+          hover: "#00B588",
+          dark: "#009E77",
+          deep: "#005A44",
+          highlight: "#17D1A3",
+          soft: "#81E8CE",
+          greenBlack: "#001611",
+          muted: "rgba(0, 204, 153, 0.12)",
+        },
+
+        // Backward compatibility mappings for existing tokens
+        primary: "#101110",
+        secondary: "#00CC99",
+        tertiary: "#81E8CE",
+        dimWhite: "#A2A69C",
+        dimBlue: "rgba(0, 204, 153, 0.08)",
+
         crimson: {
-          DEFAULT: "#ff004f",
-          hover: "#ff1a66",
-          soft: "#fda4af",
-          muted: "rgba(255, 0, 79, 0.12)",
+          DEFAULT: "#00CC99",
+          hover: "#00B588",
+          soft: "#81E8CE",
+          muted: "rgba(0, 204, 153, 0.12)",
         },
         telemetry: {
-          DEFAULT: "#a3e635",
-          emerald: "#10b981",
-          muted: "rgba(163, 230, 53, 0.12)",
+          DEFAULT: "#00CC99",
+          emerald: "#17D1A3",
+          muted: "rgba(0, 204, 153, 0.12)",
         },
       },
       fontFamily: {
@@ -48,7 +63,8 @@ export default {
       },
       boxShadow: {
         card: "0 20px 50px -12px rgba(0, 0, 0, 0.6)",
-        crimson: "0 0 25px -5px rgba(255, 0, 79, 0.35)",
+        accent: "0 0 25px -5px rgba(0, 204, 153, 0.25)",
+        crimson: "0 0 25px -5px rgba(0, 204, 153, 0.25)",
       },
     },
     screens: {

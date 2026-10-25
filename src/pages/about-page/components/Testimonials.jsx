@@ -13,8 +13,6 @@ import SectionHeader from "../../../components/SectionHeader";
 const Testimonials = () => {
   return (
     <section id="testimonials" className={`${styles.paddingY} relative`}>
-      <div className="absolute z-[0] w-[50%] h-[50%] -left-1/4 top-1/4 rounded-full red__gradient" />
-
       <div className="mb-12 relative z-[1]">
         <SectionHeader
           eyebrow="03 // ENDORSEMENTS"
