@@ -1,6 +1,21 @@
+/**
+ * @file src/components/SectionHeader.jsx
+ * @description Standardized section header presenting an eyebrow tagline, primary heading, and explanatory description.
+ * @responsibility Render accessible, consistent section title groups across multiple views.
+ */
+
 import React from "react";
 import styles from "../style";
 
+/**
+ * @param {Object} props
+ * @param {string} [props.eyebrow] - Monospace prefix category (e.g., '01 // PORTFOLIO').
+ * @param {string} props.title - Primary heading text.
+ * @param {string} [props.description] - Introductory section copy.
+ * @param {'left'|'center'} [props.align='left'] - Text alignment.
+ * @param {string} [props.as='h2'] - HTML heading tag ('h1' | 'h2' | 'h3').
+ * @param {string} [props.className=''] - Additional custom CSS class names.
+ */
 const SectionHeader = ({
   eyebrow,
   title,

@@ -1,12 +1,12 @@
+/**
+ * @file src/pages/error-page/index.jsx
+ * @description Accessible HTTP 404 Not Found view offering recovery routes and quick navigation.
+ * @responsibility Inform visitors of invalid URLs and offer direct recovery links back to active sections.
+ */
+
 import React from "react";
-
-// import style
-import styles, { layout } from "../../style";
-
-// import images
+import styles from "../../style";
 import { error_img } from "../../assets";
-
-// import components
 import { Button, Badge } from "../../components";
 
 const Error = () => {

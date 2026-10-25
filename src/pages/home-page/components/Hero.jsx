@@ -1,18 +1,16 @@
+/**
+ * @file src/pages/home-page/components/Hero.jsx
+ * @description Hero introduction section with animated typewriter roles, action buttons,
+ * verified profile links, portrait card, and key metrics.
+ * @responsibility Deliver the primary first-impression landing introduction and calls to action.
+ */
+
 import React from "react";
-
-// import style
-import styles, { layout } from "../../../style";
-
-// import animations
 import { TypeAnimation } from "react-type-animation";
 
-// import images & documents
+import styles, { layout } from "../../../style";
 import { me, cv, github, linkedin } from "../../../assets";
-
-// import global components
 import { Button, Badge } from "../../../components";
-
-// import specific components
 import Stats from "./Stats";
 import GetCV from "./GetCV";
 
@@ -159,7 +157,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Restrained ambient glow */}
+          {/* Ambient Glow Elements */}
           <div className="absolute z-[0] w-[70%] h-[70%] top-1/4 pink__gradient" />
           <div className="absolute z-[0] w-[60%] h-[60%] bottom-10 red__gradient" />
         </div>

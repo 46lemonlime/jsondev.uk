@@ -1,3 +1,11 @@
+/**
+ * @file src/components/Button.jsx
+ * @description Polymorphic action button and link primitive.
+ * Supports React Router navigation (to), external anchor links (href/download),
+ * and standard button elements (type="button"|"submit").
+ * @responsibility Provide consistent interactive button styling, accessible focus rings, and unified link semantics.
+ */
+
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -10,6 +18,19 @@ const variants = {
     "bg-transparent text-textSecondary font-medium border border-transparent hover:text-textPrimary hover:bg-white/[0.04]",
 };
 
+/**
+ * @param {Object} props
+ * @param {'button'|'submit'|'reset'} [props.type='button'] - Button type attribute.
+ * @param {'primary'|'secondary'|'ghost'} [props.variant='primary'] - Style variant.
+ * @param {string} [props.to] - Internal React Router path.
+ * @param {string} [props.href] - External destination URL.
+ * @param {string} [props.download] - Download file name for anchor tags.
+ * @param {string} [props.target] - Target attribute for links.
+ * @param {string} [props.rel] - Rel attribute for links.
+ * @param {Function} [props.onClick] - Click handler.
+ * @param {string} [props.styles=''] - Additional custom CSS classes.
+ * @param {React.ReactNode} props.children - Component children.
+ */
 const Button = ({
   type = "button",
   variant = "primary",

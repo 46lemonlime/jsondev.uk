@@ -1,7 +1,18 @@
+/**
+ * @file src/components/FeedbackCard.jsx
+ * @description Card component rendering authentic testimonials and recommendations with initial avatar fallback.
+ * @responsibility Display quotes, name, title, and initials for verified recommendations.
+ */
+
 import React from "react";
 import { quotes } from "../assets";
 import styles from "../style";
 
+/**
+ * Extracts uppercase two-letter initials from a full name.
+ * @param {string} fullName
+ * @returns {string} Initials string.
+ */
 const getInitials = (fullName = "") =>
   fullName
     .split(" ")

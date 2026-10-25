@@ -1,23 +1,22 @@
+/**
+ * @file src/pages/about-page/components/AboutIntro.jsx
+ * @description Narrative introduction, education, technical stack, Notion roadmap trigger,
+ * and authenticated operations/customer service work history.
+ * @responsibility Present autobiographical background, qualifications, and transferable operational skills.
+ */
+
 import React from "react";
 
-// import styles
 import styles, { layout } from "../../../style";
-
-// import images
 import { aboutme, cv } from "../../../assets";
-
-// import constants
 import { features, workHistory } from "../../../constants";
-
-// import global components
-import { Button, Badge, SectionHeader } from "../../../components";
-import GetRoadmap from "../../../components/GetRoadmap";
+import { Button, Badge, SectionHeader, GetRoadmap } from "../../../components";
 import FeatureCard from "./FeatureCard";
 
 const AboutIntro = () => {
   return (
     <div className="w-full">
-      {/* Section 1: About Header & Narrative (Text First on Mobile & Desktop) */}
+      {/* Section 1: About Header & Narrative */}
       <section className={`${layout.section} items-center gap-12 relative`}>
         <div className={layout.sectionInfo}>
           <div className="absolute z-[0] w-[40%] h-[40%] right-20 top-1/3 rounded-full red__gradient" />

@@ -1,12 +1,29 @@
+/**
+ * @file src/pages/portfolio-page/components/ProjectCard.jsx
+ * @description Reusable project card primitive displaying technology stack, category badges,
+ * overview copy, and dynamic routing links across project listings and homepage showcases.
+ * @responsibility Present individual project summary metadata and navigation trigger.
+ */
+
 import React from "react";
 import { Link } from "react-router-dom";
-
-// import styles
 import styles from "../../../style";
-
-// import global components
 import { Badge } from "../../../components";
 
+/**
+ * @param {Object} props
+ * @param {string} props.img - Project icon source.
+ * @param {string} props.name - Display title of the project.
+ * @param {string} [props.category] - Human-readable category label.
+ * @param {string} [props.projectType] - Project subtype/classification badge.
+ * @param {string} [props.title] - Comma-delimited fallback tech stack string.
+ * @param {string[]} [props.stack] - Array of technology names.
+ * @param {string} props.content - Summary description.
+ * @param {string} [props.context] - Brief context sentence.
+ * @param {string} props.link - Destination route path.
+ * @param {string} [props.ctaLabel="View Project Details"] - Custom label for the navigation CTA.
+ * @param {string} [props.headingLevel="h2"] - Heading tag level ('h2' | 'h3' | 'h4').
+ */
 const ProjectCard = ({
   img,
   name,
@@ -17,7 +34,10 @@ const ProjectCard = ({
   content,
   context,
   link,
+  ctaLabel = "View Project Details",
+  headingLevel = "h2",
 }) => {
+  const HeadingTag = headingLevel;
   const techList = Array.isArray(stack)
     ? stack
     : (title || "").split(",").map((item) => item.trim()).filter(Boolean);
@@ -46,7 +66,7 @@ const ProjectCard = ({
           </div>
         </div>
 
-        <h2 className={styles.heading4}>{name}</h2>
+        <HeadingTag className={styles.heading4}>{name}</HeadingTag>
         <p className={`${styles.paragraph2} mt-3`}>{content}</p>
 
         {context && (
@@ -69,7 +89,7 @@ const ProjectCard = ({
           to={link}
           className="inline-flex items-center gap-2 font-mono text-[13px] font-semibold text-crimson-soft hover:text-white transition-colors"
         >
-          <span>View Project Details</span>
+          <span>{ctaLabel}</span>
           <span aria-hidden="true">→</span>
         </Link>
       </div>

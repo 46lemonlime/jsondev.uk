@@ -1,43 +1,106 @@
+/**
+ * @file src/pages/contact-page/components/ContactInfo.jsx
+ * @description Renders verified physical and availability information alongside verified
+ * profile links and location representation for the Contact page.
+ * @responsibility Present static verified contact details, location, and platform links (Separation of Concerns).
+ */
+
 import React from "react";
-
-// import routing
-import { Link } from "react-router-dom";
-
-// import styles
-import styles, { layout } from "../../../style";
-
-// import images
-import { location } from "../../../assets";
-
-// import global components
-import Button from "../../../components/Button";
+import styles from "../../../style";
+import { location, linkedin, github } from "../../../assets";
 
 const ContactInfo = () => {
   return (
-    <section id="portfolio" className={layout.sectionReverse}>
-      <div className={`rounded-[50px] ${layout.sectionImgReverse}`}>
-        <img
-          src={location}
-          alt="location"
-          className={`w-[100%] h-[100%] relative z-[5] ${styles.flexCenter}`}
-        />
-      </div>
-      <div className={`flex-1 flex justify-start items-start flex-col`}>
-        <h2 className={styles.heading2}>Contact Info</h2>
-        <ul className={`${styles.paragraph} max-w-[470px] `}>
-          <li>
-            <span className="text-secondary">Phone</span> +78 789456123
+    <aside
+      aria-label="Verified Contact Information"
+      className="lg:col-span-5 flex flex-col gap-6 w-full"
+    >
+      <div className={`${styles.surfaceCard} p-6`}>
+        <h3 className="font-mono text-[12px] font-semibold uppercase tracking-wider text-crimson-soft mb-4">
+          Verified Details &amp; Profiles
+        </h3>
+
+        <ul className="space-y-4 font-sans text-[15px]">
+          <li className="flex flex-col">
+            <span className="font-mono text-[11px] uppercase tracking-wider text-textMuted">
+              Location
+            </span>
+            <span className="text-textPrimary font-medium mt-0.5">
+              Manchester, United Kingdom
+            </span>
           </li>
-          <li>
-            <span className="text-secondary">Email</span> example@example.com
+
+          <li className="flex flex-col">
+            <span className="font-mono text-[11px] uppercase tracking-wider text-textMuted">
+              Availability
+            </span>
+            <span className="text-telemetry font-medium mt-0.5 flex items-center gap-2">
+              <span
+                className="w-2 h-2 rounded-full bg-telemetry"
+                aria-hidden="true"
+              />
+              Open to remote opportunities
+            </span>
           </li>
-          <li>
-            <span className="text-secondary">Location</span> Manchester, United
-            Kingdom
+
+          <li className="flex flex-col pt-3 border-t border-borderSubtle">
+            <span className="font-mono text-[11px] uppercase tracking-wider text-textMuted mb-2">
+              Direct Profiles
+            </span>
+            <div className="flex flex-col gap-2.5">
+              <a
+                href="https://www.linkedin.com/in/jpplazasanchez/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-between p-3 rounded-lg bg-surfaceElevated border border-borderSubtle hover:border-borderAccent text-textPrimary transition-colors"
+              >
+                <span className="inline-flex items-center gap-2.5 font-mono text-[13px]">
+                  <img
+                    src={linkedin}
+                    alt=""
+                    aria-hidden="true"
+                    className="w-4 h-4 object-contain"
+                  />
+                  <span>linkedin.com/in/jpplazasanchez</span>
+                </span>
+                <span aria-hidden="true" className="text-textMuted">
+                  ↗
+                </span>
+              </a>
+
+              <a
+                href="https://github.com/46lemonlime"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-between p-3 rounded-lg bg-surfaceElevated border border-borderSubtle hover:border-borderAccent text-textPrimary transition-colors"
+              >
+                <span className="inline-flex items-center gap-2.5 font-mono text-[13px]">
+                  <img
+                    src={github}
+                    alt=""
+                    aria-hidden="true"
+                    className="w-4 h-4 object-contain"
+                  />
+                  <span>github.com/46lemonlime</span>
+                </span>
+                <span aria-hidden="true" className="text-textMuted">
+                  ↗
+                </span>
+              </a>
+            </div>
           </li>
         </ul>
+
+        <div className="mt-6 overflow-hidden rounded-xl border border-borderSubtle">
+          <img
+            loading="lazy"
+            src={location}
+            alt="Map showing Manchester, United Kingdom"
+            className="w-full h-auto object-cover"
+          />
+        </div>
       </div>
-    </section>
+    </aside>
   );
 };
 

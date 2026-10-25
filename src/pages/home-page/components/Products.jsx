@@ -1,14 +1,14 @@
+/**
+ * @file src/pages/home-page/components/Products.jsx
+ * @description Technical capabilities section detailing frontend engineering, systems scripting,
+ * and computer science foundations.
+ * @responsibility Display capability pillars and skills badges on the homepage.
+ */
+
 import React from "react";
-
-// import styles
 import styles from "../../../style";
-
-// import data
 import { technicalCapabilities } from "../../../constants";
-
-// import global components
-import { Button, SectionHeader } from "../../../components";
-import GetRoadmap from "../../../components/GetRoadmap";
+import { Button, SectionHeader, GetRoadmap } from "../../../components";
 
 const Products = () => {
   return (

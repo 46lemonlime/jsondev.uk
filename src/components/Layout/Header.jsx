@@ -1,9 +1,11 @@
+/**
+ * @file src/components/Layout/Header.jsx
+ * @description Sticky header containing background blur backdrop and primary site navigation.
+ * @responsibility Render top navigation banner with glassmorphism backdrop.
+ */
+
 import React from "react";
-
-// import styles
 import styles from "../../style";
-
-// import components
 import Navbar from "./Navbar";
 
 const Header = () => {

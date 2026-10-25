@@ -1,19 +1,28 @@
-import React, { Suspense, lazy } from "react";
+/**
+ * @file src/routes/App.jsx
+ * @description Central routing configuration for jsondev.uk.
+ * Configures the client-side router, layout wrapper, lazy route chunking,
+ * loading fallbacks, backward-compatible legacy redirects, and 404 handling.
+ * @responsibility Define application routes, redirects, and top-level suspense boundaries.
+ */
 
-// import routing
+import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-// import layout & primary landing page eagerly for instant initial render
+// Layout & primary landing page loaded eagerly for instant initial render
 import Layout from "../components/Layout";
 import Home from "../pages/home-page";
 
-// Lazy-load secondary route chunks
+// Lazy-load secondary route chunks to minimize initial bundle size
 const About = lazy(() => import("../pages/about-page"));
 const Contact = lazy(() => import("../pages/contact-page"));
 const Projects = lazy(() => import("../pages/portfolio-page"));
 const ProjectDetail = lazy(() => import("../pages/project-detail-page"));
 const Error = lazy(() => import("../pages/error-page"));
 
+/**
+ * Lightweight loading state displayed during route chunk evaluation.
+ */
 const RouteLoadingFallback = () => (
   <div
     role="status"

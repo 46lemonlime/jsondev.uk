@@ -1,12 +1,12 @@
+/**
+ * @file src/pages/home-page/components/GetInTouch.jsx
+ * @description Banner component inviting recruiter and collaboration inquiries with action triggers.
+ * @responsibility Provide clear call-to-action banner for reaching out and downloading CV.
+ */
+
 import React from "react";
-
-// import styles
 import styles from "../../../style";
-
-// import assets
 import { cv } from "../../../assets";
-
-// import global components
 import { Button, Badge } from "../../../components";
 
 const GetInTouch = () => {

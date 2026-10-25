@@ -1,9 +1,12 @@
+/**
+ * @file src/pages/home-page/index.jsx
+ * @description Developer-first homepage assembling Hero, Projects showcase, Capabilities,
+ * Testimonials, and Connect calls-to-action.
+ * @responsibility Orchestrate homepage view sections within the standard container.
+ */
+
 import React from "react";
-
-// import styles
 import styles from "../../style";
-
-// import global & specific components
 import { Testimonials } from "../../components";
 import { Hero, Projects, Products, GetInTouch } from "./components";
 

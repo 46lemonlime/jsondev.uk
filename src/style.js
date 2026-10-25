@@ -1,3 +1,9 @@
+/**
+ * @file src/style.js
+ * @description Central layout token registry and typography utility classes.
+ * @responsibility Export layout, padding, font hierarchy, and responsive breakpoint styles.
+ */
+
 const styles = {
   boxWidth: "xl:max-w-[1280px] w-full",
 

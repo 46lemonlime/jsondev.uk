@@ -1,5 +1,11 @@
+/**
+ * @file src/constants/index.js
+ * @description Centralized data source and content definitions for the jsondev.uk portfolio.
+ * Holds navigation routes, project details, capabilities, work history, testimonials, and verified links.
+ * @responsibility Serve as the single source of truth for site-wide data and configuration items.
+ */
+
 import {
-  user,
   linkedin,
   twitter,
   github,
@@ -14,6 +20,9 @@ import {
   webdev,
 } from "../assets";
 
+/**
+ * Main application navigation links.
+ */
 export const navLinks = [
   {
     link: "/",
@@ -33,6 +42,9 @@ export const navLinks = [
   },
 ];
 
+/**
+ * About page technical and professional highlights.
+ */
 export const features = [
   {
     id: "feature-1",
@@ -57,6 +69,9 @@ export const features = [
   },
 ];
 
+/**
+ * Verified work experience extracted from authenticated CV.
+ */
 export const workHistory = [
   {
     id: "exp-1",
@@ -105,6 +120,9 @@ export const workHistory = [
   },
 ];
 
+/**
+ * Verified professional feedback and testimonials.
+ */
 export const feedback = [
   {
     id: "feedback-1",
@@ -112,7 +130,6 @@ export const feedback = [
       "I cannot recommend his services highly enough - consistently exceeded my expectations and provided exceptional value.",
     name: "Elisabetta Gottardi",
     title: "Customer Contact Manager - Booking.com",
-    img: user,
   },
   {
     id: "feedback-2",
@@ -120,7 +137,6 @@ export const feedback = [
       "From start to finish, working with Jeison was a seamless and enjoyable experience. He is a true professional and a pleasure to work with.",
     name: "William Powell",
     title: "Operations Manager - Armathwaite Hall",
-    img: user,
   },
   {
     id: "feedback-3",
@@ -128,7 +144,6 @@ export const feedback = [
       "I was blown away by the level of expertise and dedication that JsonDev brought to our project. He truly cares about his clients and it shows in his work.",
     name: "Chris Norcup",
     title: "HR Director - Phillips & Cohen Associates",
-    img: user,
   },
 ];
 
@@ -136,6 +151,7 @@ export const feedback = [
  * @typedef {Object} ProjectItem
  * @property {string} id
  * @property {string} slug
+ * @property {string} categoryKey - Filter category key ('desktop' | 'web')
  * @property {string} img
  * @property {string} name
  * @property {string} subtitle
@@ -156,10 +172,15 @@ export const feedback = [
  * @property {string} link
  */
 
+/**
+ * Verified portfolio projects catalog.
+ * @type {ProjectItem[]}
+ */
 export const projects = [
   {
     id: "project-1",
     slug: "call-progress-tracker",
+    categoryKey: "desktop",
     img: calltracker,
     name: "Call Progress Tracker",
     subtitle: "Boosting Customer Service!",
@@ -192,6 +213,7 @@ export const projects = [
   {
     id: "project-2",
     slug: "poker-strategy-display",
+    categoryKey: "desktop",
     img: pokerdisplay,
     name: "Poker Strategy Display",
     subtitle: "Enhancing Poker Strategy Adherence!",
@@ -224,6 +246,7 @@ export const projects = [
   {
     id: "project-3",
     slug: "portfolio-website",
+    categoryKey: "web",
     img: portfolioweb,
     name: "Portfolio Website",
     subtitle: "Showcasing My Technical Work & Background",
@@ -262,6 +285,9 @@ export const projects = [
   },
 ];
 
+/**
+ * Technical capability pillars presented on the homepage.
+ */
 export const technicalCapabilities = [
   {
     id: "capability-frontend",
@@ -292,6 +318,9 @@ export const technicalCapabilities = [
   },
 ];
 
+/**
+ * Summary telemetry stats displayed on the hero section.
+ */
 export const stats = [
   {
     id: "stats-1",
@@ -319,6 +348,9 @@ export const stats = [
   },
 ];
 
+/**
+ * Footer navigation columns and verified external references.
+ */
 export const footerLinks = [
   {
     title: "Navigation",
@@ -380,6 +412,9 @@ export const footerLinks = [
   },
 ];
 
+/**
+ * Verified social media and community platforms.
+ */
 export const socialMedia = [
   {
     id: "social-github",
@@ -412,4 +447,3 @@ export const socialMedia = [
     link: "https://www.buymeacoffee.com/_jsondev",
   },
 ];
-

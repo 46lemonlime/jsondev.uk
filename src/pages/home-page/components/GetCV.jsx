@@ -1,3 +1,9 @@
+/**
+ * @file src/pages/home-page/components/GetCV.jsx
+ * @description Circular call-to-action button for initiating direct CV PDF download.
+ * @responsibility Present interactive circular button linking to curriculum vitae asset.
+ */
+
 import React from "react";
 import styles from "../../../style";
 import { arrowUp, cv } from "../../../assets";

@@ -1,3 +1,9 @@
+/**
+ * @file src/pages/about-page/components/FeatureCard.jsx
+ * @description Technical profile feature card rendering category icon, title, and descriptive content.
+ * @responsibility Display individual technical competence or education milestone card.
+ */
+
 import React from "react";
 import styles from "../../../style";
 

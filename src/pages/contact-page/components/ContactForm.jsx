@@ -1,18 +1,22 @@
-import React, { useState, useRef } from "react";
+/**
+ * @file src/pages/contact-page/components/ContactForm.jsx
+ * @description Accessible, client-side message composer with Formik validation and honest clipboard handling.
+ * Since this portfolio operates as a static site without an automated email API, submitted messages are
+ * validated and prepared for easy clipboard copying, directing inquiries to verified LinkedIn channels.
+ * @responsibility Handle form validation, user input, clipboard operations, and compose with ContactInfo.
+ */
 
-// import form validation dependencies
+import React, { useState, useRef } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-// import styles
 import styles from "../../../style";
-
-// import images
-import { location, linkedin, github } from "../../../assets";
-
-// import components
 import { Button, Badge } from "../../../components";
+import ContactInfo from "./ContactInfo";
 
+/**
+ * Mapping of form subject keys to human-readable labels for formatted drafts.
+ */
 const SUBJECT_LABELS = {
   role: "Software Developer role / recruitment",
   collaboration: "Collaboration proposal",
@@ -21,6 +25,11 @@ const SUBJECT_LABELS = {
   feedback: "Website feedback",
 };
 
+/**
+ * Formats validated form values into a structured text draft suitable for clipboard copying.
+ * @param {Object} values - Form field values.
+ * @returns {string} Formatted draft message.
+ */
 const formatDraftMessage = (values) => {
   const subjectText =
     SUBJECT_LABELS[values.subject] || values.subject || "General query";
@@ -30,7 +39,7 @@ const formatDraftMessage = (values) => {
       values.email.trim() ? ` <${values.email.trim()}>` : ""
     }`,
   ];
-  if (values.phone.trim()) {
+  if (values.phone && values.phone.trim()) {
     lines.push(`Phone: ${values.phone.trim()}`);
   }
   lines.push("", values.message.trim());
@@ -42,10 +51,15 @@ const ContactForm = () => {
   const [copyStatus, setCopyStatus] = useState("idle"); // "idle" | "copied" | "manual"
   const fallbackTextareaRef = useRef(null);
 
+  /**
+   * Attempts clipboard copy via standard Navigator Clipboard API, falling back
+   * to selecting the draft textarea for manual Ctrl+C/Cmd+C copy on unsupported environments.
+   * @param {string} textToCopy - Text content to copy.
+   */
   const attemptCopyText = async (textToCopy) => {
     if (!textToCopy || !textToCopy.trim()) return;
 
-    // 1. Try modern async Clipboard API first
+    // 1. Try modern async Clipboard API
     if (
       typeof navigator !== "undefined" &&
       navigator.clipboard &&
@@ -56,11 +70,11 @@ const ContactForm = () => {
         setCopyStatus("copied");
         return;
       } catch {
-        // Fall through to manual selection fallback if permission denied or insecure context
+        // Fall through to manual selection if permission is denied or running in restricted iframe
       }
     }
 
-    // 2. Manual selection fallback
+    // 2. Fallback: focus and select text in the fallback textarea
     setCopyStatus("manual");
     setTimeout(() => {
       if (fallbackTextareaRef.current) {
@@ -135,7 +149,7 @@ const ContactForm = () => {
           Prepare a Message
         </h2>
 
-        {/* Honest Delivery Status Notice */}
+        {/* Transparent notice on lack of automated email transmission */}
         <div
           role="note"
           className="mt-4 p-4 rounded-xl bg-surface border border-crimson/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
@@ -166,7 +180,7 @@ const ContactForm = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-        {/* Left Column: Validated Message Composer Form */}
+        {/* Validated Message Composer Form */}
         <form
           noValidate
           onSubmit={formik.handleSubmit}
@@ -371,7 +385,7 @@ const ContactForm = () => {
             )}
           </div>
 
-          {/* Submit / Copy Action */}
+          {/* Submit Action */}
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <Button type="submit" variant="primary">
               Format &amp; Copy Message
@@ -385,7 +399,7 @@ const ContactForm = () => {
             </Button>
           </div>
 
-          {/* Honest Copy Feedback & Selectable Fallback Textarea */}
+          {/* Status Feedback and Selectable Fallback Textarea */}
           {preparedMessage && (
             <div
               role="status"
@@ -452,94 +466,8 @@ const ContactForm = () => {
           )}
         </form>
 
-        {/* Right Column: Verified Location & Direct Profiles */}
-        <aside className="lg:col-span-5 flex flex-col gap-6 w-full">
-          <div className={`${styles.surfaceCard} p-6`}>
-            <h3 className="font-mono text-[12px] font-semibold uppercase tracking-wider text-crimson-soft mb-4">
-              Verified Details &amp; Profiles
-            </h3>
-
-            <ul className="space-y-4 font-sans text-[15px]">
-              <li className="flex flex-col">
-                <span className="font-mono text-[11px] uppercase tracking-wider text-textMuted">
-                  Location
-                </span>
-                <span className="text-textPrimary font-medium mt-0.5">
-                  Manchester, United Kingdom
-                </span>
-              </li>
-
-              <li className="flex flex-col">
-                <span className="font-mono text-[11px] uppercase tracking-wider text-textMuted">
-                  Availability
-                </span>
-                <span className="text-telemetry font-medium mt-0.5 flex items-center gap-2">
-                  <span
-                    className="w-2 h-2 rounded-full bg-telemetry"
-                    aria-hidden="true"
-                  />
-                  Open to remote opportunities
-                </span>
-              </li>
-
-              <li className="flex flex-col pt-3 border-t border-borderSubtle">
-                <span className="font-mono text-[11px] uppercase tracking-wider text-textMuted mb-2">
-                  Direct Profiles
-                </span>
-                <div className="flex flex-col gap-2.5">
-                  <a
-                    href="https://www.linkedin.com/in/jpplazasanchez/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-between p-3 rounded-lg bg-surfaceElevated border border-borderSubtle hover:border-borderAccent text-textPrimary transition-colors"
-                  >
-                    <span className="inline-flex items-center gap-2.5 font-mono text-[13px]">
-                      <img
-                        src={linkedin}
-                        alt=""
-                        aria-hidden="true"
-                        className="w-4 h-4 object-contain"
-                      />
-                      <span>linkedin.com/in/jpplazasanchez</span>
-                    </span>
-                    <span aria-hidden="true" className="text-textMuted">
-                      ↗
-                    </span>
-                  </a>
-
-                  <a
-                    href="https://github.com/46lemonlime"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-between p-3 rounded-lg bg-surfaceElevated border border-borderSubtle hover:border-borderAccent text-textPrimary transition-colors"
-                  >
-                    <span className="inline-flex items-center gap-2.5 font-mono text-[13px]">
-                      <img
-                        src={github}
-                        alt=""
-                        aria-hidden="true"
-                        className="w-4 h-4 object-contain"
-                      />
-                      <span>github.com/46lemonlime</span>
-                    </span>
-                    <span aria-hidden="true" className="text-textMuted">
-                      ↗
-                    </span>
-                  </a>
-                </div>
-              </li>
-            </ul>
-
-            <div className="mt-6 overflow-hidden rounded-xl border border-borderSubtle">
-              <img
-                loading="lazy"
-                src={location}
-                alt="Map showing Manchester, United Kingdom"
-                className="w-full h-auto object-cover"
-              />
-            </div>
-          </div>
-        </aside>
+        {/* Composed Verified Profiles & Location Column */}
+        <ContactInfo />
       </div>
     </section>
   );

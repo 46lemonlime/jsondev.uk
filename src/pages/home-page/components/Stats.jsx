@@ -1,3 +1,9 @@
+/**
+ * @file src/pages/home-page/components/Stats.jsx
+ * @description Key highlights telemetry bar rendering core technical stack, languages, and availability.
+ * @responsibility Present high-level technical qualifications and working preferences.
+ */
+
 import React from "react";
 import styles from "../../../style";
 import { stats } from "../../../constants";

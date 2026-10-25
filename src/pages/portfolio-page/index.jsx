@@ -1,18 +1,19 @@
+/**
+ * @file src/pages/portfolio-page/index.jsx
+ * @description Main project archive view featuring category filtering and responsive project cards.
+ * @responsibility Filter and present all verified software projects in the catalog.
+ */
+
 import React, { useState } from "react";
-
-// import styles
 import styles from "../../style";
-
-// import images
 import { project00, github } from "../../assets";
-
-// import components
 import { Button, Badge } from "../../components";
 import ProjectCard from "./components/ProjectCard";
-
-// import constants
 import { projects } from "../../constants";
 
+/**
+ * Filter configuration mapping filter IDs to project category keys.
+ */
 const CATEGORIES = [
   { id: "all", label: "All Projects" },
   { id: "web", label: "Web / React" },
@@ -22,25 +23,16 @@ const CATEGORIES = [
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("all");
 
+  // Filter projects declaratively via categoryKey (Open/Closed Principle)
   const filteredProjects = projects.filter((project) => {
     if (activeFilter === "all") return true;
-    if (activeFilter === "web") {
-      return project.stack?.some((t) =>
-        ["react", "javascript", "vite", "tailwind"].some((k) =>
-          t.toLowerCase().includes(k)
-        )
-      );
-    }
-    if (activeFilter === "desktop") {
-      return project.stack?.some((t) => t.toLowerCase().includes("vba"));
-    }
-    return true;
+    return project.categoryKey === activeFilter;
   });
 
   return (
     <div className={`bg-canvas ${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
-        {/* Page Header Section (Text First on Mobile & Desktop) */}
+        {/* Page Header Section */}
         <section className={`flex md:flex-row flex-col ${styles.paddingY} items-center gap-10 relative`}>
           <div className="flex-1 flex flex-col items-start relative z-[2]">
             <div className="absolute z-[0] w-[40%] h-[40%] right-10 top-1/2 rounded-full red__gradient" />

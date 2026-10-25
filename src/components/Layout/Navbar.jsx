@@ -1,25 +1,27 @@
+/**
+ * @file src/components/Layout/Navbar.jsx
+ * @description Accessible primary navigation component supporting desktop links, CV download,
+ * and mobile slide-out drawer with keyboard Escape and route transition handling.
+ * @responsibility Present site logo, main navigation routes, mobile hamburger drawer, and resume action.
+ */
+
 import React, { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
-// import styles
 import styles from "../../style";
-
-// import assets
 import { close, logo, menu, cv } from "../../assets";
-
-// import constants
 import { navLinks } from "../../constants";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const { pathname } = useLocation();
 
-  // Close mobile drawer automatically on route change
+  // Close mobile drawer automatically on route transition
   useEffect(() => {
     setToggle(false);
   }, [pathname]);
 
-  // Allow closing mobile drawer with Escape key
+  // Support closing mobile drawer via Escape key for keyboard accessibility
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape" && toggle) {

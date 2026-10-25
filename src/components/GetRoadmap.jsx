@@ -1,3 +1,9 @@
+/**
+ * @file src/components/GetRoadmap.jsx
+ * @description Interactive action link pointing directly to the verified Notion Computer Science roadmap.
+ * @responsibility Render external call-to-action anchor leading to educational documentation.
+ */
+
 import React from "react";
 import { notionBlack } from "../assets";
 

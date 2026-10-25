@@ -1,10 +1,12 @@
-import React from "react";
+/**
+ * @file src/components/Layout/index.jsx
+ * @description Master application layout enclosing header, footer, scroll manager, and skip-to-content accessibility link.
+ * @responsibility Structure landmark elements (header, main, footer) and persistent global navigation.
+ */
 
-// import components
+import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-
-// import scroll & title manager
 import ScrollToTop from "./ScrollToTop";
 
 const Layout = ({ children }) => {

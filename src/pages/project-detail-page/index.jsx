@@ -1,13 +1,15 @@
+/**
+ * @file src/pages/project-detail-page/index.jsx
+ * @description Dynamic project detail view presenting project metadata, operational challenges,
+ * technical solutions, highlights, and previous/next project navigation.
+ * @responsibility Render comprehensive single project detail pages based on slug parameters.
+ */
+
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 
-// import styles
 import styles from "../../style";
-
-// import constants
 import { projects } from "../../constants";
-
-// import global components
 import { Button, Badge } from "../../components";
 import Error from "../error-page";
 

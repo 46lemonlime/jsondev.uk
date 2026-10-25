@@ -1,12 +1,13 @@
+/**
+ * @file src/pages/contact-page/index.jsx
+ * @description Primary Contact view pairing the validated Message Composer with verified LinkedIn
+ * and GitHub direct contact channels.
+ * @responsibility Present contact options, direct channels, and message drafting workspace.
+ */
+
 import React from "react";
-
-// import styles
 import styles from "../../style";
-
-// import images
 import { chat, linkedin, github } from "../../assets";
-
-// import components
 import { Button, Badge } from "../../components";
 import ContactForm from "./components/ContactForm";
 

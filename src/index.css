@@ -1,3 +1,10 @@
+/**
+ * @file src/index.css
+ * @description Global stylesheet configuring Tailwind directives, CSS variables,
+ * background gradient utilities, focus rings, and reduced-motion overrides.
+ * @responsibility Global styling base, theme custom properties, and motion accessibility.
+ */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -156,7 +163,7 @@
   box-shadow: var(--card-shadow);
 }
 
-/* GPU-friendly ambient radial glows (replacing heavy blur(900px) filters) */
+/* GPU-friendly ambient radial glows */
 .blue__gradient {
   background: radial-gradient(
     circle,

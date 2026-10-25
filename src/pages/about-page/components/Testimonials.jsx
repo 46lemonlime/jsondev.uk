@@ -1,12 +1,12 @@
+/**
+ * @file src/pages/about-page/components/Testimonials.jsx
+ * @description Verified professional recommendations section rendered across the About page and Homepage.
+ * @responsibility Present authentic manager endorsements and recommendations grid.
+ */
+
 import React from "react";
-
-// import styles
 import styles from "../../../style";
-
-// import constants
 import { feedback } from "../../../constants";
-
-// import global components
 import FeedbackCard from "../../../components/FeedbackCard";
 import SectionHeader from "../../../components/SectionHeader";
 

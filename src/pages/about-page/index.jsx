@@ -1,9 +1,12 @@
+/**
+ * @file src/pages/about-page/index.jsx
+ * @description Master view for the About page presenting technical foundations, verified
+ * operations background, testimonials, and contact triggers.
+ * @responsibility Orchestrate sections of the About view within standard layout boundaries.
+ */
+
 import React from "react";
-
-// import styles
 import styles from "../../style";
-
-// import specific components
 import AboutIntro from "./components/AboutIntro";
 import { Testimonials } from "../../components";
 import GetInTouch from "../home-page/components/GetInTouch";

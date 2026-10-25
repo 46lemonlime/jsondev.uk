@@ -1,3 +1,9 @@
+/**
+ * @file tailwind.config.js
+ * @description Tailwind CSS configuration for the Direction C obsidian/crimson design system.
+ * @responsibility Define design tokens, custom colors, typography families, and theme extensions.
+ */
+
 import forms from "@tailwindcss/forms";
 
 /** @type {import('tailwindcss').Config} */

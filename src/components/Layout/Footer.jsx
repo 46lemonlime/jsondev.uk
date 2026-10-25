@@ -1,3 +1,10 @@
+/**
+ * @file src/components/Layout/Footer.jsx
+ * @description Master footer presenting summary branding, sitemap columns, verified resources,
+ * copyright notice, and social media links.
+ * @responsibility Render bottom navigation grid, external platform links, and copyright statement.
+ */
+
 import React from "react";
 import { Link } from "react-router-dom";
 
