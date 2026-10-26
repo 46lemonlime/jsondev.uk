@@ -29,9 +29,11 @@ const Hero = () => {
 
           <div className="flex flex-row justify-between items-start w-full gap-4">
             <h1 className={styles.display}>
-              Jeison{" "}
-              <span className="text-gradient">Porfirio</span>
-              <span className="block mt-1">Plaza Sanchez</span>
+              <span className={styles.displayPrimary}>
+                <span className="text-accent">Jeison</span>{" "}
+                <span className="text-pink">Porfirio</span>
+              </span>
+              <span className={styles.displaySecondary}>Plaza Sanchez</span>
             </h1>
 
             <div className="ss:flex hidden shrink-0">

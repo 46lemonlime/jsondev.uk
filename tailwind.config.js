@@ -43,11 +43,19 @@ export default {
         dimWhite: "#A2A69C",
         dimBlue: "rgba(0, 204, 153, 0.08)",
 
+        // Secondary Accent: Vivid Pink
+        pink: {
+          DEFAULT: "#F62975",
+          hover: "#D81E63",
+          dark: "#8A1240",
+          soft: "#FFB2D1",
+          muted: "rgba(246, 41, 117, 0.15)",
+        },
         crimson: {
-          DEFAULT: "#00CC99",
-          hover: "#00B588",
-          soft: "#81E8CE",
-          muted: "rgba(0, 204, 153, 0.12)",
+          DEFAULT: "#F62975",
+          muted: "#D81E63",
+          dark: "#8A1240",
+          soft: "#FFB2D1",
         },
         telemetry: {
           DEFAULT: "#00CC99",
@@ -60,6 +68,12 @@ export default {
         sans: ["Inter", "Poppins", "sans-serif"],
         display: ["Space Grotesk", "Inter", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
+        pixel: [
+          '"Silkscreen"',
+          '"Geist Pixel Square"',
+          "JetBrains Mono",
+          "monospace",
+        ],
       },
       boxShadow: {
         card: "0 20px 50px -12px rgba(0, 0, 0, 0.6)",

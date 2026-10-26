@@ -9,6 +9,25 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Silkscreen Bold: Authentic open-source chunky pixel typeface by Jason Kottke (SIL Open Font License 1.1) */
+@font-face {
+  font-family: "Silkscreen";
+  src: url("./assets/fonts/Silkscreen-Bold.woff2") format("woff2"),
+       url("./assets/fonts/Silkscreen-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Geist Pixel Square fallback */
+@font-face {
+  font-family: "Geist Pixel Square";
+  src: url("./assets/fonts/GeistPixel-Square.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg-canvas: #101110;
   --bg-surface: #181A17;
@@ -25,9 +44,21 @@
   --accent-soft: #81E8CE;
   --accent-green-black: #001611;
 
+  /* Secondary Accent — Vivid Pink */
+  --accent-pink: #F62975;
+  --accent-pink-hover: #D81E63;
+  --accent-pink-dark: #8A1240;
+  --accent-pink-soft: #FFB2D1;
+  --accent-pink-muted: rgba(246, 41, 117, 0.15);
+
+  /* Secondary Accent aliases for backward compatibility */
+  --accent-crimson: #F62975;
+  --accent-crimson-muted: #D81E63;
+  --accent-crimson-dark: #8A1240;
+  --accent-crimson-soft: #FFB2D1;
+
   /* Backward compatibility aliases */
   --accent-lime: #00CC99;
-  --accent-crimson: #00CC99;
   --accent-telemetry: #00CC99;
   --card-shadow: 0px 20px 50px -12px rgba(0, 0, 0, 0.65);
 }
@@ -85,11 +116,12 @@
 }
 
 .text-gradient {
+  color: #00CC99;
   background: linear-gradient(
-    135deg,
+    115deg,
     #FFFFFF 0%,
-    #F1F2EC 35%,
-    #81E8CE 70%,
+    #F1F2EC 20%,
+    #81E8CE 65%,
     #00CC99 100%
   );
   -webkit-background-clip: text;

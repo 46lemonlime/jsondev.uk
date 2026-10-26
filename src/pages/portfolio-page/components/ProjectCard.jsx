@@ -28,6 +28,7 @@ const ProjectCard = ({
   img,
   name,
   category,
+  categoryKey,
   projectType,
   title,
   stack,

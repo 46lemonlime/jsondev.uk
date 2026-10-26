@@ -16,7 +16,7 @@ The personal software development portfolio of **Jeison Porfirio Plaza Sanchez (
 
 - **Primary Goal**: Present verified software engineering capabilities, computer science training (Harvard CS50x), and real-world operational strengths.
 - **Intended Audience**: Engineering leads, recruiters, and collaborators seeking dedicated software developers with strong problem-solving fundamentals.
-- **Visual Design System**: Dark, atmospheric, technical developer aesthetic — Near-black Canvas (`#101110`), layered dark surface cards (`#181A17`, `#20231E`), subtle structural borders (`#30342C`), Caribbean Green primary accent (`#00CC99`), and tactical telemetry status badges. Grounded by a subtle fixed viewport grid with faint green intersection nodes and a custom pixel-art workbench hero illustration framed with a layered ambient glow. Typographic hierarchy combines Space Grotesk (display), Inter (body), and JetBrains Mono (telemetry & code).
+- **Visual Design System**: Dark, atmospheric, technical developer aesthetic — Near-black Canvas (`#101110`), layered dark surface cards (`#181A17`, `#20231E`), subtle structural borders (`#30342C`), Caribbean Green primary accent (`#00CC99`), Vivid Pink secondary accent (`#F62975`), and tactical telemetry status badges. Grounded by a subtle fixed viewport grid with faint green intersection nodes and a custom pixel-art workbench hero illustration framed with a layered ambient glow. Typographic hierarchy combines Silkscreen Bold (hero name two-scale identity), Space Grotesk (display headings), Inter (body), and JetBrains Mono (telemetry & code). Fully specified in [`DESIGN.md`](./DESIGN.md).
 
 ---
 
@@ -135,13 +135,14 @@ jsondev.uk/
 ├── src/                          # Application source code
 │   ├── assets/                   # Centralized media, brand graphics, and icons
 │   │   ├── brand/                # Logo SVG and PNG files
+│   │   ├── fonts/                # Local Silkscreen and Geist Pixel font files (WOFF2/TTF)
 │   │   ├── icons/                # Category, project, and social SVGs
 │   │   ├── images/               # Pixel-art hero illustration, location map, and vector graphics
 │   │   ├── cv.pdf                # Authentic curriculum vitae document
 │   │   └── index.js              # Asset barrel export registry
 │   ├── components/               # Shared reusable UI primitives
 │   │   ├── Layout/               # Header, Footer, Navbar, and ScrollToTop
-│   │   ├── Badge.jsx             # Status tag component (neutral, accent, telemetry)
+│   │   ├── Badge.jsx             # Status tag component (neutral, accent, telemetry, pink)
 │   │   ├── Button.jsx            # Polymorphic button/anchor primitive
 │   │   ├── FeedbackCard.jsx      # Testimonial quote card
 │   │   ├── GetRoadmap.jsx        # Notion CS roadmap CTA button
@@ -164,9 +165,10 @@ jsondev.uk/
 │   │   └── project-portfolioweb-page/ # Dedicated wrapper for Portfolio Website
 │   ├── routes/                   # Application routing and chunking
 │   │   └── App.jsx               # BrowserRouter, route chunks, redirects, 404
-│   ├── index.css                 # Tailwind base styles, theme vars, reduced-motion
+│   ├── index.css                 # Tailwind base styles, font faces, theme vars, reduced-motion
 │   ├── main.jsx                  # React 18 DOM mount entry point
 │   └── style.js                  # Shared typographic and layout token utility
+├── DESIGN.md                     # Comprehensive design system specification & rules
 ├── index.html                    # Root HTML document and Google Fonts configuration
 ├── package.json                  # Dependencies, metadata, and scripts
 ├── package-lock.json             # Locked dependency tree
@@ -182,7 +184,9 @@ jsondev.uk/
 ## 8. Architecture and Design Decisions
 
 - **Single Source of Truth**: All dynamic content (project catalog, employment timeline, technical capabilities, social channels, and navigation items) is declared in [`src/constants/index.js`](./src/constants/index.js). Adding or revising projects automatically propagates across the homepage, archive, detail pages, and document titles.
+- **Brand System & Semantic Palette**: Governed by [`DESIGN.md`](./DESIGN.md) as the repository-wide specification. Enforces a 4-step decision hierarchy for colour usage (Caribbean Green for primary actions/brand identity, Vivid Pink for the hero name and deliberate secondary highlights, Semantic status tokens for runtime telemetry, and Dark Neutrals as standard defaults).
 - **Component-Driven Composition**: UI primitives ([`Button.jsx`](./src/components/Button.jsx), [`Badge.jsx`](./src/components/Badge.jsx), [`SectionHeader.jsx`](./src/components/SectionHeader.jsx), [`ProjectCard.jsx`](./src/pages/portfolio-page/components/ProjectCard.jsx)) isolate styling and presentation logic, ensuring consistent design language across all views.
+- **Hero Typography & Two-Scale Scaling**: The hero name leverages locally bundled **Silkscreen Bold** with a calculated 1.5× scale ratio between the primary line (“Jeison Porfirio”) and secondary line (“Plaza Sanchez”), rendered with crisp solid brand colours rather than gradients or synthetic strokes.
 - **Single Responsibility Principle (SRP)**:
   - Form validation and clipboard state are managed in [`ContactForm.jsx`](./src/pages/contact-page/components/ContactForm.jsx), while static location and verified profiles are isolated in [`ContactInfo.jsx`](./src/pages/contact-page/components/ContactInfo.jsx).
   - Navigation links and CV actions are decoupled from sticky header glassmorphism styles.
@@ -231,8 +235,9 @@ Legacy uppercase and previous site paths redirect seamlessly:
 
 - **Environment Variables**: No external environment variables (`.env`) are required or used. The application is completely self-contained and operates purely client-side.
 - **Configuration Files**:
+  - [`DESIGN.md`](./DESIGN.md): Source-of-truth specification for visual identity, typography ratios, color decision criteria, and component rules.
   - [`vite.config.js`](./vite.config.js): Configures Vite and `@vitejs/plugin-react`.
-  - [`tailwind.config.js`](./tailwind.config.js): Extends color tokens (`canvas`, `surface`, `accent`, `telemetry`), fonts (`Space Grotesk`, `Inter`, `JetBrains Mono`), and registers `@tailwindcss/forms`.
+  - [`tailwind.config.js`](./tailwind.config.js): Extends color tokens (`canvas`, `surface`, `accent`, `pink`, `telemetry`), font families (`display`, `sans`, `mono`, `pixel`), and registers `@tailwindcss/forms`.
   - [`postcss.config.js`](./postcss.config.js): Connects Tailwind and Autoprefixer.
   - [`vercel.json`](./vercel.json): Configures SPA client-side routing rewrites for Vercel edge deployment.
   - [`package.json`](./package.json): Defines module scripts, core dependencies, and dev tool versions.

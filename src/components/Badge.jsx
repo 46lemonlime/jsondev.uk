@@ -9,8 +9,10 @@ import React from "react";
 const badgeVariants = {
   neutral:
     "bg-surfaceElevated text-textSecondary border-borderSubtle",
+  pink:
+    "bg-pink/15 text-pink-soft border-pink/35",
   crimson:
-    "bg-accent/10 text-accent border-accent/30",
+    "bg-pink/15 text-pink-soft border-pink/35",
   telemetry:
     "bg-accent/10 text-accent border-accent/30",
   accent:
@@ -19,7 +21,7 @@ const badgeVariants = {
 
 /**
  * @param {Object} props
- * @param {'neutral'|'accent'|'telemetry'|'crimson'} [props.variant='neutral'] - Visual badge theme.
+ * @param {'neutral'|'accent'|'telemetry'|'pink'|'crimson'} [props.variant='neutral'] - Visual badge theme.
  * @param {boolean} [props.pulse=false] - Whether to show an animated pulsing telemetry dot.
  * @param {string} [props.className=''] - Additional CSS classes.
  * @param {React.ReactNode} props.children - Badge content.
@@ -38,7 +40,9 @@ const Badge = ({
     >
       {pulse && (
         <span
-          className="w-2 h-2 rounded-full bg-accent animate-pulse"
+          className={`w-2 h-2 rounded-full ${
+            variant === "pink" || variant === "crimson" ? "bg-pink" : "bg-accent"
+          } animate-pulse`}
           aria-hidden="true"
         />
       )}

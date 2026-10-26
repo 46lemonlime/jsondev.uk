@@ -1,4 +1,14 @@
 
+10.2026
+- Established comprehensive visual design specification in DESIGN.md
+- Implemented Silkscreen Bold open-source pixel typeface for hero name typography
+- Added two-scale responsive hero name hierarchy (Jeison Porfirio / Plaza Sanchez)
+- Configured secondary vivid pink accent (#F62975) with strict semantic rules
+- Enhanced Badge component with semantic variants (neutral, accent, telemetry, pink)
+- Standardised project card and detail category badges to neutral metadata styling
+- Bundled local web font assets with WOFF2/TTF formats and @font-face declarations
+- Synchronised architecture and typography documentation in README.md
+
 06.2023
 - Amended testimonials styling
 - Added contact info section

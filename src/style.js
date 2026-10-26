@@ -17,9 +17,13 @@ const styles = {
   marginX: "sm:mx-16 mx-6",
   marginY: "sm:my-16 my-8",
 
-  // Typography Hierarchy (Direction C: Space Grotesk + Inter + JetBrains Mono)
+  // Typography Hierarchy (Silkscreen Bold hero name + Space Grotesk headings + Inter body + JetBrains Mono code)
   display:
-    "flex-1 font-display font-bold tracking-tight ss:text-[56px] text-[40px] text-textPrimary ss:leading-[1.15] leading-[1.2]",
+    "flex-1 font-pixel font-bold tracking-normal w-full",
+  displayPrimary:
+    "block text-[21px] xs:text-[24px] ss:text-[27px] sm:text-[30px] md:text-[33px] lg:text-[36px] xl:text-[42px] leading-[1.18]",
+  displaySecondary:
+    "block text-textPrimary text-[14px] xs:text-[16px] ss:text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[28px] leading-[1.25] mt-1 sm:mt-1.5",
 
   heading1:
     "font-display font-bold tracking-tight ss:text-[52px] text-[36px] text-textPrimary ss:leading-[1.15] leading-[1.2] w-full",
