@@ -11,6 +11,9 @@ import { Button, SectionHeader } from "../../../components";
 import ProjectCard from "../../portfolio-page/components/ProjectCard";
 
 const Projects = () => {
+  // Showcase all three verified projects on the homepage
+  const featuredProjects = projects.filter((project) => project.featured);
+
   return (
     <section id="portfolio" className={`${styles.paddingY} relative`}>
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
@@ -26,8 +29,8 @@ const Projects = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-[1]">
-        {projects.map((project) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative z-[1]">
+        {featuredProjects.map((project) => (
           <ProjectCard
             key={project.id}
             {...project}

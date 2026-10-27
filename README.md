@@ -25,9 +25,16 @@ The personal software development portfolio of **Jeison Porfirio Plaza Sanchez (
 ### Implemented Features
 - **Developer-First Homepage**: Clear introductions, animated typewriter title sequence, verified social channels, high-level technical telemetry stats, featured software previews, capability pillars, genuine recommendations, and calls to action.
 - **Project Archive & Detail System**:
-  - Filterable catalog allowing visitors to sort projects by category (`All Projects`, `Web / React`, `Desktop / VBA`).
-  - Dynamic route detail pages (`/projects/:slug`) presenting operational challenges, technical solutions, highlights, and bidirectional previous/next project navigation.
+  - Filterable catalog allowing visitors to sort projects by category (`All Projects`, `Web Application`, `Desktop & Tooling`), featuring multi-category support per project.
+  - Dynamic route detail pages (`/projects/:slug`) presenting operational challenges, technical solutions, highlights, multi-application suite breakdowns, and bidirectional previous/next project navigation.
   - Dedicated route wrappers for legacy routes (`/CPT`, `/PSD`, `/PortfolioWeb`).
+- **Comprehensive Software Project Catalog**:
+  - **Portfolio Website**: React 18, Tailwind CSS, and Vite SPA with custom design system and client-side routing.
+  - **Call Progress Tracker**: Native VBA desktop tool designed to structure call stages and support agent KPIs in high-volume operations.
+  - **Poker Strategy Display**: Dedicated VBA desktop tool for quick-reference strategy range adherence and review routines.
+  - **Smart File Organizer**: Contract-first Python 3.10+ CLI tool featuring dry-run simulations, YAML classification, and deterministic rollback.
+  - **Ascension Tactics**: Browser-based 3D tactical skirmish game built with TypeScript, Three.js, WebGL, line-of-sight raycasting, and action cameras.
+  - **HandLab**: Unified poker study ecosystem consisting of **HandLab Online** (deployed Texas Hold'em range analyzer and solver suite) and **HandLab Desktop** (companion desktop tool for extended analysis).
 - **Comprehensive About View**:
   - Background narrative tracking the transition from high-volume operations into software engineering.
   - Harvard CS50x educational background, technical stack categorization, and verified Notion CS Learning Roadmap integration.
@@ -45,7 +52,7 @@ The personal software development portfolio of **Jeison Porfirio Plaza Sanchez (
 
 ### Incomplete / Deliberately Omitted Features
 - **Automated Backend Email API**: Contact form does not transmit emails automatically to a remote server. It acts honestly as a client-side message formatter and clipboard copy tool.
-- **Proprietary VBA Repositories**: Source code and internal screenshots for the Call Progress Tracker and Poker Strategy Display desktop projects are proprietary or pending personal review and are not published publicly.
+- **Proprietary & Private Repositories**: Source code and internal screenshots for the Call Progress Tracker and Poker Strategy Display desktop projects are proprietary or pending personal review. Repositories for HandLab Online and HandLab Desktop are private; no private source links or internal distribution artifacts are exposed.
 
 ---
 
@@ -191,7 +198,7 @@ jsondev.uk/
   - Form validation and clipboard state are managed in [`ContactForm.jsx`](./src/pages/contact-page/components/ContactForm.jsx), while static location and verified profiles are isolated in [`ContactInfo.jsx`](./src/pages/contact-page/components/ContactInfo.jsx).
   - Navigation links and CV actions are decoupled from sticky header glassmorphism styles.
 - **Open/Closed Principle (OCP)**:
-  - Project archive filtering uses declarative `categoryKey` properties on project data instead of hardcoded component arrays.
+  - Project archive filtering uses declarative `categoryKeys` and `categories` arrays on project data, supporting multi-category membership (e.g., HandLab under both `Web Application` and `Desktop & Tooling`) without hardcoded component arrays or duplicate project records.
   - Route document titles in [`ScrollToTop.jsx`](./src/components/Layout/ScrollToTop.jsx) resolve dynamically from the project data catalog.
 - **Performance & Lazy Loading**: Secondary routes are split into separate JavaScript chunks using `React.lazy` and `Suspense`, preventing unnecessary overhead on initial landing load.
 - **Accessibility & UX**:
@@ -278,7 +285,7 @@ This behavior is configured in [`vercel.json`](./vercel.json):
 
 1. **Static Site Form Delivery**: The contact form does not have an active serverless or backend email processing endpoint. It formats inquiries and copies them to the system clipboard for direct submission via LinkedIn.
 2. **Clipboard API Permissions**: In non-HTTPS or iframe-restricted browser environments, `navigator.clipboard.writeText` may be blocked by browser security policy. The form includes an automatic fallback that highlights the prepared message in a selectable textarea for manual copying (`Ctrl+C` / `Cmd+C`).
-3. **Proprietary Project Sources**: The desktop VBA tools were developed for personal review and internal workplace environments. Public GitHub repositories and proprietary screenshots are not published.
+3. **Proprietary & Private Project Sources**: The desktop VBA tools were developed for personal review and internal workplace environments. Repositories for HandLab Online and HandLab Desktop are private and internal; no private source links or unauthorized distributions are exposed. Public GitHub repositories and verified live demos are provided where available (Portfolio Website, Ascension Tactics, Smart File Organizer, HandLab Online).
 
 ---
 

@@ -16,17 +16,38 @@ import { projects } from "../../constants";
  */
 const CATEGORIES = [
   { id: "all", label: "All Projects" },
-  { id: "web", label: "Web / React" },
-  { id: "desktop", label: "Desktop / VBA" },
+  { id: "web", label: "Web Application" },
+  { id: "desktop", label: "Desktop & Tooling" },
 ];
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("all");
 
-  // Filter projects declaratively via categoryKey (Open/Closed Principle)
+  // Filter projects declaratively supporting multiple categories per project
   const filteredProjects = projects.filter((project) => {
     if (activeFilter === "all") return true;
-    return project.categoryKey === activeFilter;
+
+    const keys = Array.isArray(project.categoryKeys)
+      ? project.categoryKeys
+      : project.categoryKey
+      ? [project.categoryKey]
+      : [];
+
+    const labels = Array.isArray(project.categories)
+      ? project.categories
+      : project.category
+      ? [project.category]
+      : [];
+
+    return (
+      keys.includes(activeFilter) ||
+      labels.some(
+        (lbl) =>
+          lbl.toLowerCase() === activeFilter.toLowerCase() ||
+          (activeFilter === "web" && lbl.toLowerCase().includes("web")) ||
+          (activeFilter === "desktop" && lbl.toLowerCase().includes("desktop"))
+      )
+    );
   });
 
   return (

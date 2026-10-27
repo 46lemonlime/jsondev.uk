@@ -9,7 +9,7 @@ import React from "react";
 import { TypeAnimation } from "react-type-animation";
 
 import styles, { layout } from "../../../style";
-import { heroIllustration, cv, github, linkedin } from "../../../assets";
+import { heroIllustration, github, linkedin } from "../../../assets";
 import { Button, Badge } from "../../../components";
 import Stats from "./Stats";
 import GetCV from "./GetCV";
@@ -36,7 +36,7 @@ const Hero = () => {
               <span className={styles.displaySecondary}>Plaza Sanchez</span>
             </h1>
 
-            <div className="ss:flex hidden shrink-0">
+            <div className="lg:flex hidden shrink-0">
               <GetCV />
             </div>
           </div>
@@ -65,32 +65,29 @@ const Hero = () => {
           </div>
 
           <p className={`${styles.paragraph} max-w-[560px] mt-6`}>
-            Hi, I&apos;m Jeison Sanchez ({"{"}
-            <span className="font-mono text-textPrimary font-medium">
+            I&apos;m a Manchester-based software developer ({"{"}
+            <span className="font-mono text-textPrimary font-bold">
               JsonDev
             </span>
-            {"}"}). Passionate about software development and computer science,
-            I focus on optimising workflows, solving operational problems, and
-            building clean web and desktop applications with{" "}
-            <span className="text-textPrimary font-medium">
-              JavaScript, React, Tailwind CSS, Python, C, SQL, and VBA
-            </span>
-            .
+            {"}"}) combining computer science fundamentals with hands-on
+            operational problem-solving. Grounded in Harvard&apos;s CS50x and
+            modern web development, I build practical workflow tools and
+            responsive web applications with{" "}
+            <span className="text-textPrimary font-bold">JavaScript</span>,{" "}
+            <span className="text-textPrimary font-bold">React</span>,{" "}
+            <span className="text-textPrimary font-bold">Tailwind CSS</span>,{" "}
+            <span className="text-textPrimary font-bold">Python</span>,{" "}
+            <span className="text-textPrimary font-bold">C</span>, and{" "}
+            <span className="text-textPrimary font-bold">SQL</span>. Explore my
+            featured projects, technical background, and learning roadmap below.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 mt-8">
             <Button to="/projects" variant="primary">
               Explore Projects
             </Button>
-            <Button
-              href={cv}
-              download="Jeison_Sanchez_CV.pdf"
-              variant="secondary"
-            >
-              Download CV (PDF)
-            </Button>
-            <Button to="/about" variant="ghost">
-              About &amp; CS Roadmap →
+            <Button to="/about" variant="secondary">
+              About Me
             </Button>
           </div>
 
@@ -166,7 +163,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className={`ss:hidden ${styles.flexCenter} w-full mt-2`}>
+        <div className={`lg:hidden ${styles.flexCenter} w-full mt-6`}>
           <GetCV />
         </div>
       </section>

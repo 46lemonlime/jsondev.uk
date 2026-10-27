@@ -36,6 +36,13 @@ const ProjectDetail = ({ projectSlug }) => {
         .map((t) => t.trim())
         .filter(Boolean);
 
+  const categoryList =
+    Array.isArray(project.categories) && project.categories.length > 0
+      ? Array.from(new Set(project.categories))
+      : project.category
+      ? [project.category]
+      : [];
+
   return (
     <div className={`w-full ${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
@@ -51,9 +58,11 @@ const ProjectDetail = ({ projectSlug }) => {
             </Link>
 
             <div className="flex flex-wrap items-center gap-2">
-              {project.category && (
-                <Badge variant="neutral">{project.category}</Badge>
-              )}
+              {categoryList.map((cat) => (
+                <Badge key={cat} variant="neutral">
+                  {cat}
+                </Badge>
+              ))}
               {project.status && (
                 <Badge
                   variant={
@@ -73,7 +82,7 @@ const ProjectDetail = ({ projectSlug }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start mb-12 relative z-[1]">
             <div className="md:col-span-2">
               <p className={styles.subheading}>
-                {project.projectType || project.category}
+                {project.projectType || categoryList.join(" // ")}
               </p>
               <h1 className={`${styles.heading1} mt-2`}>{project.name}</h1>
               {project.subtitle && (
@@ -93,7 +102,11 @@ const ProjectDetail = ({ projectSlug }) => {
                     target="_blank"
                     variant="primary"
                   >
-                    Visit Live Site ↗
+                    {project.slug === "handlab"
+                      ? "Visit HandLab Online ↗"
+                      : project.projectType?.toLowerCase().includes("game")
+                      ? "Play Live Demo ↗"
+                      : "Visit Live Site ↗"}
                   </Button>
                 )}
                 {project.repoUrl && (
@@ -156,6 +169,77 @@ const ProjectDetail = ({ projectSlug }) => {
               )}
             </aside>
           </div>
+
+          {/* Multi-Application Ecosystem Breakdown */}
+          {Array.isArray(project.applications) && project.applications.length > 0 && (
+            <section className="mb-10 relative z-[1]">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-2">
+                <div>
+                  <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-accent block">
+                    ECOSYSTEM // APPLICATION SUITE
+                  </span>
+                  <h2 className={`${styles.heading3} mt-1`}>
+                    Unified Applications
+                  </h2>
+                </div>
+                <p className={`${styles.paragraph3} max-w-[420px]`}>
+                  Distinct web and desktop components operating within a shared domain ecosystem.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {project.applications.map((app) => (
+                  <div
+                    key={app.id}
+                    className={`${styles.surfaceCard} p-7 flex flex-col justify-between`}
+                  >
+                    <div>
+                      <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
+                        <Badge variant="neutral">{app.badge}</Badge>
+                        <span className="font-mono text-[11px] text-textMuted">
+                          {app.status}
+                        </span>
+                      </div>
+
+                      <h3 className={styles.heading4}>{app.name}</h3>
+                      <p className={`${styles.paragraph2} mt-3`}>
+                        {app.description}
+                      </p>
+
+                      {Array.isArray(app.capabilities) && app.capabilities.length > 0 && (
+                        <ul className="mt-5 pt-4 border-t border-borderSubtle space-y-2.5">
+                          {app.capabilities.map((cap) => (
+                            <li
+                              key={cap}
+                              className="text-[13px] text-textSecondary flex items-start gap-2.5 leading-relaxed"
+                            >
+                              <span
+                                className="inline-block w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0"
+                                aria-hidden="true"
+                              />
+                              <span>{cap}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+
+                    {app.liveUrl && (
+                      <div className="mt-6 pt-5 border-t border-borderSubtle">
+                        <Button
+                          href={app.liveUrl}
+                          target="_blank"
+                          variant="primary"
+                        >
+                          {app.ctaLabel || "Visit Application ↗"}
+                        </Button>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* Problem & Solution Breakdown */}
           {(project.problem || project.solution) && (

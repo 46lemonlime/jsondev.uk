@@ -14,20 +14,27 @@ import { Badge } from "../../../components";
  * @param {Object} props
  * @param {string} props.img - Project icon source.
  * @param {string} props.name - Display title of the project.
- * @param {string} [props.category] - Human-readable category label.
+ * @param {string[]} [props.categories] - Array of human-readable category labels.
+ * @param {string} [props.category] - Legacy single category label.
+ * @param {string[]} [props.categoryKeys] - Array of filter category keys.
+ * @param {string} [props.categoryKey] - Legacy single filter key.
  * @param {string} [props.projectType] - Project subtype/classification badge.
  * @param {string} [props.title] - Comma-delimited fallback tech stack string.
  * @param {string[]} [props.stack] - Array of technology names.
  * @param {string} props.content - Summary description.
  * @param {string} [props.context] - Brief context sentence.
  * @param {string} props.link - Destination route path.
+ * @param {string|null} [props.liveUrl] - Verified live website or demo URL.
+ * @param {string|null} [props.repoUrl] - Verified public source repository URL.
  * @param {string} [props.ctaLabel="View Project Details"] - Custom label for the navigation CTA.
  * @param {string} [props.headingLevel="h2"] - Heading tag level ('h2' | 'h3' | 'h4').
  */
 const ProjectCard = ({
   img,
   name,
+  categories,
   category,
+  categoryKeys,
   categoryKey,
   projectType,
   title,
@@ -35,6 +42,8 @@ const ProjectCard = ({
   content,
   context,
   link,
+  liveUrl,
+  repoUrl,
   ctaLabel = "View Project Details",
   headingLevel = "h2",
 }) => {
@@ -42,6 +51,13 @@ const ProjectCard = ({
   const techList = Array.isArray(stack)
     ? stack
     : (title || "").split(",").map((item) => item.trim()).filter(Boolean);
+
+  const categoryList =
+    Array.isArray(categories) && categories.length > 0
+      ? Array.from(new Set(categories))
+      : category
+      ? [category]
+      : [];
 
   return (
     <article className="project-card rounded-2xl p-7 flex flex-col justify-between h-full">
@@ -57,10 +73,18 @@ const ProjectCard = ({
               className="w-9 h-9 object-contain"
             />
           </div>
-          <div className="flex flex-col items-end gap-1">
-            {category && <Badge variant="neutral">{category}</Badge>}
+          <div className="flex flex-col items-end gap-1.5 flex-1 min-w-0">
+            {categoryList.length > 0 && (
+              <div className="flex flex-wrap justify-end gap-1.5">
+                {categoryList.map((cat) => (
+                  <Badge key={cat} variant="neutral">
+                    {cat}
+                  </Badge>
+                ))}
+              </div>
+            )}
             {projectType && (
-              <span className="font-mono text-[11px] text-textMuted">
+              <span className="font-mono text-[11px] text-textMuted text-right">
                 {projectType}
               </span>
             )}
@@ -86,13 +110,30 @@ const ProjectCard = ({
           ))}
         </div>
 
-        <Link
-          to={link}
-          className="inline-flex items-center gap-2 font-mono text-[13px] font-semibold text-accent hover:text-white transition-colors"
-        >
-          <span>{ctaLabel}</span>
-          <span aria-hidden="true">→</span>
-        </Link>
+        <div className="flex items-center justify-between gap-3 flex-wrap">
+          <Link
+            to={link}
+            className="inline-flex items-center gap-2 font-mono text-[13px] font-semibold text-accent hover:text-white transition-colors"
+          >
+            <span>{ctaLabel}</span>
+            <span aria-hidden="true">→</span>
+          </Link>
+
+          {liveUrl && (
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1 font-mono text-[12px] font-medium text-textSecondary hover:text-accent transition-colors"
+            >
+              <span>
+                {projectType?.toLowerCase().includes("game")
+                  ? "Live Demo ↗"
+                  : "Live Site ↗"}
+              </span>
+            </a>
+          )}
+        </div>
       </div>
     </article>
   );

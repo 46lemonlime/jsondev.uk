@@ -1,5 +1,14 @@
 
 10.2026
+- Implemented multi-category project architecture supporting multiple classifications per project
+- Integrated HandLab as unified project featuring HandLab Online (live at handlab.uk) and HandLab Desktop companion
+- Classified HandLab under both Web Application and Desktop & Tooling filter categories
+- Enhanced ProjectCard and ProjectDetail components to render multiple category badges cleanly
+- Added Ascension Tactics (TypeScript & Three.js 3D tabletop wargame) with live demo and source repository links
+- Added Smart File Organizer (contract-first Python 3.10+ CLI tool) to project catalog
+- Configured confirmed public website and repository URLs for Portfolio Website
+- Refined hero narrative copy with bold-white keyword highlights and streamlined CTA action hierarchy
+- Kept homepage featured project showcase curated at 3 verified projects with responsive grid
 - Established comprehensive visual design specification in DESIGN.md
 - Implemented Silkscreen Bold open-source pixel typeface for hero name typography
 - Added two-scale responsive hero name hierarchy (Jeison Porfirio / Plaza Sanchez)

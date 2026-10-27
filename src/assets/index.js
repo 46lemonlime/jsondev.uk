@@ -34,6 +34,7 @@ import webdev from "./icons/webdev.svg";
 import calltracker from "./icons/call_progress_tracker.svg";
 import pokerdisplay from "./icons/poker_strat_display.svg";
 import portfolioweb from "./icons/portfolio_web.svg";
+import handlab from "./icons/handlab.svg";
 
 // Social & Community Icons
 import github from "./icons/github.svg";
@@ -64,6 +65,7 @@ export {
   calltracker,
   pokerdisplay,
   portfolioweb,
+  handlab,
   github,
   linkedin,
   twitter,
