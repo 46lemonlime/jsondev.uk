@@ -7,6 +7,7 @@
 
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
+import { useTranslation, Trans } from "react-i18next";
 
 import styles, { layout } from "../../../style";
 import { heroIllustration, github, linkedin } from "../../../assets";
@@ -15,6 +16,23 @@ import Stats from "./Stats";
 import GetCV from "./GetCV";
 
 const Hero = () => {
+  const { t, i18n } = useTranslation(["home", "common"]);
+
+  const roles = t("hero.roles", { returnObjects: true }) || [
+    "Software Developer",
+    "React & JavaScript Developer",
+    "Workflow Automation Builder",
+  ];
+
+  const typeAnimationSequence = [
+    roles[0] || "Software Developer",
+    2500,
+    roles[1] || "React & JavaScript Developer",
+    2500,
+    roles[2] || "Workflow Automation Builder",
+    2500,
+  ];
+
   return (
     <div>
       <section
@@ -24,7 +42,7 @@ const Hero = () => {
         {/* Left Column: Introduction & Actions */}
         <div className={`flex-1 ${styles.flexStart} flex-col z-[2] w-full`}>
           <Badge variant="telemetry" pulse className="mb-5">
-            Currently Open for Full-Remote &amp; UK Opportunities
+            {t("badges.openRemote", { ns: "common" })}
           </Badge>
 
           <div className="flex flex-row justify-between items-start w-full gap-4">
@@ -49,14 +67,8 @@ const Hero = () => {
               &gt;
             </span>
             <TypeAnimation
-              sequence={[
-                "Software Developer",
-                2500,
-                "React & JavaScript Developer",
-                2500,
-                "Workflow Automation Builder",
-                2500,
-              ]}
+              key={i18n.language}
+              sequence={typeAnimationSequence}
               speed={50}
               className="font-mono font-medium text-[16px] sm:text-[18px] leading-[28px] text-accent-soft bg-surfaceElevated border border-borderSubtle rounded-lg px-3 py-1"
               wrapper="div"
@@ -65,36 +77,31 @@ const Hero = () => {
           </div>
 
           <p className={`${styles.paragraph} max-w-[560px] mt-6`}>
-            I&apos;m a Manchester-based software developer ({"{"}
-            <span className="font-mono text-textPrimary font-bold">
-              JsonDev
-            </span>
-            {"}"}) combining computer science fundamentals with hands-on
-            operational problem-solving. Grounded in Harvard&apos;s CS50x and
-            modern web development, I build practical workflow tools and
-            responsive web applications with{" "}
-            <span className="text-textPrimary font-bold">JavaScript</span>,{" "}
-            <span className="text-textPrimary font-bold">React</span>,{" "}
-            <span className="text-textPrimary font-bold">Tailwind CSS</span>,{" "}
-            <span className="text-textPrimary font-bold">Python</span>,{" "}
-            <span className="text-textPrimary font-bold">C</span>, and{" "}
-            <span className="text-textPrimary font-bold">SQL</span>. Explore my
-            featured projects, technical background, and learning roadmap below.
+            <Trans
+              ns="home"
+              i18nKey="hero.paragraph"
+              components={{
+                jsdev: (
+                  <span className="font-mono text-textPrimary font-bold" />
+                ),
+                tech: <span className="text-textPrimary font-bold" />,
+              }}
+            />
           </p>
 
           <div className="flex flex-wrap items-center gap-4 mt-8">
             <Button to="/projects" variant="primary">
-              Explore Projects
+              {t("buttons.exploreProjects", { ns: "common" })}
             </Button>
             <Button to="/about" variant="secondary">
-              About Me
+              {t("buttons.aboutMe", { ns: "common" })}
             </Button>
           </div>
 
           {/* Direct Verified Profile Links */}
           <div className="flex items-center gap-4 mt-8 pt-6 border-t border-borderSubtle w-full max-w-[560px]">
             <span className="font-mono text-[12px] uppercase tracking-wider text-textMuted">
-              Verified Profiles:
+              {t("hero.verifiedProfiles")}
             </span>
             <a
               href="https://github.com/46lemonlime"
@@ -144,20 +151,20 @@ const Hero = () => {
             <div className="overflow-hidden rounded-2xl aspect-[3/4] bg-surfaceElevated">
               <img
                 src={heroIllustration}
-                alt="Pixel art developer workstation illustration featuring a multi-monitor desk setup, glowing terminal screens, and a rainy city night view"
+                alt={t("hero.illustrationAlt")}
                 width="764"
                 height="1024"
                 className="w-full h-full object-cover object-center"
               />
             </div>
             <div className="mt-3 px-2 py-1.5 flex items-center justify-between font-mono text-[12px] text-textMuted">
-              <span>LOC // MANCHESTER, UK</span>
+              <span>{t("hero.locBadge")}</span>
               <span className="text-accent flex items-center gap-1.5">
                 <span
                   className="w-1.5 h-1.5 rounded-full bg-accent"
                   aria-hidden="true"
                 />
-                CS50x // DEV
+                {t("hero.devBadge")}
               </span>
             </div>
           </div>

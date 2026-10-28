@@ -1,0 +1,68 @@
+{
+  "hero": {
+    "roles": [
+      "Software Developer",
+      "React & JavaScript Developer",
+      "Workflow Automation Builder"
+    ],
+    "paragraph": "I'm a Manchester-based software developer (<jsdev>JsonDev</jsdev>) combining computer science fundamentals with hands-on operational problem-solving. Grounded in Harvard's CS50x and modern web development, I build practical workflow tools and responsive web applications with <tech>JavaScript</tech>, <tech>React</tech>, <tech>Tailwind CSS</tech>, <tech>Python</tech>, <tech>C</tech>, and <tech>SQL</tech>. Explore my featured projects, technical background, and learning roadmap below.",
+    "verifiedProfiles": "Verified Profiles:",
+    "locBadge": "LOC // MANCHESTER, UK",
+    "devBadge": "CS50x // DEV",
+    "illustrationAlt": "Pixel art developer workstation illustration featuring a multi-monitor desk setup, glowing terminal screens, and a rainy city night view"
+  },
+  "stats": [
+    {
+      "id": "stats-1",
+      "label": "CORE STACK",
+      "value": "React & JS",
+      "detail": "HTML, CSS, Tailwind, Vite"
+    },
+    {
+      "id": "stats-2",
+      "label": "PROGRAMMING",
+      "value": "C, Python, SQL",
+      "detail": "VBA, Data Structures & Memory Mgmt"
+    },
+    {
+      "id": "stats-3",
+      "label": "LANGUAGES",
+      "value": "EN & ES",
+      "detail": "Native / Bilingual Proficiency"
+    },
+    {
+      "id": "stats-4",
+      "label": "LOCATION",
+      "value": "Manchester, UK",
+      "detail": "Open to Remote & Hybrid Roles"
+    }
+  ],
+  "projects": {
+    "eyebrow": "01 // PORTFOLIO",
+    "title": "Featured Software Projects",
+    "description": "Practical applications built to solve workflow bottlenecks, structure decision-making data, and deliver responsive web experiences."
+  },
+  "capabilities": {
+    "eyebrow": "02 // TECHNICAL PROFILE",
+    "title": "Skills, Foundations & Engineering Focus",
+    "description": "Grounded in Harvard CS50x computer science fundamentals, modern frontend web development, and hands-on workflow automation.",
+    "items": {
+      "prod-1": {
+        "title": "Frontend Web Engineering",
+        "content": "Modern client-side engineering using React 18, responsive Tailwind CSS architecture, Vite tooling, and accessible semantic HTML."
+      },
+      "prod-2": {
+        "title": "Systems & Automation Scripting",
+        "content": "Command-line and desktop workflow automation via Python, C systems programming, SQL querying, and practical process optimization."
+      },
+      "prod-3": {
+        "title": "Computer Science Foundations",
+        "content": "Rigorous foundation via Harvard CS50x covering memory management, algorithm analysis, data structures, and computational thinking."
+      }
+    }
+  },
+  "connect": {
+    "title": "Let's Connect",
+    "description": "Looking for a dedicated developer with strong problem-solving fundamentals and real-world operational experience? Feel free to reach out via the contact page or connect on LinkedIn and GitHub."
+  }
+}

@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "formik": "^2.4.1",
+    "i18next": "^26.5.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^17.1.9",
     "react-router-dom": "^6.10.0",
     "react-type-animation": "^3.0.1",
     "yup": "^1.2.0"

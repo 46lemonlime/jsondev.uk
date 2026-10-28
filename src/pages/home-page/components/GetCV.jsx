@@ -5,16 +5,19 @@
  */
 
 import React from "react";
+import { useTranslation } from "react-i18next";
 import styles from "../../../style";
 import { arrowUp, cv } from "../../../assets";
 
 const GetCV = () => {
+  const { t } = useTranslation("common");
+
   return (
     <a
       href={cv}
-      title="Download Jeison Plaza Sanchez CV (PDF)"
+      title={t("buttons.downloadCvPdf")}
       download="Jeison_Sanchez_CV.pdf"
-      aria-label="Download Jeison Plaza Sanchez CV (PDF)"
+      aria-label={t("buttons.downloadCvPdf")}
       className="group inline-block rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
     >
       <div
@@ -35,7 +38,7 @@ const GetCV = () => {
             />
           </div>
           <span className="font-mono font-medium text-[13px] leading-[20px] text-accent mt-0.5">
-            Download PDF
+            {t("buttons.downloadPdf")}
           </span>
         </div>
       </div>

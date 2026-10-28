@@ -1,0 +1,166 @@
+{
+  "archive": {
+    "badge": "PORTAFOLIO // SOFTWARE Y HERRAMIENTAS",
+    "title": "Proyectos",
+    "subheading": "Aplicaciones Web y Herramientas de Automatización",
+    "description": "Cada proyecto a continuación representa una aplicación o herramienta práctica desarrollada para resolver desafíos de flujo de trabajo, estructurar información compleja o ejercitar la ingeniería web moderna. Selecciona cualquier proyecto para consultar su contexto, stack tecnológico y alcance verificado.",
+    "filterAria": "Filtrar proyectos por tecnología",
+    "showingCount": "Mostrando {{count}} de {{total}} proyectos",
+    "emptyState": "No se encontraron proyectos en esta categoría.",
+    "illustrationAlt": "Ilustración de proyectos de software"
+  },
+  "detail": {
+    "backLink": "Volver a Todos los Proyectos",
+    "projectId": "ID DEL PROYECTO",
+    "techStack": "Stack Tecnológico",
+    "docNote": "NOTA DE DOCUMENTACIÓN Y REPOSITORIO",
+    "ecosystemEyebrow": "ECOSISTEMA // SUITE DE APLICACIONES",
+    "ecosystemTitle": "Aplicaciones Unificadas",
+    "ecosystemSubtitle": "Componentes web y de escritorio independientes que operan dentro de un mismo ecosistema.",
+    "problemEyebrow": "01 // CONTEXTO Y PROBLEMA",
+    "problemTitle": "Desafío Operativo",
+    "solutionEyebrow": "02 // ENFOQUE E IMPLEMENTACIÓN",
+    "solutionTitle": "Solución Técnica",
+    "highlightsEyebrow": "03 // DETALLES CLAVE",
+    "highlightsTitle": "Puntos Destacados y Alcance",
+    "prevProject": "← Proyecto Anterior",
+    "nextProject": "Proyecto Siguiente →",
+    "navAria": "Navegación de Proyectos",
+    "buttons": {
+      "visitHandLabOnline": "Visitar HandLab Online ↗",
+      "playLiveDemo": "Jugar Demostración ↗",
+      "visitLiveSite": "Visitar Sitio Web ↗",
+      "viewSourceRepo": "Ver Repositorio ↗",
+      "askAboutProject": "Preguntar Sobre Este Proyecto"
+    }
+  },
+  "items": {
+    "portfolio-website": {
+      "name": "Portfolio Website",
+      "subtitle": "Exhibición de Mi Trabajo Técnico y Trayectoria",
+      "projectType": "Proyecto Web con React y Tailwind",
+      "content": "Sitio web dinámico utilizado como plataforma para presentarme, exhibir mi trabajo y destacar mi experiencia, habilidades y logros técnicos.",
+      "context": "Aplicación React responsiva multi-ruta desplegada en Vercel en jsondev.uk.",
+      "overview": "Este sitio web de portafolio actúa como plataforma central para presentar mi trayectoria, exhibir mis proyectos de software y documentar mi formación en ciencias de la computación utilizando un stack moderno con React, Tailwind CSS y Vite.",
+      "problem": "Se requería una plataforma personal rápida, responsiva y fácil de mantener para presentar proyectos de software, competencias técnicas y recomendaciones profesionales a reclutadores y colaboradores.",
+      "solution": "Desarrollo de una Single-Page Application (SPA) con React 18, Vite, React Router v6 y Tailwind CSS, con constantes centralizadas, componentes de UI reutilizables, navegación accesible y reescritura de rutas en Vercel.",
+      "highlights": [
+        "Corrección de metadatos heredados y reestructuración completa sobre una arquitectura modular con React y Vite.",
+        "Implementación de enrutamiento híbrido del lado del cliente con redirecciones retrocompatibles para enlaces antiguos.",
+        "Diseñado con una identidad visual oscura con acentos verde caribeño, elementos HTML semánticos, enfoque de teclado visible y soporte para movimiento reducido."
+      ],
+      "verificationNote": "Verificado en repositorio: El código fuente completo reside en este espacio de trabajo y está desplegado en jsondev.uk."
+    },
+    "call-progress-tracker": {
+      "name": "Call Progress Tracker",
+      "subtitle": "¡Impulsando la Atención al Cliente!",
+      "projectType": "Proyecto Personal en VBA",
+      "content": "Aplicación de escritorio diseñada para asistir a los agentes de atención al cliente durante las llamadas. Desarrollada en VBA, ayuda a brindar un servicio excelente y superar los KPIs.",
+      "context": "Desarrollada en un entorno real de centro de contacto para agilizar la gestión de llamadas y facilitar el cumplimiento de KPIs.",
+      "overview": "Como exagente de atención telefónica, experimenté la importancia crucial de dotar al personal de herramientas idóneas para brindar un servicio sobresaliente. Creada durante mi etapa en un call center, esta aplicación estructuró la gestión de llamadas en vivo y facilitó el alcance de métricas.",
+      "problem": "Los agentes de atención en centros de llamadas de ritmo acelerado deben controlar etapas de la llamada, requerimientos de cumplimiento y detalles del cliente simultáneamente mientras mantienen la calidad y las metas de KPI.",
+      "solution": "Creación de una aplicación ligera de escritorio mediante Visual Basic for Applications (VBA) para guiar a los agentes por las fases de atención, mantener accesibles las pautas clave y mitigar fricciones en las interacciones.",
+      "highlights": [
+        "Diseñada a partir de experiencia directa en operaciones de atención al cliente de alto volumen.",
+        "Desarrollada en VBA para ejecutarse de forma nativa en entornos ofimáticos estándar sin requerir instalaciones externas.",
+        "Centrada en estructurar el flujo de atención y respaldar a los agentes en sus estándares de calidad y KPIs."
+      ],
+      "verificationNote": "Código fuente y capturas: Creado para un entorno interno de centro de contacto; el repositorio público y las capturas confidenciales del entorno laboral no están publicados."
+    },
+    "poker-strategy-display": {
+      "name": "Poker Strategy Display",
+      "subtitle": "¡Mejorando la Disciplina Estratégica en Poker!",
+      "projectType": "Proyecto Personal en VBA",
+      "content": "Aplicación de escritorio concebida para brindar a los jugadores de poker una ejecución precisa y un estudio óptimo de su estrategia personalizada.",
+      "context": "Creada para proporcionar un acceso rápido y estructurado a rangos personalizados durante sesiones de estudio y revisión.",
+      "overview": "Esta aplicación de escritorio fue diseñada para ofrecer a jugadores de poker un acceso claro y ordenado a sus tablas estratégicas personalizadas, fomentando la disciplina y el estudio sistemático.",
+      "problem": "Estudiar y contrastar rangos pre-flop y post-flop personalizados en hojas de cálculo estáticas o notas dispersas resulta lento y propenso a errores durante las sesiones de análisis.",
+      "solution": "Desarrollo de una interfaz de escritorio en VBA que centraliza tablas estratégicas personalizadas en una pantalla de consulta rápida y accesible, adaptada al estudio estructurado.",
+      "highlights": [
+        "Interfaz de escritorio personalizada en VBA para una rápida consulta y revisión de estrategias.",
+        "Estructurada en torno a una presentación visual nítida de matrices estratégicas definidas por el usuario.",
+        "Creada como herramienta personal para fomentar la toma de decisiones disciplinada y rutinas de estudio sólidas."
+      ],
+      "verificationNote": "Código fuente y capturas: Aplicación personal de escritorio en VBA; el repositorio público y las capturas de pantalla están pendientes de revisión por parte del autor."
+    },
+    "smart-file-organizer": {
+      "name": "Smart File Organizer",
+      "subtitle": "Motor Determinista de Organización de Archivos y Restauración en CLI",
+      "projectType": "Proyecto CLI en Python",
+      "content": "Aplicación CLI en Python basada en contratos para la organización determinista de archivos, simulación en seco, registro de ejecución y restauración segura.",
+      "context": "Automatiza tareas de ordenación de directorios con estricta separación entre fases de planificación, ejecución y recuperación.",
+      "overview": "Smart File Organizer es una herramienta de línea de comandos en Python basada en contratos, concebida para automatizar la organización de carpetas congestionadas (como Descargas o Escritorio) de manera segura y predecible. Su diseño modular separa el descubrimiento, la clasificación, la planificación de ejecución, las operaciones de archivos y la recuperación reversible.",
+      "problem": "Automatizar la limpieza de directorios mediante scripts convencionales suele conllevar riesgos: movimientos inesperados pueden traspapelar datos, falta visibilidad en la ejecución o no existe forma de revertir errores de configuración.",
+      "solution": "Ingeniería de una herramienta CLI instalable en Python (smartorg) con simulaciones en modo prueba (dry-run), reglas de clasificación en YAML, aislamiento atómico de fallos por archivo, reportes estructurados en JSON y un motor determinista de reversión.",
+      "highlights": [
+        "Arquitectura por contratos con modelos dataclass tipados que garantizan límites estrictos entre descubrimiento, operaciones, recuperación y reportes.",
+        "Canal de ejecución seguro que independiza la fase de planificación de las operaciones sobre el sistema de archivos, con soporte integral para simulación dry-run.",
+        "Subsistema determinista de rollback que invierte las rutas operadas y restituye los archivos conservando un informe detallado de reversión.",
+        "Registro estructurado clave=valor e historial cronológico de reportes en JSON con filtrado por ámbito e inspección por índice."
+      ],
+      "verificationNote": "Repositorio verificado: Paquete de código abierto en Python con contratos completos de flujo, puntos de entrada CLI y documentación en GitHub."
+    },
+    "ascension-tactics": {
+      "name": "Ascension Tactics",
+      "subtitle": "Juego de Escaramuzas Tácticas 3D por Turnos en Navegador",
+      "projectType": "Juego de mesa táctico por turnos",
+      "content": "Juego de escaramuzas tácticas 3D en navegador de alto rendimiento desarrollado con Three.js y TypeScript, con combate por turnos, 10 facciones y cámaras de acción dinámicas.",
+      "context": "Juego bélico 3D interactivo ejecutado íntegramente en el cliente, con cálculos tácticos de línea de visión, física de vehículos y mecánicas de mesa.",
+      "overview": "Ascension Tactics es un juego de escaramuzas tácticas 3D para navegador de alto rendimiento, desarrollado desde cero con TypeScript y Three.js. Inspirado en reglamentos tácticos de miniaturas, traslada enfrentamientos bélicos a una experiencia WebGL interactiva con 10 facciones jugables, personalización de armamento, miniaturas 3D procedimentales y cámaras dinámicas.",
+      "problem": "Trasladar mecánicas complejas de juegos de miniaturas (perfiles múltiples de armas, bandas de alcance, cálculo de línea de visión y resolución de dados) a un juego web fluido y accesible sin depender de pesados motores gráficos externos.",
+      "solution": "Diseño de un bucle de juego WebGL personalizado en TypeScript con Three.js, implementando reutilización de geometrías y materiales para minimizar draw calls, cámaras dinámicas de acción, trazado de rayos para visibilidad y máquinas de estado para equipo.",
+      "highlights": [
+        "10 facciones jugables diferenciadas con heráldica personalizada, catálogo de unidades, alcances especializados y doctrinas tácticas.",
+        "Cálculo de línea de visión táctica, cuadrículas de movimiento por trazado de rayos y resolución de combate multi-arma.",
+        "Cámara de acción sobre el hombro determinista que interpola y se estabiliza antes de activar animaciones y tiradas de dados.",
+        "Arquitectura de renderizado WebGL propia con caché de mallas/materiales y cinemática realista continua para vehículos oruga."
+      ],
+      "verificationNote": "Repositorio y demo verificados: Código fuente completo en TypeScript y Three.js en GitHub, desplegado y jugable en ascensiontactics.jsondev.uk."
+    },
+    "handlab": {
+      "name": "HandLab",
+      "subtitle": "Analizador de Rangos de Texas Hold'em y Suite de Escritorio Complementaria",
+      "projectType": "Aplicaciones web y de escritorio complementarias",
+      "content": "Suite unificada de análisis de poker integrada por HandLab Online —analizador de rangos y herramienta de estudio en navegador— y HandLab Desktop, aplicación complementaria de escritorio con funcionalidades avanzadas.",
+      "context": "Compuesto por una aplicación web pública desplegada en handlab.uk junto con una herramienta de escritorio especializada para análisis profundo.",
+      "overview": "HandLab es un ecosistema integral de estudio de poker compuesto por dos aplicaciones complementarias: HandLab Online, una plataforma web pública para análisis visual de rangos preflop y exploración de árboles de decisión, y HandLab Desktop, una aplicación de escritorio diseñada para ofrecer capacidades ampliadas más allá del navegador.",
+      "problem": "Estudiar estrategias complejas de Texas Hold'em y analizar decisiones posteriores a la mano requiere acceso inmediato a matrices visuales de rangos, tablas preflop y herramientas matemáticas cuantitativas, mientras que análisis más densos precisan de capacidades de escritorio especializadas.",
+      "solution": "Arquitectura de HandLab como un sistema de estudio de poker en dos vertientes: HandLab Online ofrece una matriz interactiva 13×13 en navegador, tablas de solvers preflop, calculadoras de EV y pot odds, y reproductor de manos calle por calle. HandLab Desktop actúa como aplicación complementaria de escritorio ofreciendo funcionalidades extendidas.",
+      "highlights": [
+        "HandLab Online: Matriz interactiva 13×13 de Texas Hold'em con ponderación de acciones, desglose de combinaciones y pintura visual de rangos.",
+        "Biblioteca de Tablas Preflop: Tablas posicionales de solver (Open Raise, 3-Bet, 4-Bet, vs Squeeze) con creación de estrategias personalizadas en la nube.",
+        "Suite de Matemáticas y EV: Calculadora de EV integrada, puntos de indiferencia de pot odds, simulación Monte Carlo y herramientas de ICM.",
+        "Reproductor de Manos: Analizador de historiales de manos crudas de PokerStars y GGPoker para reproducir jugadas calle por calle con seguimiento de fichas y botes.",
+        "HandLab Desktop Companion: Edición de escritorio complementaria desarrollada para proporcionar capacidades analíticas avanzadas fuera del navegador.",
+        "Repositorios de Código Privados: Desarrollado y mantenido en repositorios privados; aplicación web disponible públicamente en handlab.uk."
+      ],
+      "verificationNote": "Despliegue público verificado: HandLab Online está disponible en handlab.uk. Los repositorios de código fuente de las aplicaciones web y de escritorio son privados.",
+      "applications": {
+        "handlab-online": {
+          "name": "HandLab Online",
+          "badge": "Aplicación Web // Desplegada",
+          "status": "Disponible Públicamente",
+          "ctaLabel": "Visitar HandLab Online ↗",
+          "description": "Plataforma pública en navegador para análisis y estudio de rangos de Texas Hold'em. Cuenta con matriz interactiva 13×13, tablas posicionales de solvers preflop, inspector de combinaciones, calculadoras matemáticas y de EV, y reproductor de historiales de manos calle por calle.",
+          "capabilities": [
+            "Matriz visual interactiva 13×13 de rangos preflop con ponderación de acciones e inspección de combinaciones.",
+            "Tablas preflop posicionales preconfiguradas (Open Raise, 3-Bet, 4-Bet, vs Squeeze) y creación de estrategias personalizadas.",
+            "Centro integrado de matemáticas de poker con cálculo de EV, umbrales de pot odds, simulación Monte Carlo y modelos ICM.",
+            "Reproductor de manos con procesamiento de historiales de PokerStars y GGPoker con seguimiento de botes y fichas."
+          ]
+        },
+        "handlab-desktop": {
+          "name": "HandLab Desktop",
+          "badge": "Aplicación de Escritorio Complementaria",
+          "status": "Desarrollo Privado",
+          "description": "Software complementario de escritorio diseñado para enriquecer la plataforma online ofreciendo funcionalidades adicionales a la versión web. Mantenido en repositorio privado sin distribución pública.",
+          "capabilities": [
+            "Análisis offline avanzado y almacenamiento persistente para entornos de estudio personalizados.",
+            "Herramientas computacionales especializadas que complementan la exploración de rangos web.",
+            "Código base privado desarrollado bajo una estructura de repositorio propietaria."
+          ]
+        }
+      }
+    }
+  }
+}

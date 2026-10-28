@@ -1,0 +1,83 @@
+{
+  "intro": {
+    "badge": "PROFILE // BACKGROUND & FOUNDATIONS",
+    "title": "About Me",
+    "subheading": "Software Development & Operations Background",
+    "paragraph1": "I'm Jeison Plaza Sanchez (JsonDev), a self-motivated developer based in Manchester, United Kingdom, with a strong passion for software development, computer science, and practical problem solving.",
+    "paragraph2": "My journey into software engineering grew directly out of my work in fast-paced customer service and estate care operations—where identifying opportunities for process improvement led me to build desktop workflow tools in VBA and pursue computer science fundamentals through Harvard's CS50x and modern web development with React, JavaScript, and Tailwind CSS.",
+    "imageAlt": "Developer profile illustration"
+  },
+  "skills": {
+    "eyebrow": "01 // SKILLS & ROADMAP",
+    "title": "Technical Stack & Continuous Learning",
+    "description": "Please find a link to my Computer Science roadmap in Notion, where I document completed courses, tutorials, and ongoing technical study.",
+    "features": {
+      "feature-1": {
+        "title": "CS50x — Harvard University",
+        "content": "Comprehensive introduction to the intellectual enterprises of computer science and the art of programming, covering C, algorithms, memory, Python, SQL, HTML, CSS, and JavaScript."
+      },
+      "feature-2": {
+        "title": "Modern Web Development",
+        "content": "Hands-on experience building fast, responsive, and component-driven user interfaces with React, modern JavaScript (ES6+), Tailwind CSS, and Vite."
+      },
+      "feature-3": {
+        "title": "Python & Systems Scripting",
+        "content": "Practical command-line scripting, automation workflows, data structures, and database interactions using Python and relational SQL databases."
+      },
+      "feature-4": {
+        "title": "VBA & Process Automation",
+        "content": "Developed custom Microsoft Excel and Access applications with VBA, automating high-volume administrative workflows and reducing operational tracking overhead."
+      }
+    }
+  },
+  "experience": {
+    "eyebrow": "02 // PROFESSIONAL EXPERIENCE",
+    "title": "Operations & Customer Service History",
+    "description": "Verified roles across regulated account management and bilingual customer operations, bringing strong communication, compliance discipline, and KPI focus to software teams.",
+    "roles": {
+      "exp-1": {
+        "role": "Estate Care Specialist",
+        "period": "2022 – 2023",
+        "company": "Phillips & Cohen Associates",
+        "location": "Manchester, UK (Hybrid)",
+        "summary": "Liaised with customers and clients to manage estate accounts while maintaining accurate account records, meeting internal call quality expectations and KPIs, and operating within strict regulatory compliance guidelines to mitigate legal or financial risk."
+      },
+      "exp-2": {
+        "role": "Customer Service Advisor",
+        "period": "2021 – 2022",
+        "company": "Ventrica",
+        "location": "Remote",
+        "summary": "Provided bilingual customer service in Spanish and English across multiple campaigns and channels. Maintained deep knowledge of campaign policies and procedures, met individual and team targets, and collaborated with management to identify areas for process improvement."
+      },
+      "exp-3": {
+        "role": "Customer Service Advisor",
+        "period": "2019 – 2020",
+        "company": "Booking.com",
+        "location": "Manchester, UK",
+        "summary": "Delivered high-volume bilingual support in Spanish and English across inbound calls, live chat, and email. Resolved complex customer inquiries and complaints, met individual and team performance metrics, and collaborated across departments on process improvements."
+      }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "03 // ENDORSEMENTS",
+    "title": "Professional Recommendations",
+    "description": "Feedback from managers and directors I have worked with across operations, customer contact, and compliance-focused teams.",
+    "quotes": {
+      "feedback-1": {
+        "name": "Elisabetta G.",
+        "title": "Customer Service Manager",
+        "content": "Jeison consistently demonstrated outstanding attention to detail, rapid problem-solving abilities, and an instinctive drive to improve workflows. His transition into software development is a natural evolution of the analytical mindset he brought to our operations daily."
+      },
+      "feedback-2": {
+        "name": "William P.",
+        "title": "Senior Operations Manager",
+        "content": "A dependable, proactive team member who always sought ways to streamline administrative tasks and share practical solutions with the broader team. His work ethic and dedication to technical mastery are remarkable."
+      },
+      "feedback-3": {
+        "name": "Chris N.",
+        "title": "Human Resources Director",
+        "content": "Jeison pairs clear bilingual communication with deep tenacity when tackling complex operational challenges. His commitment to self-directed learning and software engineering is evident in everything he builds."
+      }
+    }
+  }
+}

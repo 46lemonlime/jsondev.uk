@@ -6,23 +6,26 @@
  */
 
 import React from "react";
+import { useTranslation } from "react-i18next";
 import styles from "../../../style";
 import { technicalCapabilities } from "../../../constants";
 import { Button, SectionHeader, GetRoadmap } from "../../../components";
 
 const Products = () => {
+  const { t } = useTranslation(["home", "common"]);
+
   return (
     <section id="capabilities" className={`${styles.paddingY} relative`}>
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 relative z-[1]">
         <SectionHeader
-          eyebrow="02 // TECHNICAL PROFILE"
-          title="Skills, Foundations & Engineering Focus"
-          description="Grounded in Harvard CS50x computer science fundamentals, modern frontend web development, and hands-on workflow automation."
+          eyebrow={t("capabilities.eyebrow")}
+          title={t("capabilities.title")}
+          description={t("capabilities.description")}
         />
         <div className="flex flex-wrap items-center gap-3 shrink-0">
           <GetRoadmap />
           <Button to="/about" variant="secondary">
-            Full Background
+            {t("buttons.fullBackground", { ns: "common" })}
           </Button>
         </div>
       </div>
@@ -49,8 +52,12 @@ const Products = () => {
                 </div>
               </div>
 
-              <h3 className={styles.heading4}>{item.title}</h3>
-              <p className={`${styles.paragraph2} mt-3`}>{item.content}</p>
+              <h3 className={styles.heading4}>
+                {t(`capabilities.items.${item.id}.title`, item.title)}
+              </h3>
+              <p className={`${styles.paragraph2} mt-3`}>
+                {t(`capabilities.items.${item.id}.content`, item.content)}
+              </p>
             </div>
 
             <div className="flex flex-wrap gap-2 mt-6 pt-4 border-t border-borderSubtle">

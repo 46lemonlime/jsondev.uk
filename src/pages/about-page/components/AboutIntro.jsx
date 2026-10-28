@@ -6,6 +6,7 @@
  */
 
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import styles, { layout } from "../../../style";
 import { aboutme, cv } from "../../../assets";
@@ -14,43 +15,37 @@ import { Button, Badge, SectionHeader, GetRoadmap } from "../../../components";
 import FeatureCard from "./FeatureCard";
 
 const AboutIntro = () => {
+  const { t } = useTranslation(["about", "common"]);
+
   return (
     <div className="w-full">
       {/* Section 1: About Header & Narrative */}
       <section className={`${layout.section} items-center gap-12 relative`}>
         <div className={layout.sectionInfo}>
           <Badge variant="accent" className="mb-4">
-            PROFILE // BACKGROUND &amp; FOUNDATIONS
+            {t("intro.badge")}
           </Badge>
-          <h1 className={styles.heading1}>About Me</h1>
+          <h1 className={styles.heading1}>{t("intro.title")}</h1>
           <p className={`${styles.subheading} mt-3`}>
-            Software Development &amp; Operations Background
+            {t("intro.subheading")}
           </p>
           <p className={`${styles.paragraph} max-w-[580px] mt-5`}>
-            I&apos;m Jeison Plaza Sanchez (JsonDev), a self-motivated developer
-            based in Manchester, United Kingdom, with a strong passion for
-            software development, computer science, and practical problem
-            solving.
+            {t("intro.paragraph1")}
           </p>
           <p className={`${styles.paragraph2} max-w-[580px] mt-4`}>
-            My journey into software engineering grew directly out of my work in
-            fast-paced customer service and estate care operations—where
-            identifying opportunities for process improvement led me to build
-            desktop workflow tools in VBA and pursue computer science
-            fundamentals through Harvard&apos;s CS50x and modern web development
-            with React, JavaScript, and Tailwind CSS.
+            {t("intro.paragraph2")}
           </p>
 
           <div className="flex flex-wrap items-center gap-4 mt-8">
             <Button to="/projects" variant="primary">
-              View My Projects
+              {t("buttons.viewMyProjects", { ns: "common" })}
             </Button>
             <Button
               href={cv}
               download="Jeison_Sanchez_CV.pdf"
               variant="secondary"
             >
-              Download CV (PDF)
+              {t("buttons.downloadCvPdf", { ns: "common" })}
             </Button>
           </div>
         </div>
@@ -58,7 +53,7 @@ const AboutIntro = () => {
         <div className={layout.sectionImg}>
           <img
             src={aboutme}
-            alt="Developer profile illustration"
+            alt={t("intro.imageAlt")}
             className="w-full max-w-[440px] h-auto relative z-[5]"
           />
         </div>
@@ -69,9 +64,9 @@ const AboutIntro = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start relative z-[1]">
           <div className="lg:col-span-5 flex flex-col items-start">
             <SectionHeader
-              eyebrow="01 // SKILLS & ROADMAP"
-              title="Technical Stack & Continuous Learning"
-              description="Please find a link to my Computer Science roadmap in Notion, where I document completed courses, tutorials, and ongoing technical study."
+              eyebrow={t("skills.eyebrow")}
+              title={t("skills.title")}
+              description={t("skills.description")}
             />
             <div className="mt-8">
               <GetRoadmap />
@@ -80,7 +75,15 @@ const AboutIntro = () => {
 
           <div className="lg:col-span-7 flex flex-col gap-5 w-full">
             {features.map((feature) => (
-              <FeatureCard key={feature.id} {...feature} />
+              <FeatureCard
+                key={feature.id}
+                icon={feature.icon}
+                title={t(`skills.features.${feature.id}.title`, feature.title)}
+                content={t(
+                  `skills.features.${feature.id}.content`,
+                  feature.content
+                )}
+              />
             ))}
           </div>
         </div>
@@ -90,9 +93,9 @@ const AboutIntro = () => {
       <section className={`${styles.paddingY} relative`}>
         <div className="mb-12 relative z-[1]">
           <SectionHeader
-            eyebrow="02 // PROFESSIONAL EXPERIENCE"
-            title="Operations & Customer Service History"
-            description="Verified roles across regulated account management and bilingual customer operations, bringing strong communication, compliance discipline, and KPI focus to software teams."
+            eyebrow={t("experience.eyebrow")}
+            title={t("experience.title")}
+            description={t("experience.description")}
           />
         </div>
 
@@ -105,19 +108,23 @@ const AboutIntro = () => {
               <div>
                 <div className="flex flex-wrap items-center justify-between gap-2 pb-4 mb-4 border-b border-borderSubtle">
                   <span className="font-mono text-[12px] font-semibold text-accent">
-                    {job.period}
+                    {t(`experience.roles.${job.id}.period`, job.period)}
                   </span>
                   <span className="font-mono text-[11px] text-textMuted">
-                    {job.location}
+                    {t(`experience.roles.${job.id}.location`, job.location)}
                   </span>
                 </div>
 
-                <h3 className={styles.heading4}>{job.role}</h3>
+                <h3 className={styles.heading4}>
+                  {t(`experience.roles.${job.id}.role`, job.role)}
+                </h3>
                 <p className="font-sans font-medium text-[15px] text-textPrimary mt-1">
-                  {job.company}
+                  {t(`experience.roles.${job.id}.company`, job.company)}
                 </p>
 
-                <p className={`${styles.paragraph2} mt-4`}>{job.summary}</p>
+                <p className={`${styles.paragraph2} mt-4`}>
+                  {t(`experience.roles.${job.id}.summary`, job.summary)}
+                </p>
               </div>
 
               <div className="flex flex-wrap gap-2 mt-6 pt-4 border-t border-borderSubtle">

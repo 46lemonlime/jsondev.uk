@@ -6,47 +6,43 @@
  * @responsibility Handle form validation, user input, clipboard operations, and compose with ContactInfo.
  */
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useMemo } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useTranslation, Trans } from "react-i18next";
 
 import styles from "../../../style";
 import { Button, Badge } from "../../../components";
 import ContactInfo from "./ContactInfo";
 
 /**
- * Mapping of form subject keys to human-readable labels for formatted drafts.
- */
-const SUBJECT_LABELS = {
-  role: "Software Developer role / recruitment",
-  collaboration: "Collaboration proposal",
-  project: "Question about a portfolio project",
-  query: "General query",
-  feedback: "Website feedback",
-};
-
-/**
  * Formats validated form values into a structured text draft suitable for clipboard copying.
  * @param {Object} values - Form field values.
+ * @param {Function} t - Translation function.
  * @returns {string} Formatted draft message.
  */
-const formatDraftMessage = (values) => {
-  const subjectText =
-    SUBJECT_LABELS[values.subject] || values.subject || "General query";
+const formatDraftMessage = (values, t) => {
+  const subjectText = values.subject
+    ? t(`form.subjectOptions.${values.subject}`, {
+        defaultValue: values.subject,
+      })
+    : t("form.subjectOptions.query");
+
   const lines = [
-    `Subject: ${subjectText}`,
-    `From: ${values.name.trim() || "(Not provided)"}${
-      values.email.trim() ? ` <${values.email.trim()}>` : ""
-    }`,
+    `${t("form.draftHeaders.subject")}: ${subjectText}`,
+    `${t("form.draftHeaders.from")}: ${
+      values.name.trim() || t("form.draftHeaders.notProvided")
+    }${values.email.trim() ? ` <${values.email.trim()}>` : ""}`,
   ];
   if (values.phone && values.phone.trim()) {
-    lines.push(`Phone: ${values.phone.trim()}`);
+    lines.push(`${t("form.draftHeaders.phone")}: ${values.phone.trim()}`);
   }
   lines.push("", values.message.trim());
   return lines.join("\n");
 };
 
 const ContactForm = () => {
+  const { t } = useTranslation(["contact", "common"]);
   const [preparedMessage, setPreparedMessage] = useState("");
   const [copyStatus, setCopyStatus] = useState("idle"); // "idle" | "copied" | "manual"
   const fallbackTextareaRef = useRef(null);
@@ -84,6 +80,31 @@ const ContactForm = () => {
     }, 50);
   };
 
+  const validationSchema = useMemo(
+    () =>
+      Yup.object({
+        name: Yup.string()
+          .trim()
+          .max(50, t("form.validation.nameMax"))
+          .required(t("form.validation.nameRequired")),
+        email: Yup.string()
+          .trim()
+          .email(t("form.validation.emailInvalid"))
+          .required(t("form.validation.emailRequired")),
+        phone: Yup.string()
+          .trim()
+          .min(7, t("form.validation.phoneMin"))
+          .max(20, t("form.validation.phoneMax"))
+          .notRequired(),
+        subject: Yup.string().required(t("form.validation.subjectRequired")),
+        message: Yup.string()
+          .trim()
+          .min(10, t("form.validation.messageMin"))
+          .required(t("form.validation.messageRequired")),
+      }),
+    [t]
+  );
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -92,37 +113,18 @@ const ContactForm = () => {
       subject: "",
       message: "",
     },
-
-    validationSchema: Yup.object({
-      name: Yup.string()
-        .trim()
-        .max(50, "Name must be 50 characters or less.")
-        .required("Name is required."),
-      email: Yup.string()
-        .trim()
-        .email("Please enter a valid email address.")
-        .required("Email is required."),
-      phone: Yup.string()
-        .trim()
-        .min(7, "Phone number must be at least 7 characters.")
-        .max(20, "Phone number must be 20 characters or less.")
-        .notRequired(),
-      subject: Yup.string().required("Please select a subject."),
-      message: Yup.string()
-        .trim()
-        .min(10, "Message must be at least 10 characters.")
-        .required("Message is required."),
-    }),
-
+    validationSchema,
+    enableReinitialize: true,
     onSubmit: async (values) => {
-      const formatted = formatDraftMessage(values);
+      const formatted = formatDraftMessage(values, t);
       setPreparedMessage(formatted);
       await attemptCopyText(formatted);
     },
   });
 
   const handleCopyAgain = async () => {
-    const textToCopy = preparedMessage || formatDraftMessage(formik.values);
+    const textToCopy =
+      preparedMessage || formatDraftMessage(formik.values, t);
     await attemptCopyText(textToCopy);
   };
 
@@ -143,10 +145,10 @@ const ContactForm = () => {
     >
       <div className="mb-8">
         <Badge variant="neutral" className="mb-3">
-          DIRECT CHANNELS &amp; MESSAGE COMPOSER
+          {t("eyebrow")}
         </Badge>
         <h2 id="contact-form-heading" className={styles.heading2}>
-          Prepare a Message
+          {t("form.heading")}
         </h2>
 
         {/* Transparent notice on lack of automated email transmission */}
@@ -156,25 +158,23 @@ const ContactForm = () => {
         >
           <p className={`${styles.paragraph2} text-textPrimary`}>
             <strong className="font-mono text-[13px] uppercase tracking-wider text-accent block mb-1">
-              Notice // Direct Form Delivery Unavailable
+              {t("form.noticeHeader")}
             </strong>
-            Automated email submission is not configured on this static site, so
-            messages entered below are{" "}
-            <strong className="text-textPrimary">
-              not transmitted automatically
-            </strong>
-            . Use this composer to validate and format your inquiry for{" "}
-            <strong className="text-textPrimary">one-click copying</strong>,
-            then paste and send it directly via{" "}
-            <a
-              href="https://www.linkedin.com/in/jpplazasanchez/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent underline hover:text-white"
-            >
-              LinkedIn
-            </a>
-            .
+            <Trans
+              ns="contact"
+              i18nKey="form.noticeBody"
+              components={{
+                bold: <strong className="text-textPrimary" />,
+                link: (
+                  <a
+                    href="https://www.linkedin.com/in/jpplazasanchez/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent underline hover:text-white"
+                  />
+                ),
+              }}
+            />
           </p>
         </div>
       </div>
@@ -192,7 +192,7 @@ const ContactForm = () => {
               htmlFor="contact-name"
               className="block font-mono font-medium text-[13px] text-textPrimary"
             >
-              Name <span className="text-accent">*</span>
+              {t("form.nameLabel")} <span className="text-accent">*</span>
             </label>
             <input
               id="contact-name"
@@ -202,7 +202,7 @@ const ContactForm = () => {
               value={formik.values.name}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              placeholder="Your name or organization"
+              placeholder={t("form.namePlaceholder")}
               aria-invalid={Boolean(formik.touched.name && formik.errors.name)}
               aria-describedby={
                 formik.touched.name && formik.errors.name
@@ -229,7 +229,7 @@ const ContactForm = () => {
                 htmlFor="contact-email"
                 className="block font-mono font-medium text-[13px] text-textPrimary"
               >
-                Email <span className="text-accent">*</span>
+                {t("form.emailLabel")} <span className="text-accent">*</span>
               </label>
               <input
                 id="contact-email"
@@ -239,7 +239,7 @@ const ContactForm = () => {
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                placeholder="you@company.com"
+                placeholder={t("form.emailPlaceholder")}
                 aria-invalid={Boolean(
                   formik.touched.email && formik.errors.email
                 )}
@@ -266,7 +266,10 @@ const ContactForm = () => {
                 htmlFor="contact-phone"
                 className="block font-mono font-medium text-[13px] text-textPrimary"
               >
-                Phone <span className="text-textMuted">(Optional)</span>
+                {t("form.phoneLabel")}{" "}
+                <span className="text-textMuted">
+                  {t("form.phoneOptional")}
+                </span>
               </label>
               <input
                 id="contact-phone"
@@ -276,7 +279,7 @@ const ContactForm = () => {
                 value={formik.values.phone}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                placeholder="Optional contact number"
+                placeholder={t("form.phonePlaceholder")}
                 aria-invalid={Boolean(
                   formik.touched.phone && formik.errors.phone
                 )}
@@ -305,7 +308,7 @@ const ContactForm = () => {
               htmlFor="contact-subject"
               className="block font-mono font-medium text-[13px] text-textPrimary"
             >
-              Subject <span className="text-accent">*</span>
+              {t("form.subjectLabel")} <span className="text-accent">*</span>
             </label>
             <select
               id="contact-subject"
@@ -325,17 +328,23 @@ const ContactForm = () => {
               className={inputBaseClasses}
             >
               <option value="" disabled>
-                Select a subject...
+                {t("form.subjectPlaceholder")}
               </option>
               <option value="role">
-                Software Developer role / recruitment
+                {t("form.subjectOptions.role")}
               </option>
-              <option value="collaboration">Collaboration proposal</option>
+              <option value="collaboration">
+                {t("form.subjectOptions.collaboration")}
+              </option>
               <option value="project">
-                Question about a portfolio project
+                {t("form.subjectOptions.project")}
               </option>
-              <option value="query">General query</option>
-              <option value="feedback">Website feedback</option>
+              <option value="query">
+                {t("form.subjectOptions.query")}
+              </option>
+              <option value="feedback">
+                {t("form.subjectOptions.feedback")}
+              </option>
             </select>
             {formik.touched.subject && formik.errors.subject && (
               <p
@@ -354,7 +363,7 @@ const ContactForm = () => {
               htmlFor="contact-message"
               className="block font-mono font-medium text-[13px] text-textPrimary"
             >
-              Message <span className="text-accent">*</span>
+              {t("form.messageLabel")} <span className="text-accent">*</span>
             </label>
             <textarea
               id="contact-message"
@@ -363,7 +372,7 @@ const ContactForm = () => {
               value={formik.values.message}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              placeholder="Write your message here..."
+              placeholder={t("form.messagePlaceholder")}
               aria-invalid={Boolean(
                 formik.touched.message && formik.errors.message
               )}
@@ -388,14 +397,14 @@ const ContactForm = () => {
           {/* Submit Action */}
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <Button type="submit" variant="primary">
-              Format &amp; Copy Message
+              {t("form.formatAndCopy")}
             </Button>
             <Button
               href="https://www.linkedin.com/in/jpplazasanchez/"
               target="_blank"
               variant="secondary"
             >
-              Open LinkedIn Profile ↗
+              {t("form.openLinkedIn")}
             </Button>
           </div>
 
@@ -415,8 +424,8 @@ const ContactForm = () => {
                   }`}
                 >
                   {copyStatus === "copied"
-                    ? "✓ Copied to Clipboard — Ready to Paste (Not Sent Yet)"
-                    : "Automatic Clipboard Blocked — Select & Press Ctrl+C / Cmd+C Below (Not Sent Yet)"}
+                    ? t("form.feedback.copied")
+                    : t("form.feedback.manual")}
                 </span>
                 <div className="flex items-center gap-2">
                   <button
@@ -424,34 +433,39 @@ const ContactForm = () => {
                     onClick={handleSelectFallbackText}
                     className="font-mono text-[12px] px-3 py-1 rounded-md bg-surfaceElevated border border-borderSubtle text-textSecondary hover:text-textPrimary hover:border-borderAccent"
                   >
-                    Select All Text
+                    {t("form.feedback.selectAll")}
                   </button>
                   <button
                     type="button"
                     onClick={handleCopyAgain}
                     className="font-mono text-[12px] px-3 py-1 rounded-md bg-surfaceElevated border border-borderSubtle text-textPrimary hover:border-borderAccent"
                   >
-                    {copyStatus === "copied" ? "Copy Again" : "Retry Copy"}
+                    {copyStatus === "copied"
+                      ? t("form.feedback.copyAgain")
+                      : t("form.feedback.retryCopy")}
                   </button>
                 </div>
               </div>
 
               <p className={`${styles.paragraph3} mb-3`}>
-                This formatted message has not been sent automatically. Paste it
-                into a message on{" "}
-                <a
-                  href="https://www.linkedin.com/in/jpplazasanchez/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-accent underline hover:text-white"
-                >
-                  LinkedIn
-                </a>{" "}
-                to reach me directly.
+                <Trans
+                  ns="contact"
+                  i18nKey="form.feedback.pasteExplanation"
+                  components={{
+                    link: (
+                      <a
+                        href="https://www.linkedin.com/in/jpplazasanchez/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-accent underline hover:text-white"
+                      />
+                    ),
+                  }}
+                />
               </p>
 
               <label htmlFor="prepared-message-output" className="sr-only">
-                Formatted message ready to copy
+                {t("form.feedback.draftOutputLabel")}
               </label>
               <textarea
                 id="prepared-message-output"

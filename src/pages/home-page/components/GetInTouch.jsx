@@ -5,11 +5,14 @@
  */
 
 import React from "react";
+import { useTranslation } from "react-i18next";
 import styles from "../../../style";
 import { cv } from "../../../assets";
 import { Button, Badge } from "../../../components";
 
 const GetInTouch = () => {
+  const { t } = useTranslation(["home", "common"]);
+
   return (
     <section
       id="contact"
@@ -17,26 +20,24 @@ const GetInTouch = () => {
     >
       <div className="flex-1 flex flex-col">
         <Badge variant="telemetry" pulse className="mb-3 self-start">
-          Open to Software Developer Roles
+          {t("badges.openRoles", { ns: "common" })}
         </Badge>
-        <h2 className={styles.heading2}>Let&apos;s Connect</h2>
+        <h2 className={styles.heading2}>{t("connect.title")}</h2>
         <p className={`${styles.paragraph} max-w-[540px] mt-3`}>
-          Looking for a dedicated developer with strong problem-solving
-          fundamentals and real-world operational experience? Feel free to reach
-          out via the contact page or connect on LinkedIn and GitHub.
+          {t("connect.description")}
         </p>
       </div>
 
       <div className="flex flex-wrap items-center gap-4 shrink-0">
         <Button to="/contact" variant="primary">
-          Contact Me
+          {t("buttons.contactMe", { ns: "common" })}
         </Button>
         <Button
           href={cv}
           download="Jeison_Sanchez_CV.pdf"
           variant="secondary"
         >
-          Download CV
+          {t("buttons.downloadCv", { ns: "common" })}
         </Button>
       </div>
     </section>

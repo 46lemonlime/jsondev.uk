@@ -1,0 +1,12 @@
+{
+  "badge": "HTTP 404 // ROUTE NOT FOUND",
+  "title": "Page Not Found",
+  "description": "The URL you requested does not match an active route on this portfolio, or the page has been consolidated into a newer section.",
+  "quickNav": "Quick Navigation",
+  "bullet1": "Explore completed software projects.",
+  "bullet2": "Read about my technical background and CS roadmap.",
+  "bullet3": "Return to the homepage or reach out via the contact page.",
+  "backHome": "Back to Homepage",
+  "viewProjects": "View Projects",
+  "illustrationAlt": "404 Page Not Found Illustration"
+}

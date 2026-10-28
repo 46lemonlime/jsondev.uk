@@ -5,6 +5,7 @@
  */
 
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { quotes } from "../assets";
 import styles from "../style";
 
@@ -21,8 +22,13 @@ const getInitials = (fullName = "") =>
     .map((part) => part[0]?.toUpperCase())
     .join("");
 
-const FeedbackCard = ({ content, name, title }) => {
+const FeedbackCard = ({ id, content, name, title }) => {
+  const { t } = useTranslation("about");
   const initials = getInitials(name);
+
+  const displayContent = id ? t(`testimonials.quotes.${id}.content`, content) : content;
+  const displayTitle = id ? t(`testimonials.quotes.${id}.title`, title) : title;
+  const displayName = id ? t(`testimonials.quotes.${id}.name`, name) : name;
 
   return (
     <article className="flex justify-between flex-col p-7 rounded-2xl feedback-card h-full">
@@ -34,7 +40,7 @@ const FeedbackCard = ({ content, name, title }) => {
           className="w-[32px] h-[20px] object-contain opacity-80"
         />
         <p className={`${styles.paragraph2} text-textPrimary my-6`}>
-          &ldquo;{content}&rdquo;
+          &ldquo;{displayContent}&rdquo;
         </p>
       </div>
 
@@ -47,10 +53,10 @@ const FeedbackCard = ({ content, name, title }) => {
         </div>
         <div className="flex flex-col ml-3.5">
           <h3 className="font-display font-semibold text-[17px] leading-[24px] text-textPrimary">
-            {name}
+            {displayName}
           </h3>
           <p className="font-sans font-normal text-[13px] leading-[20px] text-textMuted">
-            {title}
+            {displayTitle}
           </p>
         </div>
       </div>

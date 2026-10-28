@@ -6,12 +6,15 @@
  */
 
 import React from "react";
+import { useTranslation, Trans } from "react-i18next";
 import styles from "../../style";
-import { chat, linkedin, github } from "../../assets";
+import { contactIllustration, linkedin, github } from "../../assets";
 import { Button, Badge } from "../../components";
 import ContactForm from "./components/ContactForm";
 
 const Contact = () => {
+  const { t } = useTranslation(["contact", "common"]);
+
   return (
     <div className={`w-full ${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
@@ -20,18 +23,20 @@ const Contact = () => {
         >
           <div className="flex-1 flex flex-col items-start relative z-[2]">
             <Badge variant="telemetry" pulse className="mb-4">
-              Manchester, UK // Open to Remote Opportunities
+              {t("badge")}
             </Badge>
-            <h1 className={styles.heading1}>Contact Me</h1>
+            <h1 className={styles.heading1}>{t("title")}</h1>
             <p className={`${styles.subheading} mt-3`}>
-              Connect via LinkedIn, GitHub, or Message Builder
+              {t("subheading")}
             </p>
             <p className={`${styles.paragraph} max-w-[560px] mt-5`}>
-              Reach out for software development opportunities, technical
-              collaborations, or questions about my work. Currently, the fastest
-              and most direct way to reach me is via{" "}
-              <span className="text-textPrimary font-medium">LinkedIn</span> or{" "}
-              <span className="text-textPrimary font-medium">GitHub</span>.
+              <Trans
+                ns="contact"
+                i18nKey="description"
+                components={{
+                  tech: <span className="text-textPrimary font-medium" />,
+                }}
+              />
             </p>
 
             <div className="flex flex-wrap items-center gap-4 mt-8">
@@ -46,7 +51,7 @@ const Contact = () => {
                   aria-hidden="true"
                   className="w-4 h-4 object-contain brightness-200"
                 />
-                <span>Message on LinkedIn ↗</span>
+                <span>{t("messageLinkedIn")}</span>
               </Button>
               <Button
                 href="https://github.com/46lemonlime"
@@ -59,7 +64,7 @@ const Contact = () => {
                   aria-hidden="true"
                   className="w-4 h-4 object-contain"
                 />
-                <span>GitHub (@46lemonlime) ↗</span>
+                <span>{t("gitHubProfile")}</span>
               </Button>
             </div>
           </div>
@@ -69,8 +74,8 @@ const Contact = () => {
           >
             <img
               loading="lazy"
-              src={chat}
-              alt="Contact illustration"
+              src={contactIllustration}
+              alt={t("illustrationAlt")}
               className="w-full max-w-[400px] h-auto relative z-[5]"
             />
           </div>

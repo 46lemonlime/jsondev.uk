@@ -1,0 +1,75 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact",
+    "downloadCv": "Download CV",
+    "languageSwitcher": "Language selector"
+  },
+  "footer": {
+    "description": "Software developer focused on building modern web applications, workflow automation tools, and practical digital solutions.",
+    "navigation": "Navigation",
+    "projects": "Projects",
+    "resources": "Resources",
+    "copyright": "© {{year}} Jeison Plaza Sanchez (JsonDev). All rights reserved."
+  },
+  "buttons": {
+    "viewDetails": "View Project Details",
+    "projectOverview": "Project Overview",
+    "exploreProjects": "Explore Projects",
+    "aboutMe": "About Me",
+    "viewAllProjects": "View All Projects →",
+    "viewMyProjects": "View My Projects",
+    "contactMe": "Contact Me",
+    "downloadCv": "Download CV",
+    "downloadPdf": "Download PDF",
+    "downloadCvPdf": "Download CV (PDF)",
+    "getCsRoadmap": "Get CS Roadmap",
+    "fullBackground": "Full Background",
+    "liveSite": "Live Site ↗",
+    "liveDemo": "Live Demo ↗",
+    "visitLiveSite": "Visit Live Site ↗",
+    "viewSourceRepo": "View Source Repository ↗",
+    "askAboutProject": "Ask About This Project",
+    "viewProjects": "View Projects",
+    "discussProject": "Discuss a Project →",
+    "visitApplication": "Visit Application ↗",
+    "visitHandLabOnline": "Visit HandLab Online ↗"
+  },
+  "categories": {
+    "all": "All Projects",
+    "web": "Web Application",
+    "desktop": "Desktop & Tooling",
+    "Web Application": "Web Application",
+    "Desktop & Tooling": "Desktop & Tooling",
+    "Single-Page Web Application": "Single-Page Web Application",
+    "Desktop Workflow Tool": "Desktop Workflow Tool",
+    "Desktop Study Application": "Desktop Study Application",
+    "CLI Automation Tool": "CLI Automation Tool",
+    "Browser-Based 3D Game": "Browser-Based 3D Game",
+    "Web & Desktop Suite": "Web & Desktop Suite"
+  },
+  "badges": {
+    "openRemote": "Currently Open for Full-Remote & UK Opportunities",
+    "openRoles": "Open to Software Developer Roles",
+    "remoteAvailable": "Manchester, UK // Open to Remote Opportunities",
+    "activeLiveDemo": "Active / Live Demo",
+    "activeLive": "Active / Live",
+    "completed": "Completed",
+    "completedMaintained": "Completed / Maintained"
+  },
+  "seo": {
+    "defaultTitle": "Jeison Plaza Sanchez (JsonDev) | Software Developer",
+    "defaultDescription": "Software Developer portfolio of Jeison Plaza Sanchez (JsonDev) — building practical workflow tools and responsive web applications with JavaScript, React, Python, C, and SQL.",
+    "aboutTitle": "About Jeison Plaza Sanchez | JsonDev",
+    "aboutDescription": "Learn about Jeison Plaza Sanchez (JsonDev), Manchester-based developer with background in customer operations, CS50x foundations, and modern web development.",
+    "projectsTitle": "Projects | JsonDev",
+    "projectsDescription": "Explore practical software projects and tools by Jeison Plaza Sanchez (JsonDev), covering React web apps, Python CLI automation, and Three.js systems.",
+    "contactTitle": "Contact | JsonDev",
+    "contactDescription": "Get in touch with Jeison Plaza Sanchez (JsonDev) for software engineering roles, project inquiries, or connect via LinkedIn and GitHub.",
+    "notFoundTitle": "404 — Page Not Found | JsonDev",
+    "notFoundDescription": "The requested page could not be found on this portfolio. Explore active projects, background information, or contact channels."
+  },
+  "loading": "Loading view..."
+}

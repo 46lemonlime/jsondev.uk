@@ -16,6 +16,8 @@ import {
   calltracker,
   pokerdisplay,
   portfolioweb,
+  smartfileorganizer,
+  ascensiontactics,
   handlab,
   buymeacoffee,
   webdev,
@@ -157,7 +159,7 @@ export const feedback = [
  * @property {string[]} categories - Human-readable category labels (e.g., ['Web Application'], ['Desktop & Tooling'])
  * @property {string} [category] - Legacy single category string for backward compatibility
  * @property {boolean} [featured] - Whether the project is curated for the homepage featured showcase
- * @property {string} img
+ * @property {string} img - Dedicated project identity icon badge SVG source (rendered at 36x36 in project cards and 44x44 in detail views; not a screenshot)
  * @property {string} name
  * @property {string} subtitle
  * @property {string} category
@@ -318,7 +320,7 @@ export const projects = [
     categories: ["Desktop & Tooling"],
     category: "CLI Automation Tool",
     featured: false,
-    img: setup,
+    img: smartfileorganizer,
     name: "Smart File Organizer",
     subtitle: "Deterministic CLI File Organization & Recovery Engine",
     projectType: "Python CLI Project",
@@ -361,7 +363,7 @@ export const projects = [
     categories: ["Web Application"],
     category: "Browser-Based 3D Game",
     featured: false,
-    img: rubik,
+    img: ascensiontactics,
     name: "Ascension Tactics",
     subtitle: "Browser-Based 3D Turn-Based Tabletop Skirmish Game",
     projectType: "Turn-based tabletop game",

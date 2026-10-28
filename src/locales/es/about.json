@@ -1,0 +1,83 @@
+{
+  "intro": {
+    "badge": "PERFIL // TRAYECTORIA Y FUNDAMENTOS",
+    "title": "Sobre Mí",
+    "subheading": "Trayectoria en Desarrollo de Software y Operaciones",
+    "paragraph1": "Soy Jeison Plaza Sanchez (JsonDev), un desarrollador autodidacta radicado en Manchester, Reino Unido, apasionado por el desarrollo de software, las ciencias de la computación y la resolución práctica de problemas.",
+    "paragraph2": "Mi transición a la ingeniería de software nació directamente de mi trabajo en operaciones de servicio al cliente y gestión inmobiliaria de alto ritmo, donde detectar oportunidades de optimización me llevó a crear herramientas de flujo de trabajo en VBA y profundizar en fundamentos de ciencias de la computación mediante CS50x de Harvard y desarrollo web moderno con React, JavaScript y Tailwind CSS.",
+    "imageAlt": "Ilustración del perfil del desarrollador"
+  },
+  "skills": {
+    "eyebrow": "01 // HABILIDADES Y RUTA DE APRENDIZAJE",
+    "title": "Stack Técnico y Aprendizaje Continuo",
+    "description": "Encuentra aquí el enlace a mi ruta de aprendizaje de Ciencias de la Computación en Notion, donde documento cursos completados, tutoriales y estudio técnico en curso.",
+    "features": {
+      "feature-1": {
+        "title": "CS50x — Universidad de Harvard",
+        "content": "Introducción exhaustiva a las empresas intelectuales de las ciencias de la computación y el arte de la programación, cubriendo C, algoritmos, memoria, Python, SQL, HTML, CSS y JavaScript."
+      },
+      "feature-2": {
+        "title": "Desarrollo Web Moderno",
+        "content": "Experiencia práctica creando interfaces de usuario rápidas, responsivas y modulares basadas en componentes con React, JavaScript moderno (ES6+), Tailwind CSS y Vite."
+      },
+      "feature-3": {
+        "title": "Python y Scripting de Sistemas",
+        "content": "Scripting práctico para consola, flujos de automatización, estructuras de datos e interacciones con bases de datos utilizando Python y bases de datos relacionales SQL."
+      },
+      "feature-4": {
+        "title": "VBA y Automatización de Procesos",
+        "content": "Desarrollo de aplicaciones a medida en Microsoft Excel y Access con VBA, automatizando flujos administrativos de gran volumen y reduciendo la carga operativa."
+      }
+    }
+  },
+  "experience": {
+    "eyebrow": "02 // EXPERIENCIA PROFESIONAL",
+    "title": "Historial en Operaciones y Atención al Cliente",
+    "description": "Roles verificados en gestión de cuentas reguladas y operaciones bilingües de clientes, aportando comunicación sólida, rigor normativo y enfoque en métricas a equipos de software.",
+    "roles": {
+      "exp-1": {
+        "role": "Especialista en Gestión Patrimonial (Estate Care)",
+        "period": "2022 – 2023",
+        "company": "Phillips & Cohen Associates",
+        "location": "Manchester, UK (Híbrido)",
+        "summary": "Gestión y administración de cuentas patrimoniales y testamentarias con clientes y empresas, manteniendo registros exactos, superando estándares de calidad y KPIs, y operando bajo estricto cumplimiento normativo para mitigar riesgos legales y financieros."
+      },
+      "exp-2": {
+        "role": "Asesor de Atención al Cliente",
+        "period": "2021 – 2022",
+        "company": "Ventrica",
+        "location": "Remoto",
+        "summary": "Atención al cliente bilingüe en español e inglés a través de múltiples campañas y canales. Dominio exhaustivo de normativas de campaña, cumplimiento de objetivos individuales y de equipo, y colaboración activa en la optimización de procesos operativos."
+      },
+      "exp-3": {
+        "role": "Asesor de Atención al Cliente",
+        "period": "2019 – 2020",
+        "company": "Booking.com",
+        "location": "Manchester, UK",
+        "summary": "Soporte bilingüe de alto volumen en español e inglés mediante llamadas, chat en vivo y correo electrónico. Resolución integral de consultas complejas y reclamaciones, cumplimiento de métricas operativas y coordinación interdepartamental para mejorar procesos."
+      }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "03 // RECOMENDACIONES",
+    "title": "Recomendaciones Profesionales",
+    "description": "Comentarios de directores y gerentes con los que he colaborado en operaciones, contacto con clientes y equipos enfocados en cumplimiento normativo.",
+    "quotes": {
+      "feedback-1": {
+        "name": "Elisabetta G.",
+        "title": "Responsable de Atención al Cliente",
+        "content": "Jeison demostró constantemente una atención extraordinaria a los detalles, gran capacidad resolutiva y una iniciativa innata para optimizar procesos. Su transición al desarrollo de software es la evolución natural de la mentalidad analítica que aportaba a nuestras operaciones a diario."
+      },
+      "feedback-2": {
+        "name": "William P.",
+        "title": "Gerente Senior de Operaciones",
+        "content": "Un integrante del equipo sumamente confiable y proactivo que siempre buscaba formas de agilizar tareas administrativas y compartir soluciones prácticas con el equipo. Su ética de trabajo y compromiso con el dominio técnico son excepcionales."
+      },
+      "feedback-3": {
+        "name": "Chris N.",
+        "title": "Director de Recursos Humanos",
+        "content": "Jeison combina una comunicación bilingüe transparente con una tenacidad incansable ante retos operativos complejos. Su dedicación al aprendizaje autodidacta y a la ingeniería de software es evidente en cada solución que construye."
+      }
+    }
+  }
+}

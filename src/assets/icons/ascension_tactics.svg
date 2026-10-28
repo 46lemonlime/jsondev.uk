@@ -1,0 +1,15 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer Tactical Scope / Reticle Ring -->
+  <circle cx="256" cy="256" r="216" stroke="#00CC99" stroke-width="20" stroke-dasharray="160 30" stroke-linecap="round"/>
+  <!-- Compass / Crosshair Pointers -->
+  <path d="M256 16V64M256 448V496M16 256H64M448 256H496" stroke="#00CC99" stroke-width="20" stroke-linecap="round"/>
+  <!-- Isometric Tactical Skirmish Grid Base -->
+  <path d="M256 100L420 195V325L256 420L92 325V195L256 100Z" stroke="#00CC99" stroke-width="16" stroke-linejoin="round"/>
+  <!-- Inner Isometric Tactical Grid Facets -->
+  <path d="M256 100V420M92 195L420 325M92 325L420 195" stroke="#00CC99" stroke-width="8" stroke-opacity="0.4"/>
+  <!-- Center Tactical Ascension Chevrons (Strategy & Elevation Progression) -->
+  <path d="M180 290L256 220L332 290" stroke="#00CC99" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M200 350L256 300L312 350" stroke="#00CC99" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Center Tactical Node -->
+  <circle cx="256" cy="165" r="22" fill="#00CC99"/>
+</svg>

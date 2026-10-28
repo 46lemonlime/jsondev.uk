@@ -1,0 +1,70 @@
+{
+  "eyebrow": "CANALES DIRECTOS Y REDACTOR DE MENSAJES",
+  "badge": "Manchester, Reino Unido // Abierto a Oportunidades Remotas",
+  "title": "Contacto",
+  "subheading": "Conecta por LinkedIn, GitHub o el redactor de mensajes",
+  "description": "Contáctame para oportunidades de desarrollo de software, colaboraciones técnicas o dudas sobre mis proyectos. Actualmente, la vía más ágil y directa para comunicarte conmigo es a través de <tech>LinkedIn</tech> o <tech>GitHub</tech>.",
+  "messageLinkedIn": "Mensaje en LinkedIn ↗",
+  "gitHubProfile": "GitHub (@46lemonlime) ↗",
+  "illustrationAlt": "Ilustración de contacto",
+  "form": {
+    "heading": "Preparar un Mensaje",
+    "noticeHeader": "Aviso // Envío Directo de Formulario no Disponible",
+    "noticeBody": "El envío automatizado de correos no está configurado en este sitio estático, por lo que los mensajes introducidos a continuación <bold>no se transmiten automáticamente</bold>. Utiliza este redactor para validar y dar formato a tu consulta para <bold>copiarla con un solo clic</bold>, y luego pégala y envíala directamente por <link>LinkedIn</link>.",
+    "nameLabel": "Nombre",
+    "namePlaceholder": "Tu nombre u organización",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "tu@empresa.com",
+    "phoneLabel": "Teléfono",
+    "phoneOptional": "(Opcional)",
+    "phonePlaceholder": "Número de contacto opcional",
+    "subjectLabel": "Asunto",
+    "subjectPlaceholder": "Selecciona un asunto...",
+    "subjectOptions": {
+      "role": "Puesto de Desarrollador de Software / Selección",
+      "collaboration": "Propuesta de colaboración",
+      "project": "Pregunta sobre un proyecto del portafolio",
+      "query": "Consulta general",
+      "feedback": "Comentarios sobre la web"
+    },
+    "messageLabel": "Mensaje",
+    "messagePlaceholder": "Escribe tu mensaje aquí...",
+    "formatAndCopy": "Dar Formato y Copiar Mensaje",
+    "openLinkedIn": "Abrir Perfil de LinkedIn ↗",
+    "feedback": {
+      "copied": "✓ Copiado al portapapeles — Listo para pegar (Aún no enviado)",
+      "manual": "Portapapeles bloqueado por el navegador — Selecciona y pulsa Ctrl+C / Cmd+C (Aún no enviado)",
+      "selectAll": "Seleccionar Todo el Texto",
+      "copyAgain": "Copiar de Nuevo",
+      "retryCopy": "Reintentar Copia",
+      "pasteExplanation": "Este mensaje estructurado no se ha enviado de forma automática. Pégalo en un mensaje en <link>LinkedIn</link> para contactarme directamente.",
+      "draftOutputLabel": "Mensaje formateado listo para copiar"
+    },
+    "validation": {
+      "nameRequired": "El nombre es obligatorio.",
+      "nameMax": "El nombre debe tener 50 caracteres o menos.",
+      "emailRequired": "El correo electrónico es obligatorio.",
+      "emailInvalid": "Por favor, introduce una dirección de correo válida.",
+      "phoneMin": "El número de teléfono debe tener al menos 7 caracteres.",
+      "phoneMax": "El número de teléfono debe tener 20 caracteres o menos.",
+      "subjectRequired": "Por favor, selecciona un asunto.",
+      "messageRequired": "El mensaje es obligatorio.",
+      "messageMin": "El mensaje debe tener al menos 10 caracteres."
+    },
+    "draftHeaders": {
+      "subject": "Asunto",
+      "from": "De",
+      "phone": "Teléfono",
+      "notProvided": "(No facilitado)"
+    }
+  },
+  "info": {
+    "title": "Detalles y Perfiles Verificados",
+    "locationLabel": "Ubicación",
+    "locationValue": "Manchester, Reino Unido",
+    "availabilityLabel": "Disponibilidad",
+    "availabilityValue": "Disponible para oportunidades remotas",
+    "directProfiles": "Perfiles Directos",
+    "mapAlt": "Mapa mostrando Manchester, Reino Unido"
+  }
+}

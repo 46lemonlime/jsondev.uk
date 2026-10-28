@@ -149,8 +149,9 @@ flowchart TD
 - `variant="accent"`: `bg-accent/10 text-accent border-accent/30` (section telemetry eyebrows).
 
 ### F. Icons & Decorative Elements
-- **Default State**: Icons inherit text colour or use `text-textMuted` (`#72776C`).
+- **Default State**: General UI icons inherit text colour or use `text-textMuted` (`#72776C`).
 - **Interactive State**: Icons inside primary buttons or links use `currentColor` and follow the parent link's hover state (`#00CC99` → `#FFFFFF`).
+- **Project Identity Badges**: Dedicated project icons rendered at 36×36 px (in cards) and 44×44 px (in detail metadata cards) follow a clean, monochrome Caribbean Green (`#00CC99`) vector style. Silhouettes feature restrained line weights, geometric precision, and no decorative backgrounds or gradients, maintaining visual balance with the dark technical surfaces.
 - **Brand Logos**: Official third-party logos (GitHub, LinkedIn, Notion, Ko-fi) use neutral `textSecondary` on default, hovering to `#00CC99`. Original brand vector fills are preserved.
 - **Portrait Glow**: Ambient radial glow remains Caribbean Green (`rgba(0, 204, 153, 0.22)`). **No pink glow.**
 

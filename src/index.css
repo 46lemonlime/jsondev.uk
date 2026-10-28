@@ -170,8 +170,7 @@
 }
 
 .feedback-card,
-.project-card,
-.service-card {
+.project-card {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   transition: transform 0.25s ease, border-color 0.25s ease,
@@ -179,8 +178,7 @@
 }
 
 .feedback-card:hover,
-.project-card:hover,
-.service-card:hover {
+.project-card:hover {
   transform: translateY(-4px);
   background-color: var(--bg-surface-elevated);
   border-color: var(--border-accent);
@@ -271,7 +269,6 @@ option {
 
   .feedback-card:hover,
   .project-card:hover,
-  .service-card:hover,
   .social-media-icon:hover {
     transform: none !important;
   }

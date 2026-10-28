@@ -1,0 +1,18 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Back Folder Body -->
+  <path d="M64 136C64 118.327 78.327 104 96 104H200L240 144H416C433.673 144 448 158.327 448 176V220H64V136Z" fill="#00CC99" fill-opacity="0.35"/>
+  <!-- Organized Document 1 (Back Sheet) -->
+  <path d="M128 120H384V260H128V120Z" fill="#00CC99" fill-opacity="0.6"/>
+  <!-- Organized Document 2 (Middle Sheet with Folded Corner) -->
+  <path d="M152 144H320L360 184V280H152V144Z" fill="#00CC99" fill-opacity="0.85"/>
+  <path d="M320 144V184H360L320 144Z" fill="#101110"/>
+  <!-- Front Folder Body -->
+  <path d="M52 224H460C468.837 224 476 231.163 476 240L456 424C454.5 437.5 443 448 429.5 448H82.5C69 448 57.5 437.5 56 424L36 240C36 231.163 43.163 224 52 224Z" fill="#00CC99"/>
+  <!-- Front Folder Detail: Clean Organization Lines / Filter Badges -->
+  <rect x="100" y="280" width="160" height="20" rx="10" fill="#101110"/>
+  <rect x="100" y="324" width="240" height="20" rx="10" fill="#101110"/>
+  <rect x="100" y="368" width="120" height="20" rx="10" fill="#101110"/>
+  <!-- Sorting / Directory Tree Indicator -->
+  <circle cx="396" cy="324" r="28" fill="#101110"/>
+  <path d="M396 308V340M384 328L396 340L408 328" stroke="#00CC99" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,70 @@
+{
+  "eyebrow": "DIRECT CHANNELS & MESSAGE COMPOSER",
+  "badge": "Manchester, UK // Open to Remote Opportunities",
+  "title": "Contact Me",
+  "subheading": "Connect via LinkedIn, GitHub, or Message Builder",
+  "description": "Reach out for software development opportunities, technical collaborations, or questions about my work. Currently, the fastest and most direct way to reach me is via <tech>LinkedIn</tech> or <tech>GitHub</tech>.",
+  "messageLinkedIn": "Message on LinkedIn ↗",
+  "gitHubProfile": "GitHub (@46lemonlime) ↗",
+  "illustrationAlt": "Contact illustration",
+  "form": {
+    "heading": "Prepare a Message",
+    "noticeHeader": "Notice // Direct Form Delivery Unavailable",
+    "noticeBody": "Automated email submission is not configured on this static site, so messages entered below are <bold>not transmitted automatically</bold>. Use this composer to validate and format your inquiry for <bold>one-click copying</bold>, then paste and send it directly via <link>LinkedIn</link>.",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name or organization",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@company.com",
+    "phoneLabel": "Phone",
+    "phoneOptional": "(Optional)",
+    "phonePlaceholder": "Optional contact number",
+    "subjectLabel": "Subject",
+    "subjectPlaceholder": "Select a subject...",
+    "subjectOptions": {
+      "role": "Software Developer role / recruitment",
+      "collaboration": "Collaboration proposal",
+      "project": "Question about a portfolio project",
+      "query": "General query",
+      "feedback": "Website feedback"
+    },
+    "messageLabel": "Message",
+    "messagePlaceholder": "Write your message here...",
+    "formatAndCopy": "Format & Copy Message",
+    "openLinkedIn": "Open LinkedIn Profile ↗",
+    "feedback": {
+      "copied": "✓ Copied to Clipboard — Ready to Paste (Not Sent Yet)",
+      "manual": "Automatic Clipboard Blocked — Select & Press Ctrl+C / Cmd+C Below (Not Sent Yet)",
+      "selectAll": "Select All Text",
+      "copyAgain": "Copy Again",
+      "retryCopy": "Retry Copy",
+      "pasteExplanation": "This formatted message has not been sent automatically. Paste it into a message on <link>LinkedIn</link> to reach me directly.",
+      "draftOutputLabel": "Formatted message ready to copy"
+    },
+    "validation": {
+      "nameRequired": "Name is required.",
+      "nameMax": "Name must be 50 characters or less.",
+      "emailRequired": "Email is required.",
+      "emailInvalid": "Please enter a valid email address.",
+      "phoneMin": "Phone number must be at least 7 characters.",
+      "phoneMax": "Phone number must be 20 characters or less.",
+      "subjectRequired": "Please select a subject.",
+      "messageRequired": "Message is required.",
+      "messageMin": "Message must be at least 10 characters."
+    },
+    "draftHeaders": {
+      "subject": "Subject",
+      "from": "From",
+      "phone": "Phone",
+      "notProvided": "(Not provided)"
+    }
+  },
+  "info": {
+    "title": "Verified Details & Profiles",
+    "locationLabel": "Location",
+    "locationValue": "Manchester, United Kingdom",
+    "availabilityLabel": "Availability",
+    "availabilityValue": "Open to remote opportunities",
+    "directProfiles": "Direct Profiles",
+    "mapAlt": "Map showing Manchester, United Kingdom"
+  }
+}

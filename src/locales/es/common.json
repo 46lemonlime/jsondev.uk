@@ -1,0 +1,75 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "about": "Sobre Mí",
+    "contact": "Contacto",
+    "downloadCv": "Descargar CV",
+    "languageSwitcher": "Selector de idioma"
+  },
+  "footer": {
+    "description": "Desarrollador de software enfocado en la creación de aplicaciones web modernas, herramientas de automatización de flujos de trabajo y soluciones digitales prácticas.",
+    "navigation": "Navegación",
+    "projects": "Proyectos",
+    "resources": "Recursos",
+    "copyright": "© {{year}} Jeison Plaza Sanchez (JsonDev). Todos los derechos reservados."
+  },
+  "buttons": {
+    "viewDetails": "Ver Detalles del Proyecto",
+    "projectOverview": "Resumen del Proyecto",
+    "exploreProjects": "Explorar Proyectos",
+    "aboutMe": "Sobre Mí",
+    "viewAllProjects": "Ver Todos los Proyectos →",
+    "viewMyProjects": "Ver Mis Proyectos",
+    "contactMe": "Contáctame",
+    "downloadCv": "Descargar CV",
+    "downloadPdf": "Descargar PDF",
+    "downloadCvPdf": "Descargar CV (PDF)",
+    "getCsRoadmap": "Ver Ruta de Aprendizaje",
+    "fullBackground": "Trayectoria Completa",
+    "liveSite": "Sitio Web ↗",
+    "liveDemo": "Demostración ↗",
+    "visitLiveSite": "Visitar Sitio Web ↗",
+    "viewSourceRepo": "Ver Repositorio ↗",
+    "askAboutProject": "Preguntar Sobre Este Proyecto",
+    "viewProjects": "Ver Proyectos",
+    "discussProject": "Hablar de un Proyecto →",
+    "visitApplication": "Visitar Aplicación ↗",
+    "visitHandLabOnline": "Visitar HandLab Online ↗"
+  },
+  "categories": {
+    "all": "Todos los Proyectos",
+    "web": "Aplicación Web",
+    "desktop": "Escritorio y Herramientas",
+    "Web Application": "Aplicación Web",
+    "Desktop & Tooling": "Escritorio y Herramientas",
+    "Single-Page Web Application": "Aplicación Web SPA",
+    "Desktop Workflow Tool": "Herramienta de Flujo de Escritorio",
+    "Desktop Study Application": "Aplicación de Estudio de Escritorio",
+    "CLI Automation Tool": "Herramienta CLI de Automatización",
+    "Browser-Based 3D Game": "Juego 3D en Navegador",
+    "Web & Desktop Suite": "Suite Web y de Escritorio"
+  },
+  "badges": {
+    "openRemote": "Disponible para Oportunidades Remotas e Híbridas en Reino Unido",
+    "openRoles": "Disponible para Roles de Desarrollador de Software",
+    "remoteAvailable": "Manchester, Reino Unido // Abierto a Oportunidades Remotas",
+    "activeLiveDemo": "Activo / Demostración",
+    "activeLive": "Activo / En Producción",
+    "completed": "Completado",
+    "completedMaintained": "Completado / En Mantenimiento"
+  },
+  "seo": {
+    "defaultTitle": "Jeison Plaza Sanchez (JsonDev) | Desarrollador de Software",
+    "defaultDescription": "Portafolio del desarrollador de software Jeison Plaza Sanchez (JsonDev) — creación de herramientas de flujo de trabajo y aplicaciones web con JavaScript, React, Python, C y SQL.",
+    "aboutTitle": "Sobre Mí | Jeison Plaza Sanchez | JsonDev",
+    "aboutDescription": "Conoce a Jeison Plaza Sanchez (JsonDev), desarrollador en Manchester con experiencia operativa, fundamentos de CS50x y desarrollo web moderno.",
+    "projectsTitle": "Proyectos | JsonDev",
+    "projectsDescription": "Explora los proyectos de software y herramientas de Jeison Plaza Sanchez (JsonDev), incluyendo aplicaciones web en React, herramientas CLI en Python y sistemas 3D en Three.js.",
+    "contactTitle": "Contacto | JsonDev",
+    "contactDescription": "Ponte en contacto con Jeison Plaza Sanchez (JsonDev) para oportunidades de desarrollo de software o conecta por LinkedIn y GitHub.",
+    "notFoundTitle": "404 — Página No Encontrada | JsonDev",
+    "notFoundDescription": "La página solicitada no se encontró en este portafolio. Explora proyectos activos, información de trayectoria o canales de contacto."
+  },
+  "loading": "Cargando vista..."
+}

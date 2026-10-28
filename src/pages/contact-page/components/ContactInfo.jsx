@@ -6,10 +6,13 @@
  */
 
 import React from "react";
+import { useTranslation } from "react-i18next";
 import styles from "../../../style";
 import { location, linkedin, github } from "../../../assets";
 
 const ContactInfo = () => {
+  const { t } = useTranslation(["contact", "common"]);
+
   return (
     <aside
       aria-label="Verified Contact Information"
@@ -17,35 +20,35 @@ const ContactInfo = () => {
     >
       <div className={`${styles.surfaceCard} p-6`}>
         <h3 className="font-mono text-[12px] font-semibold uppercase tracking-wider text-accent mb-4">
-          Verified Details &amp; Profiles
+          {t("info.title")}
         </h3>
 
         <ul className="space-y-4 font-sans text-[15px]">
           <li className="flex flex-col">
             <span className="font-mono text-[11px] uppercase tracking-wider text-textMuted">
-              Location
+              {t("info.locationLabel")}
             </span>
             <span className="text-textPrimary font-medium mt-0.5">
-              Manchester, United Kingdom
+              {t("info.locationValue")}
             </span>
           </li>
 
           <li className="flex flex-col">
             <span className="font-mono text-[11px] uppercase tracking-wider text-textMuted">
-              Availability
+              {t("info.availabilityLabel")}
             </span>
             <span className="text-telemetry font-medium mt-0.5 flex items-center gap-2">
               <span
                 className="w-2 h-2 rounded-full bg-telemetry"
                 aria-hidden="true"
               />
-              Open to remote opportunities
+              {t("info.availabilityValue")}
             </span>
           </li>
 
           <li className="flex flex-col pt-3 border-t border-borderSubtle">
             <span className="font-mono text-[11px] uppercase tracking-wider text-textMuted mb-2">
-              Direct Profiles
+              {t("info.directProfiles")}
             </span>
             <div className="flex flex-col gap-2.5">
               <a
@@ -95,7 +98,7 @@ const ContactInfo = () => {
           <img
             loading="lazy"
             src={location}
-            alt="Map showing Manchester, United Kingdom"
+            alt={t("info.mapAlt")}
             className="w-full h-auto object-cover"
           />
         </div>

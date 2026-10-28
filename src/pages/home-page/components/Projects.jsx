@@ -5,12 +5,15 @@
  */
 
 import React from "react";
+import { useTranslation } from "react-i18next";
 import styles from "../../../style";
 import { projects } from "../../../constants";
 import { Button, SectionHeader } from "../../../components";
 import ProjectCard from "../../portfolio-page/components/ProjectCard";
 
 const Projects = () => {
+  const { t } = useTranslation(["home", "common"]);
+
   // Showcase all three verified projects on the homepage
   const featuredProjects = projects.filter((project) => project.featured);
 
@@ -18,13 +21,13 @@ const Projects = () => {
     <section id="portfolio" className={`${styles.paddingY} relative`}>
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <SectionHeader
-          eyebrow="01 // PORTFOLIO"
-          title="Featured Software Projects"
-          description="Practical applications built to solve workflow bottlenecks, structure decision-making data, and deliver responsive web experiences."
+          eyebrow={t("projects.eyebrow")}
+          title={t("projects.title")}
+          description={t("projects.description")}
         />
         <div className="shrink-0">
           <Button to="/projects" variant="secondary">
-            View All Projects →
+            {t("buttons.viewAllProjects", { ns: "common" })}
           </Button>
         </div>
       </div>
@@ -34,7 +37,7 @@ const Projects = () => {
           <ProjectCard
             key={project.id}
             {...project}
-            ctaLabel="Project Overview"
+            ctaLabel={t("buttons.projectOverview", { ns: "common" })}
             headingLevel="h3"
           />
         ))}

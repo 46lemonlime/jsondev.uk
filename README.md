@@ -4,6 +4,7 @@
 [![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react&logoColor=black)](https://react.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3.1-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![React Router](https://img.shields.io/badge/React_Router-6.10.0-CA4245?logo=react-router&logoColor=white)](https://reactrouter.com/)
+[![i18next](https://img.shields.io/badge/i18next-26.5.11-26A69A?logo=i18next&logoColor=white)](https://www.i18next.com/)
 [![License: All Rights Reserved](https://img.shields.io/badge/License-All_Rights_Reserved-red.svg)](#license-and-contact)
 
 The personal software development portfolio of **Jeison Porfirio Plaza Sanchez (JsonDev)**, hosted live at [jsondev.uk](https://jsondev.uk/). Designed as a developer-first platform showcasing web applications, workflow automation tooling, computer science foundations, and verified professional experience.
@@ -24,35 +25,43 @@ The personal software development portfolio of **Jeison Porfirio Plaza Sanchez (
 
 ### Implemented Features
 - **Developer-First Homepage**: Clear introductions, animated typewriter title sequence, verified social channels, high-level technical telemetry stats, featured software previews, capability pillars, genuine recommendations, and calls to action.
+- **Full Bilingual Support (EN / ES)**:
+  - English as the default locale on root paths (`/`) and Spanish localized routes under the `/es` URL prefix.
+  - Synchronous language switcher in both desktop header and mobile drawer navigation with persistent `localStorage` preference.
+  - Complete, professional translations across all 5 namespaces (`common`, `home`, `about`, `projects`, `contact`).
+  - Dynamic `document.documentElement.lang` synchronisation (`en` / `es`).
+- **Multilingual SEO & Metadata**:
+  - Centralized, route-aware SEO helper synchronising localized document `<title>`, meta descriptions, Open Graph data, canonical `<link rel="canonical">`, and bidirectional hreflang `<link rel="alternate" hreflang="...">` tags on every route transition.
+  - Multi-language XML sitemap (`/sitemap.xml`) referencing all 20 canonical URLs and search crawler policy (`/robots.txt`).
 - **Project Archive & Detail System**:
   - Filterable catalog allowing visitors to sort projects by category (`All Projects`, `Web Application`, `Desktop & Tooling`), featuring multi-category support per project.
-  - Dynamic route detail pages (`/projects/:slug`) presenting operational challenges, technical solutions, highlights, multi-application suite breakdowns, and bidirectional previous/next project navigation.
-  - Dedicated route wrappers for legacy routes (`/CPT`, `/PSD`, `/PortfolioWeb`).
-- **Comprehensive Software Project Catalog**:
-  - **Portfolio Website**: React 18, Tailwind CSS, and Vite SPA with custom design system and client-side routing.
-  - **Call Progress Tracker**: Native VBA desktop tool designed to structure call stages and support agent KPIs in high-volume operations.
-  - **Poker Strategy Display**: Dedicated VBA desktop tool for quick-reference strategy range adherence and review routines.
-  - **Smart File Organizer**: Contract-first Python 3.10+ CLI tool featuring dry-run simulations, YAML classification, and deterministic rollback.
-  - **Ascension Tactics**: Browser-based 3D tactical skirmish game built with TypeScript, Three.js, WebGL, line-of-sight raycasting, and action cameras.
-  - **HandLab**: Unified poker study ecosystem consisting of **HandLab Online** (deployed Texas Hold'em range analyzer and solver suite) and **HandLab Desktop** (companion desktop tool for extended analysis).
+  - Dynamic route detail pages (`/projects/:slug` and `/es/projects/:slug`) presenting operational challenges, technical solutions, highlights, multi-application suite breakdowns, and bidirectional previous/next project navigation.
+  - Strictly case-sensitive route matching (`caseSensitive`) with unknown or obsolete URLs routing directly to the localized 404 error page.
+- **Comprehensive Software Project Catalog with Dedicated Identity Icons**:
+  - **Portfolio Website**: React 18, Tailwind CSS, and Vite SPA with custom design system and client-side routing (Globe / Web browser icon).
+  - **Call Progress Tracker**: Native VBA desktop tool designed to structure call stages and support agent KPIs in high-volume operations (Operator headset icon).
+  - **Poker Strategy Display**: Dedicated VBA desktop tool for quick-reference strategy range adherence and review routines (Crowned poker chip icon).
+  - **Smart File Organizer**: Contract-first Python 3.10+ CLI tool featuring dry-run simulations, YAML classification, and deterministic rollback (Dedicated folder & structured document sort icon).
+  - **Ascension Tactics**: Browser-based 3D tactical skirmish game built with TypeScript, Three.js, WebGL, line-of-sight raycasting, and action cameras (Dedicated tactical targeting reticle & isometric skirmish grid icon).
+  - **HandLab**: Unified poker study ecosystem consisting of **HandLab Online** (deployed Texas Hold'em range analyzer and solver suite) and **HandLab Desktop** (companion desktop tool for extended analysis; dedicated laboratory flask & cards icon).
 - **Comprehensive About View**:
   - Background narrative tracking the transition from high-volume operations into software engineering.
   - Harvard CS50x educational background, technical stack categorization, and verified Notion CS Learning Roadmap integration.
-  - Verified work experience across Phillips & Cohen Associates, Ventrica, and Booking.com highlighting transferable operational and compliance discipline.
+  - Verified work experience across Phillips & Cohen Associates, Ventrica, and Booking.com highlighting transferable operational and compliance discipline, with authenticated Spanish translations.
 - **Accessible Contact Workflow**:
-  - Validated inquiry composer powered by Formik and Yup.
+  - Validated inquiry composer powered by Formik and Yup with full EN/ES form validation messaging.
   - Transparent notification explaining that direct email transmission is unconfigured on this static site.
   - One-click clipboard copy utility with automatic fallback textarea selection, allowing visitors to format inquiries and paste them directly into LinkedIn messages.
   - Verified profiles and Manchester, UK location details.
 - **Modern Performance & Architecture**:
-  - Route code-splitting with `React.lazy` and `Suspense` for all secondary pages.
+  - Route code-splitting with `React.lazy` and `Suspense` for all secondary pages with localized fallback indicators.
   - Accessible keyboard navigation with visible focus rings (`focus-visible:outline-accent`), semantic HTML landmarks (`header`, `main`, `footer`, `nav`, `article`, `aside`), and `prefers-reduced-motion` overrides.
-  - Client-side title manager synchronizing document title on every route change.
-  - Dedicated 404 error page with recovery navigation.
+  - Dedicated 404 error page with localized recovery navigation.
 
 ### Incomplete / Deliberately Omitted Features
 - **Automated Backend Email API**: Contact form does not transmit emails automatically to a remote server. It acts honestly as a client-side message formatter and clipboard copy tool.
 - **Proprietary & Private Repositories**: Source code and internal screenshots for the Call Progress Tracker and Poker Strategy Display desktop projects are proprietary or pending personal review. Repositories for HandLab Online and HandLab Desktop are private; no private source links or internal distribution artifacts are exposed.
+- **Project Mockup Screenshots**: Project records purposefully employ 36×36 px / 44×44 px SVG identity icons rather than screenshots or gallery carousels.
 
 ---
 
@@ -66,6 +75,8 @@ Exact package versions matching [`package.json`](./package.json):
 | `react` | `^18.2.0` | UI rendering library |
 | `react-dom` | `^18.2.0` | DOM bindings for React |
 | `react-router-dom` | `^6.10.0` | Declarative client-side routing and navigation |
+| `i18next` | `^26.5.11` | Core internationalization framework |
+| `react-i18next` | `^17.1.9` | React bindings and hooks (`useTranslation`) for i18next |
 | `formik` | `^2.4.1` | Form state management and submission lifecycle |
 | `yup` | `^1.2.0` | Schema-based client-side form validation |
 | `react-type-animation` | `^3.0.1` | Typewriter visual effect in the hero header |
@@ -138,17 +149,19 @@ npm run preview
 ```text
 jsondev.uk/
 ├── public/                       # Static public assets served directly
-│   └── favicon.svg               # Site browser favicon
+│   ├── favicon.svg               # Site browser favicon
+│   ├── robots.txt                # Search crawler policy and sitemap reference
+│   └── sitemap.xml               # Multi-language XML sitemap (20 canonical routes)
 ├── src/                          # Application source code
 │   ├── assets/                   # Centralized media, brand graphics, and icons
-│   │   ├── brand/                # Logo SVG and PNG files
+│   │   ├── brand/                # Brand wordmark (logoSmall.png)
 │   │   ├── fonts/                # Local Silkscreen and Geist Pixel font files (WOFF2/TTF)
-│   │   ├── icons/                # Category, project, and social SVGs
-│   │   ├── images/               # Pixel-art hero illustration, location map, and vector graphics
+│   │   ├── icons/                # Dedicated project badges and UI/social SVGs
+│   │   ├── images/               # Page hero illustrations, location map, and 404 art
 │   │   ├── cv.pdf                # Authentic curriculum vitae document
-│   │   └── index.js              # Asset barrel export registry
+│   │   └── index.js              # Centralized asset export registry with backward-compatibility aliases
 │   ├── components/               # Shared reusable UI primitives
-│   │   ├── Layout/               # Header, Footer, Navbar, and ScrollToTop
+│   │   ├── Layout/               # Header, Footer, Navbar, ScrollToTop, and seo.js helper
 │   │   ├── Badge.jsx             # Status tag component (neutral, accent, telemetry, pink)
 │   │   ├── Button.jsx            # Polymorphic button/anchor primitive
 │   │   ├── FeedbackCard.jsx      # Testimonial quote card
@@ -157,21 +170,22 @@ jsondev.uk/
 │   │   └── index.js              # Barrel export for shared components
 │   ├── constants/                # Single source of truth for site content
 │   │   └── index.js              # Nav links, projects catalog, history, stats
-│   ├── pages/                    # Route-level view modules
-│   │   ├── about-page/           # Narrative background, skills, work history
+│   ├── i18n.js                   # i18next configuration, language detection, and namespace loading
+│   ├── locales/                  # Localized translation catalogs
+│   │   ├── en/                   # English translations (common, home, about, projects, contact)
+│   │   └── es/                   # Spanish translations (common, home, about, projects, contact)
+│   ├── pages/                    # Route-level view modules (code-split)
+│   │   ├── about-page/           # Narrative background, skills, verified work history
 │   │   ├── contact-page/         # Message composer & verified contact info
 │   │   │   └── components/       # ContactForm.jsx & ContactInfo.jsx (SRP)
-│   │   ├── error-page/           # HTTP 404 recovery view
+│   │   ├── error-page/           # Localized HTTP 404 recovery view
 │   │   ├── home-page/            # Developer-first landing page
 │   │   │   └── components/       # Hero, Stats, Projects, Products, GetInTouch
 │   │   ├── portfolio-page/       # Main filterable project archive
 │   │   │   └── components/       # ProjectCard.jsx primitive
-│   │   ├── project-detail-page/  # Dynamic single project view (/projects/:slug)
-│   │   ├── project-CPT-page/     # Dedicated wrapper for Call Progress Tracker
-│   │   ├── project-PSD-page/     # Dedicated wrapper for Poker Strategy Display
-│   │   └── project-portfolioweb-page/ # Dedicated wrapper for Portfolio Website
+│   │   └── project-detail-page/  # Dynamic single project view (/projects/:slug)
 │   ├── routes/                   # Application routing and chunking
-│   │   └── App.jsx               # BrowserRouter, route chunks, redirects, 404
+│   │   └── App.jsx               # Case-sensitive canonical English and Spanish routes, 404
 │   ├── index.css                 # Tailwind base styles, font faces, theme vars, reduced-motion
 │   ├── main.jsx                  # React 18 DOM mount entry point
 │   └── style.js                  # Shared typographic and layout token utility
@@ -191,7 +205,10 @@ jsondev.uk/
 ## 8. Architecture and Design Decisions
 
 - **Single Source of Truth**: All dynamic content (project catalog, employment timeline, technical capabilities, social channels, and navigation items) is declared in [`src/constants/index.js`](./src/constants/index.js). Adding or revising projects automatically propagates across the homepage, archive, detail pages, and document titles.
+- **Bilingual i18n Architecture**: Powered by `i18next` and `react-i18next` in [`src/i18n.js`](./src/i18n.js). Content is segmented into five dedicated JSON namespaces (`common`, `home`, `about`, `projects`, `contact`) under `src/locales/en/` and `src/locales/es/`. Language selection syncs with URL paths (`/` for English, `/es` for Spanish) and persists in `localStorage`.
+- **Multilingual SEO Framework**: Managed dynamically through [`src/components/Layout/seo.js`](./src/components/Layout/seo.js) via the `useLocalizeDocument` hook called in `ScrollToTop.jsx`. Automatically computes and applies localized page `<title>`, `<meta name="description">`, Open Graph tags, canonical `<link rel="canonical">`, and `<link rel="alternate" hreflang="...">` tags for `en`, `es`, and `x-default`.
 - **Brand System & Semantic Palette**: Governed by [`DESIGN.md`](./DESIGN.md) as the repository-wide specification. Enforces a 4-step decision hierarchy for colour usage (Caribbean Green for primary actions/brand identity, Vivid Pink for the hero name and deliberate secondary highlights, Semantic status tokens for runtime telemetry, and Dark Neutrals as standard defaults).
+- **Dedicated Project Identity Badges**: Each project in the catalog has its own dedicated SVG identity badge rendered at 36×36 px (in cards) and 44×44 px (in detail metadata cards). Smart File Organizer and Ascension Tactics feature custom monochrome `#00CC99` vector icons rather than borrowing section feature icons.
 - **Component-Driven Composition**: UI primitives ([`Button.jsx`](./src/components/Button.jsx), [`Badge.jsx`](./src/components/Badge.jsx), [`SectionHeader.jsx`](./src/components/SectionHeader.jsx), [`ProjectCard.jsx`](./src/pages/portfolio-page/components/ProjectCard.jsx)) isolate styling and presentation logic, ensuring consistent design language across all views.
 - **Hero Typography & Two-Scale Scaling**: The hero name leverages locally bundled **Silkscreen Bold** with a calculated 1.5× scale ratio between the primary line (“Jeison Porfirio”) and secondary line (“Plaza Sanchez”), rendered with crisp solid brand colours rather than gradients or synthetic strokes.
 - **Single Responsibility Principle (SRP)**:
@@ -199,8 +216,8 @@ jsondev.uk/
   - Navigation links and CV actions are decoupled from sticky header glassmorphism styles.
 - **Open/Closed Principle (OCP)**:
   - Project archive filtering uses declarative `categoryKeys` and `categories` arrays on project data, supporting multi-category membership (e.g., HandLab under both `Web Application` and `Desktop & Tooling`) without hardcoded component arrays or duplicate project records.
-  - Route document titles in [`ScrollToTop.jsx`](./src/components/Layout/ScrollToTop.jsx) resolve dynamically from the project data catalog.
 - **Performance & Lazy Loading**: Secondary routes are split into separate JavaScript chunks using `React.lazy` and `Suspense`, preventing unnecessary overhead on initial landing load.
+- **Controlled Legacy Cleanup**: Obsolete legacy URL redirects, redundant single-project page wrappers, and unused template graphics have been removed. All canonical routes enforce native `caseSensitive` matching, safely directing legacy, mixed-case, or invalid URLs to the 404 error page.
 - **Accessibility & UX**:
   - Full keyboard focusability with high-contrast Caribbean green focus rings.
   - Skip-to-content bypass link for screen reader and keyboard visitors.
@@ -211,30 +228,26 @@ jsondev.uk/
 
 ## 9. Routing
 
-Routing is managed via `react-router-dom` in [`src/routes/App.jsx`](./src/routes/App.jsx).
+Routing is managed via `react-router-dom` in [`src/routes/App.jsx`](./src/routes/App.jsx) with strict case-sensitive matching (`caseSensitive`).
 
-### Active Main Routes
-| Path | Component | Description |
-| :--- | :--- | :--- |
-| `/` | `Home` | Primary landing page |
-| `/projects` | `Projects` | Full filterable software projects archive |
-| `/projects/:slug` | `ProjectDetail` | Dynamic project detail view based on slug parameter |
-| `/about` | `About` | Personal narrative, education, skills, and work history |
-| `/contact` | `Contact` | Message builder and verified contact channels |
+### Canonical Route Matrix (20 Routes)
 
-### Backward-Compatible Legacy Redirects
-Legacy uppercase and previous site paths redirect seamlessly:
-- `/About` ➔ `/about`
-- `/Projects` ➔ `/projects`
-- `/Contact` ➔ `/contact`
-- `/CPT` ➔ `/projects/call-progress-tracker`
-- `/PSD` ➔ `/projects/poker-strategy-display`
-- `/PortfolioWeb` ➔ `/projects/portfolio-website`
-- `/services` & `/Services` ➔ `/about` (consolidated)
-- `/construction` & `/Construction` ➔ `/`
+| English Path (Default) | Spanish Path (`/es`) | Component | Description |
+| :--- | :--- | :--- | :--- |
+| `/` | `/es` | `Home` | Primary landing page |
+| `/projects` | `/es/projects` | `Projects` | Filterable project archive |
+| `/projects/portfolio-website` | `/es/projects/portfolio-website` | `ProjectDetail` | Portfolio Website detail |
+| `/projects/call-progress-tracker` | `/es/projects/call-progress-tracker` | `ProjectDetail` | Call Progress Tracker detail |
+| `/projects/poker-strategy-display` | `/es/projects/poker-strategy-display` | `ProjectDetail` | Poker Strategy Display detail |
+| `/projects/smart-file-organizer` | `/es/projects/smart-file-organizer` | `ProjectDetail` | Smart File Organizer detail |
+| `/projects/ascension-tactics` | `/es/projects/ascension-tactics` | `ProjectDetail` | Ascension Tactics detail |
+| `/projects/handlab` | `/es/projects/handlab` | `ProjectDetail` | HandLab suite detail |
+| `/about` | `/es/about` | `About` | Personal narrative, education, and verified work history |
+| `/contact` | `/es/contact` | `Contact` | Message builder and verified contact channels |
 
-### 404 Route Catch-All
-- Any undefined URL renders the dedicated `Error` component (`<Route path="*" element={<Error />} />`), providing clear navigation back to active sections.
+### 404 Route Catch-All & Strict URL Enforcement
+- In accordance with Stage 21G, obsolete legacy redirect paths (such as `/About`, `/Projects`, `/Contact`, `/CPT`, `/PSD`, `/PortfolioWeb`, `/services`, `/construction`) and mixed-case variations have been deprecated.
+- Because all canonical `<Route>` definitions declare `caseSensitive`, any non-matching, legacy, or unknown path (in either `/` or `/es/*`) falls directly into the localized 404 `Error` component (`<Route path="*" element={<Error />} />`). The 404 page provides clear recovery navigation and sets `<meta name="robots" content="noindex, nofollow" />`.
 
 ---
 

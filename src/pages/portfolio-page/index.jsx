@@ -5,8 +5,9 @@
  */
 
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import styles from "../../style";
-import { project00, github } from "../../assets";
+import { projectsHero, github } from "../../assets";
 import { Button, Badge } from "../../components";
 import ProjectCard from "./components/ProjectCard";
 import { projects } from "../../constants";
@@ -21,6 +22,7 @@ const CATEGORIES = [
 ];
 
 const Projects = () => {
+  const { t } = useTranslation(["projects", "common"]);
   const [activeFilter, setActiveFilter] = useState("all");
 
   // Filter projects declaratively supporting multiple categories per project
@@ -57,17 +59,14 @@ const Projects = () => {
         <section className={`flex md:flex-row flex-col ${styles.paddingY} items-center gap-10 relative`}>
           <div className="flex-1 flex flex-col items-start relative z-[2]">
             <Badge variant="accent" className="mb-4">
-              PORTFOLIO // SOFTWARE &amp; TOOLING
+              {t("archive.badge")}
             </Badge>
-            <h1 className={styles.heading1}>Projects</h1>
+            <h1 className={styles.heading1}>{t("archive.title")}</h1>
             <p className={`${styles.subheading} mt-3`}>
-              Web Applications &amp; Workflow Automation Tools
+              {t("archive.subheading")}
             </p>
             <p className={`${styles.paragraph} max-w-[560px] mt-5`}>
-              Each project below represents a practical tool or application I
-              built to solve workflow challenges, structure complex information,
-              or practice modern web engineering. Select any project to inspect
-              its background, technology stack, and verified scope.
+              {t("archive.description")}
             </p>
 
             <div className="flex flex-wrap items-center gap-4 mt-7">
@@ -85,7 +84,7 @@ const Projects = () => {
                 <span>GitHub (@46lemonlime)</span>
               </Button>
               <Button to="/contact" variant="ghost">
-                Discuss a Project →
+                {t("buttons.discussProject", { ns: "common" })}
               </Button>
             </div>
           </div>
@@ -94,8 +93,8 @@ const Projects = () => {
             className={`flex-1 flex ${styles.flexCenter} ${styles.padding} relative`}
           >
             <img
-              src={project00}
-              alt="Software Projects Illustration"
+              src={projectsHero}
+              alt={t("archive.illustrationAlt")}
               className="w-full max-w-[420px] h-auto relative z-[5]"
             />
           </div>
@@ -107,10 +106,15 @@ const Projects = () => {
             <div
               className="flex flex-wrap items-center gap-2"
               role="group"
-              aria-label="Filter projects by technology"
+              aria-label={t("archive.filterAria")}
             >
               {CATEGORIES.map((cat) => {
                 const isSelected = activeFilter === cat.id;
+                const translatedLabel = t(`categories.${cat.id}`, {
+                  ns: "common",
+                  defaultValue: cat.label,
+                });
+
                 return (
                   <button
                     key={cat.id}
@@ -123,14 +127,17 @@ const Projects = () => {
                         : "bg-surface text-textSecondary border-borderSubtle hover:text-textPrimary hover:border-borderAccent"
                     }`}
                   >
-                    {cat.label}
+                    {translatedLabel}
                   </button>
                 );
               })}
             </div>
 
             <span className="font-mono text-[12px] text-textMuted">
-              Showing {filteredProjects.length} of {projects.length} projects
+              {t("archive.showingCount", {
+                count: filteredProjects.length,
+                total: projects.length,
+              })}
             </span>
           </div>
 

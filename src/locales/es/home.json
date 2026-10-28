@@ -1,0 +1,68 @@
+{
+  "hero": {
+    "roles": [
+      "Desarrollador de Software",
+      "Desarrollador React y JavaScript",
+      "Creador de Automatización de Procesos"
+    ],
+    "paragraph": "Soy un desarrollador de software radicado en Manchester (<jsdev>JsonDev</jsdev>) que combina fundamentos de ciencias de la computación con resolución práctica de problemas operativos. Respaldado por CS50x de Harvard y desarrollo web moderno, creo herramientas de flujo de trabajo prácticas y aplicaciones web interactivas con <tech>JavaScript</tech>, <tech>React</tech>, <tech>Tailwind CSS</tech>, <tech>Python</tech>, <tech>C</tech> y <tech>SQL</tech>. Explora mis proyectos destacados, formación técnica y ruta de aprendizaje a continuación.",
+    "verifiedProfiles": "Perfiles Verificados:",
+    "locBadge": "UBIC // MANCHESTER, UK",
+    "devBadge": "CS50x // DEV",
+    "illustrationAlt": "Ilustración en pixel art del espacio de trabajo del desarrollador con múltiples pantallas, terminales brillantes y vista nocturna de una ciudad lluviosa"
+  },
+  "stats": [
+    {
+      "id": "stats-1",
+      "label": "STACK PRINCIPAL",
+      "value": "React y JS",
+      "detail": "HTML, CSS, Tailwind, Vite"
+    },
+    {
+      "id": "stats-2",
+      "label": "PROGRAMACIÓN",
+      "value": "C, Python, SQL",
+      "detail": "VBA, estructuras de datos y gestión de memoria"
+    },
+    {
+      "id": "stats-3",
+      "label": "IDIOMAS",
+      "value": "EN y ES",
+      "detail": "Competencia nativa / bilingüe"
+    },
+    {
+      "id": "stats-4",
+      "label": "UBICACIÓN",
+      "value": "Manchester, UK",
+      "detail": "Disponible para roles remotos e híbridos"
+    }
+  ],
+  "projects": {
+    "eyebrow": "01 // PORTAFOLIO",
+    "title": "Proyectos de Software Destacados",
+    "description": "Aplicaciones prácticas desarrolladas para eliminar cuellos de botella en flujos de trabajo, estructurar datos de toma de decisiones y ofrecer experiencias web intuitivas y responsivas."
+  },
+  "capabilities": {
+    "eyebrow": "02 // PERFIL TÉCNICO",
+    "title": "Habilidades, Fundamentos y Enfoque de Ingeniería",
+    "description": "Basado en los fundamentos de ciencias de la computación de CS50x de Harvard, desarrollo web frontend moderno y automatización práctica de flujos de trabajo.",
+    "items": {
+      "prod-1": {
+        "title": "Ingeniería Web Frontend",
+        "content": "Desarrollo moderno en el lado del cliente utilizando React 18, arquitectura responsiva con Tailwind CSS, herramientas de Vite y HTML semántico y accesible."
+      },
+      "prod-2": {
+        "title": "Scripting de Sistemas y Automatización",
+        "content": "Automatización de flujos de trabajo en consola y escritorio mediante Python, programación de sistemas en C, consultas SQL y optimización práctica de procesos."
+      },
+      "prod-3": {
+        "title": "Fundamentos de Ciencias de la Computación",
+        "content": "Sólida formación técnica a través de CS50x de Harvard cubriendo gestión de memoria, análisis de algoritmos, estructuras de datos y pensamiento computacional."
+      }
+    }
+  },
+  "connect": {
+    "title": "Conectemos",
+    "description": "¿Buscas un desarrollador comprometido con sólidos fundamentos analíticos y experiencia operativa real? No dudes en escribirme mediante la página de contacto o conectar en LinkedIn y GitHub."
+  }
+}

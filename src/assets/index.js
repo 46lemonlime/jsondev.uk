@@ -7,19 +7,19 @@
 
 // Brand Assets
 import logo from "./brand/logoSmall.png";
-import brandSvg from "./brand/logo.svg";
 
 // Documents
 import cv from "./cv.pdf";
 
-// Profile & Visual Images
+// Profile & Visual Page Hero Illustrations
 import heroIllustration from "./images/hero_pixel_workbench.jpg";
-import project00 from "./images/project00.svg";
+import projectsHero from "./images/projects_hero.svg";
 import error_img from "./images/404.svg";
 import aboutme from "./images/aboutme.svg";
+import contactIllustration from "./images/contact_illustration.svg";
 import location from "./images/location.png";
 
-// General Icons
+// General Section & Feature Icons
 import quotes from "./icons/quotes.svg";
 import rubik from "./icons/rubik.svg";
 import books from "./icons/books.svg";
@@ -27,13 +27,14 @@ import setup from "./icons/setup.svg";
 import menu from "./icons/menu.svg";
 import close from "./icons/close.svg";
 import arrowUp from "./icons/arrow-up.svg";
-import chat from "./icons/chat_bubble.svg";
 import webdev from "./icons/webdev.svg";
 
-// Project Specific Icons
+// Dedicated Project Identity Icons (Square 36x36 card badge / 44x44 detail badge)
 import calltracker from "./icons/call_progress_tracker.svg";
 import pokerdisplay from "./icons/poker_strat_display.svg";
 import portfolioweb from "./icons/portfolio_web.svg";
+import smartfileorganizer from "./icons/smart_file_organizer.svg";
+import ascensiontactics from "./icons/ascension_tactics.svg";
 import handlab from "./icons/handlab.svg";
 
 // Social & Community Icons
@@ -46,12 +47,14 @@ import notionBlack from "./icons/notionBlack.svg";
 
 export {
   logo,
-  brandSvg,
   cv,
   heroIllustration,
-  project00,
+  projectsHero,
+  projectsHero as project00,
   error_img,
   aboutme,
+  contactIllustration,
+  contactIllustration as chat,
   location,
   quotes,
   rubik,
@@ -60,11 +63,12 @@ export {
   menu,
   close,
   arrowUp,
-  chat,
   webdev,
   calltracker,
   pokerdisplay,
   portfolioweb,
+  smartfileorganizer,
+  ascensiontactics,
   handlab,
   github,
   linkedin,

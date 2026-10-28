@@ -1,0 +1,12 @@
+{
+  "badge": "HTTP 404 // RUTA NO ENCONTRADA",
+  "title": "Página No Encontrada",
+  "description": "La URL solicitada no coincide con una ruta activa en este portafolio o la página ha sido consolidada en una sección más reciente.",
+  "quickNav": "Navegación Rápida",
+  "bullet1": "Explorar proyectos de software completados.",
+  "bullet2": "Leer sobre mi formación técnica y ruta de ciencias de la computación.",
+  "bullet3": "Volver a la página principal o contactar mediante el formulario.",
+  "backHome": "Volver al Inicio",
+  "viewProjects": "Ver Proyectos",
+  "illustrationAlt": "Ilustración de página no encontrada 404"
+}

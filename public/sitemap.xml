@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.jsondev.uk/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.jsondev.uk/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.jsondev.uk/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.jsondev.uk/" />
+  </url>
+  <url>
+    <loc>https://www.jsondev.uk/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.jsondev.uk/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.jsondev.uk/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.jsondev.uk/" />
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://www.jsondev.uk/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.jsondev.uk/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.jsondev.uk/es/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.jsondev.uk/about" />
+  </url>
+  <url>
+    <loc>https://www.jsondev.uk/es/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.jsondev.uk/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.jsondev.uk/es/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.jsondev.uk/about" />
+  </url>
+
+  <!-- Projects Archive -->
+  <url>
+    <loc>https://www.jsondev.uk/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.jsondev.uk/projects" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.jsondev.uk/es/projects" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.jsondev.uk/projects" />
+  </url>
+  <url>
+    <loc>https://www.jsondev.uk/es/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.jsondev.uk/projects" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.jsondev.uk/es/projects" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.jsondev.uk/projects" />
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://www.jsondev.uk/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.jsondev.uk/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.jsondev.uk/es/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.jsondev.uk/contact" />
+  </url>
+  <url>
+    <loc>https://www.jsondev.uk/es/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.jsondev.uk/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.jsondev.uk/es/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.jsondev.uk/contact" />
+  </url>
+
+  <!-- Project Detail: Portfolio Website -->
+  <url>
+    <loc>https://www.jsondev.uk/projects/portfolio-website</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.jsondev.uk/projects/portfolio-website" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.jsondev.uk/es/projects/portfolio-website" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.jsondev.uk/projects/portfolio-website" />
+  </url>
+  <url>
+    <loc>https://www.jsondev.uk/es/projects/portfolio-website</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.jsondev.uk/projects/portfolio-website" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.jsondev.uk/es/projects/portfolio-website" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.jsondev.uk/projects/portfolio-website" />
+  </url>
+
+  <!-- Project Detail: Call Progress Tracker -->
+  <url>
+    <loc>https://www.jsondev.uk/projects/call-progress-tracker</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.jsondev.uk/projects/call-progress-tracker" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.jsondev.uk/es/projects/call-progress-tracker" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.jsondev.uk/projects/call-progress-tracker" />
+  </url>
+  <url>
+    <loc>https://www.jsondev.uk/es/projects/call-progress-tracker</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.jsondev.uk/projects/call-progress-tracker" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.jsondev.uk/es/projects/call-progress-tracker" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.jsondev.uk/projects/call-progress-tracker" />
+  </url>
+
+  <!-- Project Detail: Poker Strategy Display -->
+  <url>
+    <loc>https://www.jsondev.uk/projects/poker-strategy-display</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.jsondev.uk/projects/poker-strategy-display" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.jsondev.uk/es/projects/poker-strategy-display" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.jsondev.uk/projects/poker-strategy-display" />
+  </url>
+  <url>
+    <loc>https://www.jsondev.uk/es/projects/poker-strategy-display</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.jsondev.uk/projects/poker-strategy-display" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.jsondev.uk/es/projects/poker-strategy-display" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.jsondev.uk/projects/poker-strategy-display" />
+  </url>
+
+  <!-- Project Detail: Smart File Organizer -->
+  <url>
+    <loc>https://www.jsondev.uk/projects/smart-file-organizer</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.jsondev.uk/projects/smart-file-organizer" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.jsondev.uk/es/projects/smart-file-organizer" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.jsondev.uk/projects/smart-file-organizer" />
+  </url>
+  <url>
+    <loc>https://www.jsondev.uk/es/projects/smart-file-organizer</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.jsondev.uk/projects/smart-file-organizer" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.jsondev.uk/es/projects/smart-file-organizer" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.jsondev.uk/projects/smart-file-organizer" />
+  </url>
+
+  <!-- Project Detail: Ascension Tactics -->
+  <url>
+    <loc>https://www.jsondev.uk/projects/ascension-tactics</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.jsondev.uk/projects/ascension-tactics" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.jsondev.uk/es/projects/ascension-tactics" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.jsondev.uk/projects/ascension-tactics" />
+  </url>
+  <url>
+    <loc>https://www.jsondev.uk/es/projects/ascension-tactics</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.jsondev.uk/projects/ascension-tactics" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.jsondev.uk/es/projects/ascension-tactics" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.jsondev.uk/projects/ascension-tactics" />
+  </url>
+
+  <!-- Project Detail: HandLab -->
+  <url>
+    <loc>https://www.jsondev.uk/projects/handlab</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.jsondev.uk/projects/handlab" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.jsondev.uk/es/projects/handlab" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.jsondev.uk/projects/handlab" />
+  </url>
+  <url>
+    <loc>https://www.jsondev.uk/es/projects/handlab</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.jsondev.uk/projects/handlab" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.jsondev.uk/es/projects/handlab" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.jsondev.uk/projects/handlab" />
+  </url>
+</urlset>
