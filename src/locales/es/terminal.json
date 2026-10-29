@@ -1,0 +1,87 @@
+{
+  "badge": "CLI // ENTORNO INTERACTIVO",
+  "title": "Terminal Interactiva",
+  "subheading": "LÍNEA DE COMANDOS DEL PORTAFOLIO",
+  "description": "Una interfaz de línea de comandos interactiva para explorar proyectos, trayectoria y sistemas de desarrollo. Integrada directamente en el portafolio web.",
+  "windowTitle": "invitado@jsondev.uk: ~ (bash)",
+  "sessionStatus": "Conectado",
+  "welcome": {
+    "title": "Bienvenido a JsonDev Virtual Shell (simulación bash) [Versión 1.2.0]",
+    "hint": "Escribe \"help\" para ver los comandos disponibles."
+  },
+  "promptAriaLabel": "Entrada de comando de la terminal",
+  "inputPlaceholder": "Escribe un comando (ej. 'help', 'ls', 'pwd', 'whoami', 'projects')...",
+  "stats": {
+    "node": "Nodo: Entorno Web",
+    "status": "Estado: En línea",
+    "shell": "Shell: bash (simulado)"
+  },
+  "commands": {
+    "help": {
+      "desc": "Muestra los comandos disponibles y su uso.",
+      "header": "Comandos Disponibles:"
+    },
+    "pwd": {
+      "desc": "Muestra el directorio de trabajo actual simulado."
+    },
+    "whoami": {
+      "desc": "Muestra el nombre de usuario simulado."
+    },
+    "echo": {
+      "desc": "Imprime texto o argumentos en la terminal."
+    },
+    "ls": {
+      "desc": "Lista el contenido y archivos del directorio virtual."
+    },
+    "cd": {
+      "desc": "Cambia el directorio de trabajo simulado."
+    },
+    "about": {
+      "desc": "Muestra información de trayectoria y visión general del desarrollador.",
+      "role": "Rol: Desarrollador de Software",
+      "location": "Ubicación: Manchester, Reino Unido (Abierto a Remoto)",
+      "summary": "Desarrollador con experiencia previa en operaciones de gestión de cuentas y atención al cliente bilingüe. Transición hacia la ingeniería de software a través de los fundamentos de CS50x de Harvard, automatización de procesos (Python, VBA) y aplicaciones web modernas (React, JavaScript, Tailwind CSS). Bilingüe en inglés y español."
+    },
+    "projects": {
+      "desc": "Lista proyectos públicos o muestra detalles con 'projects <slug>'.",
+      "header": "Proyectos Verificados del Portafolio:",
+      "slugHint": "Escribe \"projects <slug>\" (ej. \"projects handlab\") para ver los detalles.",
+      "notFound": "Proyecto no encontrado: \"{{slug}}\". Escribe \"projects\" para ver los slugs disponibles.",
+      "fieldCategory": "Categoría",
+      "fieldTech": "Tecnologías",
+      "fieldSummary": "Resumen",
+      "fieldLive": "Sitio Web",
+      "fieldRepo": "Código Fuente",
+      "fieldDetail": "Ruta de Detalle"
+    },
+    "skills": {
+      "desc": "Muestra el conjunto de habilidades técnicas y competencias.",
+      "header": "Habilidades Técnicas y Competencias:",
+      "languages": "Lenguajes: JavaScript (ES6+), Python, C, SQL, HTML5, CSS3, VBA",
+      "frameworks": "Frameworks y UI: React, Tailwind CSS, Vite, Three.js",
+      "foundations": "Ciencias de la Computación: Algoritmos, Estructuras de Datos, Memoria (CS50x Harvard)",
+      "strengths": "Fortalezas Operativas: Bilingüe (EN/ES), Automatización de Flujos, Mejora de Procesos",
+      "roadmap": "Ruta de Aprendizaje: https://juicy-resolution-f28.notion.site/My-CS-Journey-56da4e6378854b02a0dda599d55d633d"
+    },
+    "contact": {
+      "desc": "Muestra canales de contacto directo y perfiles verificados.",
+      "header": "Canales de Contacto Directo:",
+      "linkedin": "LinkedIn: https://www.linkedin.com/in/jpplazasanchez/",
+      "github": "GitHub: https://github.com/46lemonlime",
+      "twitter": "X (Twitter): https://twitter.com/_jsondev",
+      "form": "Constructor de Mensajes: /es/contact"
+    },
+    "history": {
+      "desc": "Muestra los comandos ejecutados en la sesión actual.",
+      "header": "Historial de Comandos de la Sesión:",
+      "empty": "No hay comandos en el historial de la sesión actual."
+    },
+    "clear": {
+      "desc": "Limpia la pantalla de la terminal."
+    },
+    "errors": {
+      "notFoundHint": "Escribe \"help\" para ver la lista de comandos disponibles.",
+      "empty": "Por favor ingresa un comando. Escribe \"help\" para ver la ayuda."
+    }
+  }
+}

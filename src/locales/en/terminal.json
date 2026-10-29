@@ -1,0 +1,87 @@
+{
+  "badge": "CLI // INTERACTIVE ENVIRONMENT",
+  "title": "Interactive Terminal",
+  "subheading": "PORTFOLIO COMMAND SHELL",
+  "description": "An interactive command-line interface for exploring projects, background, and developer systems. Built directly into the web portfolio.",
+  "windowTitle": "guest@jsondev.uk: ~ (bash)",
+  "sessionStatus": "Connected",
+  "welcome": {
+    "title": "Welcome to JsonDev Virtual Shell (bash simulation) [Version 1.2.0]",
+    "hint": "Type \"help\" to view available commands."
+  },
+  "promptAriaLabel": "Terminal command input",
+  "inputPlaceholder": "Type a command (e.g. 'help', 'ls', 'pwd', 'whoami', 'projects')...",
+  "stats": {
+    "node": "Node: Web Environment",
+    "status": "Status: Online",
+    "shell": "Shell: bash (simulated)"
+  },
+  "commands": {
+    "help": {
+      "desc": "List available commands and their usage.",
+      "header": "Available Commands:"
+    },
+    "pwd": {
+      "desc": "Print the simulated current working directory."
+    },
+    "whoami": {
+      "desc": "Display the simulated username."
+    },
+    "echo": {
+      "desc": "Print text or arguments to the terminal."
+    },
+    "ls": {
+      "desc": "List virtual directory contents and files."
+    },
+    "cd": {
+      "desc": "Change simulated working directory."
+    },
+    "about": {
+      "desc": "Display developer background and foundational overview.",
+      "role": "Role: Software Developer",
+      "location": "Location: Manchester, United Kingdom (Open to Remote)",
+      "summary": "Developer with operations background in estate care and high-volume customer service. Transitioned into software development via Harvard CS50x fundamentals, workflow automation (Python, VBA), and modern web interfaces (React, JavaScript, Tailwind CSS). Bilingual in English and Spanish."
+    },
+    "projects": {
+      "desc": "List public projects or show details with 'projects <slug>'.",
+      "header": "Verified Portfolio Projects:",
+      "slugHint": "Type \"projects <slug>\" (e.g. \"projects handlab\") for full details.",
+      "notFound": "Project not found: \"{{slug}}\". Type \"projects\" to list supported slugs.",
+      "fieldCategory": "Category",
+      "fieldTech": "Technologies",
+      "fieldSummary": "Summary",
+      "fieldLive": "Live Site",
+      "fieldRepo": "Source Code",
+      "fieldDetail": "Detail Route"
+    },
+    "skills": {
+      "desc": "Display core technical stack, tooling, and competencies.",
+      "header": "Technical Skills & Competencies:",
+      "languages": "Languages & Core: JavaScript (ES6+), Python, C, SQL, HTML5, CSS3, VBA",
+      "frameworks": "Frameworks & UI: React, Tailwind CSS, Vite, Three.js",
+      "foundations": "Computer Science: Algorithms, Data Structures, Memory Management (Harvard CS50x)",
+      "strengths": "Operational Strengths: Bilingual (EN/ES), Workflow Automation, Process Improvement",
+      "roadmap": "Learning Roadmap: https://juicy-resolution-f28.notion.site/My-CS-Journey-56da4e6378854b02a0dda599d55d633d"
+    },
+    "contact": {
+      "desc": "Display verified direct contact channels and profiles.",
+      "header": "Direct Contact Channels:",
+      "linkedin": "LinkedIn: https://www.linkedin.com/in/jpplazasanchez/",
+      "github": "GitHub: https://github.com/46lemonlime",
+      "twitter": "X (Twitter): https://twitter.com/_jsondev",
+      "form": "Message Builder: /contact"
+    },
+    "history": {
+      "desc": "Show commands executed in the current session.",
+      "header": "Session Command History:",
+      "empty": "No commands in current session history."
+    },
+    "clear": {
+      "desc": "Clear the terminal screen output."
+    },
+    "errors": {
+      "notFoundHint": "Type \"help\" for a list of available commands.",
+      "empty": "Please enter a command. Type \"help\" for guidance."
+    }
+  }
+}

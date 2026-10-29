@@ -155,6 +155,23 @@ flowchart TD
 - **Brand Logos**: Official third-party logos (GitHub, LinkedIn, Notion, Ko-fi) use neutral `textSecondary` on default, hovering to `#00CC99`. Original brand vector fills are preserved.
 - **Portrait Glow**: Ambient radial glow remains Caribbean Green (`rgba(0, 204, 153, 0.22)`). **No pink glow.**
 
+### G. Terminal Window & Shell UI
+- **Window Chrome**: Elevated surface (`#20231E`) container with subtle border (`#30342C`) and 16px (`rounded-2xl`) corner radius. Sits on the dark canvas with subtle depth shadows.
+- **Titlebar Header**: Surface (`#181A17`) bar with macOS-inspired window controls (Close `#FF5F56`, Minimize `#FFBD2E`, Expand `#27C93F`), monospace session title (`guest@jsondev.uk: ~ (bash)`), and right-aligned telemetry indicator with animated Caribbean Green pulse dot. No clear button in header to maintain clean telemetry balance.
+- **Terminal Canvas**: Translucent dark fill (`bg-canvas/40`) with natural vertical height expansion. Free of nested vertical scrollbars to prevent double-scrollbar artifacts.
+- **Typographic System**: Strict monospace typography throughout (`JetBrains Mono`, `monospace`). Prompt format: `guest@jsondev.uk:<path>$` with Caribbean Green user/host/dollar (`#00CC99`), Bright Mint directory (`#17D1A3`), and primary text input (`#F1F2EC`).
+- **Initial Welcome Screen**: High-fidelity 8-line ASCII wordmark in Caribbean Green (`#00CC99`), session welcome prose, version label, separator, and CLI illustration box. Displays once per session; cleanly cleared by `clear` command without resetting session or command history.
+- **Focus Stability**: Always maintains `preventScroll: true` on input focus to eliminate unwanted vertical page shifts.
+
+### H. Primary Website Scrollbar
+- **Global Styling**: Directly targets `html` to style the main page scrollbar without styling inner elements or modals.
+- **Palette Alignment**:
+  - Track: Canvas `#101110`.
+  - Thumb: Border Subtle `#30342C` with 2px canvas border offset and fully rounded pill corners (`rounded-full`).
+  - Hover: Caribbean Green accent hover tint `rgba(0, 204, 153, 0.45)`.
+  - Active: Solid Caribbean Green `#00CC99`.
+- **Implementation**: Standard `scrollbar-color: #30342C #101110; scrollbar-width: thin;` coupled with WebKit pseudo-elements (`::-webkit-scrollbar*`, 8px width) for universal cross-browser consistency.
+
 ---
 
 ## 5. Consistency & Anti-Pattern Rules

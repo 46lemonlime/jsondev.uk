@@ -16,6 +16,7 @@ import { footerLinks, socialMedia } from "../../constants";
 const NAV_LINK_NAMES = {
   "/": "home",
   "/projects": "projects",
+  "/terminal": "terminal",
   "/about": "about",
   "/contact": "contact",
 };

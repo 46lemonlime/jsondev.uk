@@ -19,6 +19,8 @@ import enProjects from "./locales/en/projects.json";
 import esProjects from "./locales/es/projects.json";
 import enContact from "./locales/en/contact.json";
 import esContact from "./locales/es/contact.json";
+import enTerminal from "./locales/en/terminal.json";
+import esTerminal from "./locales/es/terminal.json";
 import enErrors from "./locales/en/errors.json";
 import esErrors from "./locales/es/errors.json";
 
@@ -29,6 +31,7 @@ export const resources = {
     home: enHome,
     about: enAbout,
     projects: enProjects,
+    terminal: enTerminal,
     contact: enContact,
     errors: enErrors,
   },
@@ -37,6 +40,7 @@ export const resources = {
     home: esHome,
     about: esAbout,
     projects: esProjects,
+    terminal: esTerminal,
     contact: esContact,
     errors: esErrors,
   },
@@ -47,7 +51,7 @@ i18n.use(initReactI18next).init({
   lng: "en",
   fallbackLng: "en",
   defaultNS,
-  ns: ["common", "home", "about", "projects", "contact", "errors"],
+  ns: ["common", "home", "about", "projects", "terminal", "contact", "errors"],
   interpolation: {
     escapeValue: false, // React handles XSS escaping safely
   },

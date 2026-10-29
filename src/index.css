@@ -256,6 +256,35 @@ option {
   color: #F1F2EC;
 }
 
+/* Primary page scrollbar styling matching DESIGN.md dark technical palette */
+html {
+  scrollbar-color: #30342C #101110;
+  scrollbar-width: thin;
+}
+
+html::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #101110;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #30342C;
+  border-radius: 9999px;
+  border: 2px solid #101110;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 204, 153, 0.45);
+}
+
+html::-webkit-scrollbar-thumb:active {
+  background-color: #00CC99;
+}
+
 /* Respect user reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *,

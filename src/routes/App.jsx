@@ -19,6 +19,7 @@ const About = lazy(() => import("../pages/about-page"));
 const Contact = lazy(() => import("../pages/contact-page"));
 const Projects = lazy(() => import("../pages/portfolio-page"));
 const ProjectDetail = lazy(() => import("../pages/project-detail-page"));
+const Terminal = lazy(() => import("../pages/terminal-page"));
 const Error = lazy(() => import("../pages/error-page"));
 
 /**
@@ -52,8 +53,9 @@ const App = () => {
           <Routes>
             {/* Core English Portfolio Routes (Default) */}
             <Route caseSensitive path="/" element={<Home />} />
-            <Route caseSensitive path="/about" element={<About />} />
             <Route caseSensitive path="/projects" element={<Projects />} />
+            <Route caseSensitive path="/about" element={<About />} />
+            <Route caseSensitive path="/terminal" element={<Terminal />} />
             <Route caseSensitive path="/contact" element={<Contact />} />
 
             {/* Dynamic Project Detail Route (handles /projects/:slug) */}
@@ -66,8 +68,9 @@ const App = () => {
             {/* Spanish Portfolio Routes (/es) */}
             <Route caseSensitive path="/es">
               <Route index element={<Home />} />
-              <Route caseSensitive path="about" element={<About />} />
               <Route caseSensitive path="projects" element={<Projects />} />
+              <Route caseSensitive path="about" element={<About />} />
+              <Route caseSensitive path="terminal" element={<Terminal />} />
               <Route caseSensitive path="contact" element={<Contact />} />
               <Route
                 caseSensitive

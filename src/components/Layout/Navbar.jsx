@@ -19,6 +19,7 @@ import { navLinks } from "../../constants";
 const NAV_KEYS = {
   "/": "home",
   "/projects": "projects",
+  "/terminal": "terminal",
   "/about": "about",
   "/contact": "contact",
 };

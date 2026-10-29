@@ -28,11 +28,18 @@ The personal software development portfolio of **Jeison Porfirio Plaza Sanchez (
 - **Full Bilingual Support (EN / ES)**:
   - English as the default locale on root paths (`/`) and Spanish localized routes under the `/es` URL prefix.
   - Synchronous language switcher in both desktop header and mobile drawer navigation with persistent `localStorage` preference.
-  - Complete, professional translations across all 5 namespaces (`common`, `home`, `about`, `projects`, `contact`).
+  - Complete, professional translations across all 6 namespaces (`common`, `home`, `about`, `projects`, `contact`, `terminal`).
   - Dynamic `document.documentElement.lang` synchronisation (`en` / `es`).
 - **Multilingual SEO & Metadata**:
   - Centralized, route-aware SEO helper synchronising localized document `<title>`, meta descriptions, Open Graph data, canonical `<link rel="canonical">`, and bidirectional hreflang `<link rel="alternate" hreflang="...">` tags on every route transition.
-  - Multi-language XML sitemap (`/sitemap.xml`) referencing all 20 canonical URLs and search crawler policy (`/robots.txt`).
+  - Multi-language XML sitemap (`/sitemap.xml`) referencing all 22 canonical URLs and search crawler policy (`/robots.txt`).
+- **Interactive Terminal & Simulated Bash Shell**:
+  - Dedicated interactive terminal tab at `/terminal` and `/es/terminal`, cleanly placed in the main navigation order between About and Contact (`Home`, `Projects`, `About`, `Terminal`, `Contact`).
+  - Frontend-only simulated Bash shell environment featuring a POSIX-style prompt (`guest@jsondev.uk:<path>$`), session command history with `↑`/`↓` recall, and status telemetry.
+  - Deterministic in-memory virtual filesystem supporting `ls` (short, `-a`, `-l`, `-la`), `cd` (`~`, `.`, `..`, `-`, absolute/relative paths), `pwd`, and file browsing.
+  - Built-in portfolio inspection commands (`help`, `about`, `projects`, `projects <slug>`, `skills`, `contact`, `whoami`, `echo`, `history`, `clear`).
+  - High-fidelity ASCII-art welcome screen with 8-line wordmark, session prose, version, separator, help hint, and CLI illustration box.
+  - Clean window layout without nested vertical scrollbars, expanding naturally with document height and preserving focus stability (`preventScroll: true`).
 - **Project Archive & Detail System**:
   - Filterable catalog allowing visitors to sort projects by category (`All Projects`, `Web Application`, `Desktop & Tooling`), featuring multi-category support per project.
   - Dynamic route detail pages (`/projects/:slug` and `/es/projects/:slug`) presenting operational challenges, technical solutions, highlights, multi-application suite breakdowns, and bidirectional previous/next project navigation.
@@ -59,6 +66,7 @@ The personal software development portfolio of **Jeison Porfirio Plaza Sanchez (
   - Dedicated 404 error page with localized recovery navigation.
 
 ### Incomplete / Deliberately Omitted Features
+- **Simulated Terminal Boundaries**: The interactive terminal is strictly a simulated, frontend-only Bash environment operating against an in-memory virtual filesystem. It executes zero host operating system commands, accesses no server filesystems or environment variables, makes no execution-related network calls, and uses no `eval()` or dynamic execution mechanisms.
 - **Automated Backend Email API**: Contact form does not transmit emails automatically to a remote server. It acts honestly as a client-side message formatter and clipboard copy tool.
 - **Proprietary & Private Repositories**: Source code and internal screenshots for the Call Progress Tracker and Poker Strategy Display desktop projects are proprietary or pending personal review. Repositories for HandLab Online and HandLab Desktop are private; no private source links or internal distribution artifacts are exposed.
 - **Project Mockup Screenshots**: Project records purposefully employ 36×36 px / 44×44 px SVG identity icons rather than screenshots or gallery carousels.
@@ -151,7 +159,7 @@ jsondev.uk/
 ├── public/                       # Static public assets served directly
 │   ├── favicon.svg               # Site browser favicon
 │   ├── robots.txt                # Search crawler policy and sitemap reference
-│   └── sitemap.xml               # Multi-language XML sitemap (20 canonical routes)
+│   └── sitemap.xml               # Multi-language XML sitemap (22 canonical routes)
 ├── src/                          # Application source code
 │   ├── assets/                   # Centralized media, brand graphics, and icons
 │   │   ├── brand/                # Brand wordmark (logoSmall.png)
@@ -172,8 +180,8 @@ jsondev.uk/
 │   │   └── index.js              # Nav links, projects catalog, history, stats
 │   ├── i18n.js                   # i18next configuration, language detection, and namespace loading
 │   ├── locales/                  # Localized translation catalogs
-│   │   ├── en/                   # English translations (common, home, about, projects, contact)
-│   │   └── es/                   # Spanish translations (common, home, about, projects, contact)
+│   │   ├── en/                   # English translations (common, home, about, projects, contact, terminal)
+│   │   └── es/                   # Spanish translations (common, home, about, projects, contact, terminal)
 │   ├── pages/                    # Route-level view modules (code-split)
 │   │   ├── about-page/           # Narrative background, skills, verified work history
 │   │   ├── contact-page/         # Message composer & verified contact info
@@ -183,7 +191,12 @@ jsondev.uk/
 │   │   │   └── components/       # Hero, Stats, Projects, Products, GetInTouch
 │   │   ├── portfolio-page/       # Main filterable project archive
 │   │   │   └── components/       # ProjectCard.jsx primitive
-│   │   └── project-detail-page/  # Dynamic single project view (/projects/:slug)
+│   │   ├── project-detail-page/  # Dynamic single project view (/projects/:slug)
+│   │   └── terminal-page/        # Interactive simulated Bash shell (/terminal)
+│   │       ├── components/       # TerminalView.jsx (window chrome, history, input)
+│   │       ├── commandEngine.js  # Dispatcher for simulated POSIX built-in commands
+│   │       ├── virtualFs.js      # In-memory virtual directory tree and path resolver
+│   │       └── TerminalPage.jsx  # Route wrapper with localized headings and SEO
 │   ├── routes/                   # Application routing and chunking
 │   │   └── App.jsx               # Case-sensitive canonical English and Spanish routes, 404
 │   ├── index.css                 # Tailwind base styles, font faces, theme vars, reduced-motion
@@ -205,8 +218,10 @@ jsondev.uk/
 ## 8. Architecture and Design Decisions
 
 - **Single Source of Truth**: All dynamic content (project catalog, employment timeline, technical capabilities, social channels, and navigation items) is declared in [`src/constants/index.js`](./src/constants/index.js). Adding or revising projects automatically propagates across the homepage, archive, detail pages, and document titles.
-- **Bilingual i18n Architecture**: Powered by `i18next` and `react-i18next` in [`src/i18n.js`](./src/i18n.js). Content is segmented into five dedicated JSON namespaces (`common`, `home`, `about`, `projects`, `contact`) under `src/locales/en/` and `src/locales/es/`. Language selection syncs with URL paths (`/` for English, `/es` for Spanish) and persists in `localStorage`.
+- **Bilingual i18n Architecture**: Powered by `i18next` and `react-i18next` in [`src/i18n.js`](./src/i18n.js). Content is segmented into six dedicated JSON namespaces (`common`, `home`, `about`, `projects`, `contact`, `terminal`) under `src/locales/en/` and `src/locales/es/`. Language selection syncs with URL paths (`/` for English, `/es` for Spanish) and persists in `localStorage`.
 - **Multilingual SEO Framework**: Managed dynamically through [`src/components/Layout/seo.js`](./src/components/Layout/seo.js) via the `useLocalizeDocument` hook called in `ScrollToTop.jsx`. Automatically computes and applies localized page `<title>`, `<meta name="description">`, Open Graph tags, canonical `<link rel="canonical">`, and `<link rel="alternate" hreflang="...">` tags for `en`, `es`, and `x-default`.
+- **Simulated Bash Shell & Virtual Filesystem**: Implemented in [`src/pages/terminal-page/`](./src/pages/terminal-page/) as a strictly simulated, frontend-only command line environment. An in-memory virtual filesystem ([`virtualFs.js`](./src/pages/terminal-page/virtualFs.js)) models `/home/guest` and directory nodes derived from [`src/constants/index.js`](./src/constants/index.js). The dispatch engine ([`commandEngine.js`](./src/pages/terminal-page/commandEngine.js)) parses POSIX flags (`ls -la`), resolves directory traversals (`cd ..`, `cd ~`, `cd -`), and renders portfolio data safely without host execution, `eval()`, or backend transmission. Layout expands naturally with page height, eliminating nested inner scrollbars while preserving focus stability (`preventScroll: true`).
+- **Dark Technical Page Scrollbar**: Primary page scrollbar rules declared in [`src/index.css`](./src/index.css) apply the Canvas (`#101110`) track, Border Subtle (`#30342C`) thumb, and Caribbean Green (`#00CC99`) active hover states across WebKit and standard W3C scrollbar properties without polluting nested elements.
 - **Brand System & Semantic Palette**: Governed by [`DESIGN.md`](./DESIGN.md) as the repository-wide specification. Enforces a 4-step decision hierarchy for colour usage (Caribbean Green for primary actions/brand identity, Vivid Pink for the hero name and deliberate secondary highlights, Semantic status tokens for runtime telemetry, and Dark Neutrals as standard defaults).
 - **Dedicated Project Identity Badges**: Each project in the catalog has its own dedicated SVG identity badge rendered at 36×36 px (in cards) and 44×44 px (in detail metadata cards). Smart File Organizer and Ascension Tactics feature custom monochrome `#00CC99` vector icons rather than borrowing section feature icons.
 - **Component-Driven Composition**: UI primitives ([`Button.jsx`](./src/components/Button.jsx), [`Badge.jsx`](./src/components/Badge.jsx), [`SectionHeader.jsx`](./src/components/SectionHeader.jsx), [`ProjectCard.jsx`](./src/pages/portfolio-page/components/ProjectCard.jsx)) isolate styling and presentation logic, ensuring consistent design language across all views.
@@ -230,7 +245,7 @@ jsondev.uk/
 
 Routing is managed via `react-router-dom` in [`src/routes/App.jsx`](./src/routes/App.jsx) with strict case-sensitive matching (`caseSensitive`).
 
-### Canonical Route Matrix (20 Routes)
+### Canonical Route Matrix (22 Routes)
 
 | English Path (Default) | Spanish Path (`/es`) | Component | Description |
 | :--- | :--- | :--- | :--- |
@@ -243,6 +258,7 @@ Routing is managed via `react-router-dom` in [`src/routes/App.jsx`](./src/routes
 | `/projects/ascension-tactics` | `/es/projects/ascension-tactics` | `ProjectDetail` | Ascension Tactics detail |
 | `/projects/handlab` | `/es/projects/handlab` | `ProjectDetail` | HandLab suite detail |
 | `/about` | `/es/about` | `About` | Personal narrative, education, and verified work history |
+| `/terminal` | `/es/terminal` | `TerminalPage` | Interactive simulated Bash shell |
 | `/contact` | `/es/contact` | `Contact` | Message builder and verified contact channels |
 
 ### 404 Route Catch-All & Strict URL Enforcement

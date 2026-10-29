@@ -1,5 +1,14 @@
 
 10.2026
+- Implemented Interactive Terminal view at /terminal and /es/terminal with bilingual routing and SEO metadata
+- Added Terminal navigation item in desktop Navbar and mobile drawer positioned between About and Contact
+- Implemented simulated Bash shell command engine and deterministic in-memory virtual filesystem (ls, cd, pwd, whoami, echo, clear, history, about, projects, skills, contact)
+- Implemented POSIX-style prompt (guest@jsondev.uk:<path>$) with dynamic path formatting (~, /home/guest, /)
+- Added high-fidelity 8-line ASCII wordmark and welcome screen with session-only visibility cleared by 'clear'
+- Removed inner terminal scrollbar and container auto-scroll to allow natural window expansion without double scrollbars
+- Preserved focus stability preventing viewport scrolling jumps (preventScroll: true)
+- Styled primary website scrollbar on html to match DESIGN.md dark technical palette (#30342C on #101110 with green hover/active)
+- Configured 22 canonical routes in sitemap.xml with multilingual SEO synchronization
 - Implemented multi-category project architecture supporting multiple classifications per project
 - Integrated HandLab as unified project featuring HandLab Online (live at handlab.uk) and HandLab Desktop companion
 - Classified HandLab under both Web Application and Desktop & Tooling filter categories

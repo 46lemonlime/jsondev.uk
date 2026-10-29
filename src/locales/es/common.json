@@ -2,6 +2,7 @@
   "nav": {
     "home": "Inicio",
     "projects": "Proyectos",
+    "terminal": "Terminal",
     "about": "Sobre Mí",
     "contact": "Contacto",
     "downloadCv": "Descargar CV",
@@ -68,6 +69,8 @@
     "projectsDescription": "Explora los proyectos de software y herramientas de Jeison Plaza Sanchez (JsonDev), incluyendo aplicaciones web en React, herramientas CLI en Python y sistemas 3D en Three.js.",
     "contactTitle": "Contacto | JsonDev",
     "contactDescription": "Ponte en contacto con Jeison Plaza Sanchez (JsonDev) para oportunidades de desarrollo de software o conecta por LinkedIn y GitHub.",
+    "terminalTitle": "Terminal | JsonDev",
+    "terminalDescription": "Terminal interactiva del portafolio para explorar habilidades, proyectos y sistemas de Jeison Plaza Sanchez (JsonDev).",
     "notFoundTitle": "404 — Página No Encontrada | JsonDev",
     "notFoundDescription": "La página solicitada no se encontró en este portafolio. Explora proyectos activos, información de trayectoria o canales de contacto."
   },

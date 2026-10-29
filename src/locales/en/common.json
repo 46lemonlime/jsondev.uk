@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "projects": "Projects",
+    "terminal": "Terminal",
     "about": "About",
     "contact": "Contact",
     "downloadCv": "Download CV",
@@ -68,6 +69,8 @@
     "projectsDescription": "Explore practical software projects and tools by Jeison Plaza Sanchez (JsonDev), covering React web apps, Python CLI automation, and Three.js systems.",
     "contactTitle": "Contact | JsonDev",
     "contactDescription": "Get in touch with Jeison Plaza Sanchez (JsonDev) for software engineering roles, project inquiries, or connect via LinkedIn and GitHub.",
+    "terminalTitle": "Terminal | JsonDev",
+    "terminalDescription": "Interactive portfolio terminal shell for exploring developer skills, projects, and systems by Jeison Plaza Sanchez (JsonDev).",
     "notFoundTitle": "404 — Page Not Found | JsonDev",
     "notFoundDescription": "The requested page could not be found on this portfolio. Explore active projects, background information, or contact channels."
   },

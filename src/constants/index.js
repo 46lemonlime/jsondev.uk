@@ -40,6 +40,10 @@ export const navLinks = [
     title: "About",
   },
   {
+    link: "/terminal",
+    title: "Terminal",
+  },
+  {
     link: "/contact",
     title: "Contact",
   },
@@ -560,6 +564,10 @@ export const footerLinks = [
       {
         name: "About",
         link: "/about",
+      },
+      {
+        name: "Terminal",
+        link: "/terminal",
       },
       {
         name: "Contact",

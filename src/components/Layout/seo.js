@@ -26,6 +26,10 @@ const STATIC_ROUTES = {
     titleKey: "common:seo.projectsTitle",
     descKey: "common:seo.projectsDescription",
   },
+  "/terminal": {
+    titleKey: "common:seo.terminalTitle",
+    descKey: "common:seo.terminalDescription",
+  },
   "/contact": {
     titleKey: "common:seo.contactTitle",
     descKey: "common:seo.contactDescription",
