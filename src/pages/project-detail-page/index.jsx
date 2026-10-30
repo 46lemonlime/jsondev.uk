@@ -80,6 +80,41 @@ const ProjectDetail = ({ projectSlug }) => {
       })
     : null;
 
+  const projectContribution = project.contribution || {};
+  const contributionRole = projectContribution.role
+    ? t(`items.${project.slug}.contribution.role`, {
+        defaultValue: projectContribution.role,
+      })
+    : null;
+  const contributionApproach = projectContribution.approach
+    ? t(`items.${project.slug}.contribution.approach`, {
+        defaultValue: projectContribution.approach,
+      })
+    : null;
+  const contributionDecisions = projectContribution.decisions
+    ? t(`items.${project.slug}.contribution.decisions`, {
+        defaultValue: projectContribution.decisions,
+      })
+    : null;
+  const contributionTesting = projectContribution.testing
+    ? t(`items.${project.slug}.contribution.testing`, {
+        defaultValue: projectContribution.testing,
+      })
+    : null;
+  const contributionOutcome = projectContribution.outcome
+    ? t(`items.${project.slug}.contribution.outcome`, {
+        defaultValue: projectContribution.outcome,
+      })
+    : null;
+
+  const hasContributionSection = Boolean(
+    contributionRole ||
+      contributionApproach ||
+      contributionDecisions ||
+      contributionTesting ||
+      contributionOutcome
+  );
+
   return (
     <div className={`w-full ${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
@@ -340,6 +375,65 @@ const ProjectDetail = ({ projectSlug }) => {
                 </section>
               )}
             </div>
+          )}
+
+          {/* Development & Contribution */}
+          {hasContributionSection && (
+            <section className={`${styles.surfaceCard} p-7 mb-10 relative z-[1]`}>
+              <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-accent">
+                {t("detail.contributionEyebrow")}
+              </span>
+              <h2 className={`${styles.heading4} mt-2 mb-6`}>
+                {t("detail.contributionTitle")}
+              </h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {contributionRole && (
+                  <div className="flex flex-col">
+                    <h3 className="font-mono text-[12px] font-semibold uppercase tracking-wider text-accent mb-2">
+                      {t("detail.contributionRoleTitle")}
+                    </h3>
+                    <p className={styles.paragraph2}>{contributionRole}</p>
+                  </div>
+                )}
+
+                {contributionApproach && (
+                  <div className="flex flex-col">
+                    <h3 className="font-mono text-[12px] font-semibold uppercase tracking-wider text-accent mb-2">
+                      {t("detail.contributionApproachTitle")}
+                    </h3>
+                    <p className={styles.paragraph2}>{contributionApproach}</p>
+                  </div>
+                )}
+
+                {contributionDecisions && (
+                  <div className="flex flex-col md:col-span-2">
+                    <h3 className="font-mono text-[12px] font-semibold uppercase tracking-wider text-accent mb-2">
+                      {t("detail.contributionDecisionsTitle")}
+                    </h3>
+                    <p className={styles.paragraph2}>{contributionDecisions}</p>
+                  </div>
+                )}
+
+                {contributionTesting && (
+                  <div className="flex flex-col">
+                    <h3 className="font-mono text-[12px] font-semibold uppercase tracking-wider text-accent mb-2">
+                      {t("detail.contributionTestingTitle")}
+                    </h3>
+                    <p className={styles.paragraph2}>{contributionTesting}</p>
+                  </div>
+                )}
+
+                {contributionOutcome && (
+                  <div className="flex flex-col">
+                    <h3 className="font-mono text-[12px] font-semibold uppercase tracking-wider text-accent mb-2">
+                      {t("detail.contributionOutcomeTitle")}
+                    </h3>
+                    <p className={styles.paragraph2}>{contributionOutcome}</p>
+                  </div>
+                )}
+              </div>
+            </section>
           )}
 
           {/* Key Highlights */}

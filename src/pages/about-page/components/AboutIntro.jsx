@@ -13,6 +13,7 @@ import { aboutme, cv } from "../../../assets";
 import { features, workHistory } from "../../../constants";
 import { Button, Badge, SectionHeader, GetRoadmap } from "../../../components";
 import FeatureCard from "./FeatureCard";
+import DevelopmentApproach from "./DevelopmentApproach";
 
 const AboutIntro = () => {
   const { t } = useTranslation(["about", "common"]);
@@ -89,7 +90,10 @@ const AboutIntro = () => {
         </div>
       </section>
 
-      {/* Section 3: Verified Operations & Customer Service Experience */}
+      {/* Section 3: Development Approach & Engineering Philosophy */}
+      <DevelopmentApproach />
+
+      {/* Section 4: Verified Operations & Customer Service Experience */}
       <section className={`${styles.paddingY} relative`}>
         <div className="mb-12 relative z-[1]">
           <SectionHeader

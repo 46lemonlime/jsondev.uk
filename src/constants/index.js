@@ -238,6 +238,13 @@ export const projects = [
       "Implemented hybrid client-side routing with backward-compatible redirects for legacy project links.",
       "Designed with a custom dark Caribbean green design system, semantic HTML landmarks, keyboard focus visibility, and reduced-motion support.",
     ],
+    contribution: {
+      role: "Sole designer and developer responsible for the complete lifecycle of the portfolio website, from conception and component architecture to deployment and continuous maintenance.",
+      approach: "Developed independently using hands-on implementation paired with modern AI-assisted development tools (including LLM coding assistants) to accelerate drafting, refactor components, and streamline verification. Maintained full ownership over architectural direction, code review, manual and automated validation, and final implementation quality.",
+      decisions: "Structured as a modular React 18 Single-Page Application bundled with Vite and styled with a custom dark Caribbean green design system. Engineered a simulated Bash shell environment (/terminal and /es/terminal) with an in-memory virtual filesystem, command dispatcher, and Tab autocomplete engine running strictly on the client side with zero OS execution or network requests for security. Integrated complete bilingual routing (i18next) with localized URLs, hreflang metadata, and route-aware multilingual SEO, while centralizing site content in declarative constants.",
+      testing: "Validated using automated Node-based unit test suites for the virtual filesystem and autocomplete logic, headless browser automation for visual regressions across desktop and mobile viewports, and production build checks.",
+      outcome: "Live, production-ready bilingual web portfolio deployed on Vercel at jsondev.uk with a public open-source repository on GitHub (46lemonlime/jsondev.uk).",
+    },
     verificationNote:
       "Verified in repository: Full source code is present in this workspace and deployed at jsondev.uk.",
     repoUrl: "https://github.com/46lemonlime/jsondev.uk",
@@ -274,6 +281,13 @@ export const projects = [
       "Built with VBA to run natively inside standard desktop office environments without requiring external software installations.",
       "Focused on practical workflow structure and helping agents stay aligned with call quality and KPI expectations.",
     ],
+    contribution: {
+      role: "Sole creator and developer. Conceived, designed, and developed the application while working as a customer service agent in a live call-center environment.",
+      approach: "Developed from direct operational necessity to solve first-hand workflow bottlenecks during high-volume customer calls, structuring complex stage requirements into a single accessible interface.",
+      decisions: "Built natively in Visual Basic for Applications (VBA) to run directly within the standard desktop Microsoft Office environment, eliminating the need for administrative software installations or IT policy exemptions in a restricted corporate environment. Designed sequential forms and checkpoints to guide agents through mandatory compliance verifications, account security protocols, and note-taking templates without interrupting conversational flow.",
+      testing: "Validated through personal daily operational use during real inbound customer interactions, iteratively refining button placements, keyboard accessibility, and information density based on live call speed and quality compliance audits.",
+      outcome: "Delivered a functional internal desktop productivity tool that supported call handling workflows and KPI adherence. Source code and proprietary workplace screenshots remain private due to corporate operational context.",
+    },
     verificationNote:
       "Source code & screenshots: Built for an internal call-centre desktop environment; public source repository and proprietary workplace screenshots are not published.",
     repoUrl: null,
@@ -310,6 +324,13 @@ export const projects = [
       "Structured around clear visual presentation of user-defined strategy matrices.",
       "Created as a personal tool to support disciplined decision-making and study routines.",
     ],
+    contribution: {
+      role: "Sole designer and developer. Designed and implemented the application as a personal project to structure and streamline poker study routines.",
+      approach: "Developed independently to address the friction of consulting static spreadsheets and notes, focusing on rapid visual retrieval of pre-flop and post-flop decision matrices.",
+      decisions: "Built as a specialized desktop interface in VBA, organizing user-defined range charts into a dedicated quick-reference dashboard. Structured strategy tables with clear visual contrast to allow immediate identification of positional opening ranges, 3-bet strategies, and defense guidelines during review sessions.",
+      testing: "Verified through hands-on personal study and post-session hand review, ensuring fast navigation between positional charts and accurate matrix rendering.",
+      outcome: "Completed personal desktop study application used for strategy analysis. Public repository and interface screenshots are pending owner review.",
+    },
     verificationNote:
       "Source code & screenshots: Personal desktop VBA application; public repository and UI screenshots are pending owner review.",
     repoUrl: null,
@@ -353,6 +374,13 @@ export const projects = [
       "Deterministic rollback subsystem that inverts operation paths and restores files with comprehensive rollback report persistence.",
       "Structured key=value logging and chronological JSON report history with scoped filtering and index-based inspection.",
     ],
+    contribution: {
+      role: "Sole author and developer responsible for the architectural design, CLI specification, and core engine implementation of the smartorg Python package.",
+      approach: "Designed around a contract-first philosophy, establishing rigorous data contracts and separating concerns across discovery, rule classification, plan execution, and rollback recovery.",
+      decisions: "Engineered in Python 3.10+ using typed dataclasses to enforce immutable boundary contracts between system components. Implemented an isolated dry-run simulation mode that calculates move operations without touching the physical filesystem. Built a deterministic rollback subsystem that logs filesystem operations as inverse transformations, allowing safe one-command reversal of organized files. Integrated YAML-driven custom rule configurations, atomic per-file error isolation to prevent batch failures, and structured chronological JSON reports.",
+      testing: "Tested using dry-run verification against complex directory structures, error handling checks for locked or permission-restricted files, and automated validation of the rollback mechanism to ensure complete file restoration without data loss.",
+      outcome: "Published open-source Python package on GitHub (46lemonlime/smart-file-organizer) with full CLI tooling, documentation, and contract specifications.",
+    },
     verificationNote:
       "Verified repository: Open-source Python package with full pipeline contracts, CLI entry points, and documentation on GitHub.",
     repoUrl: "https://github.com/46lemonlime/smart-file-organizer",
@@ -397,6 +425,13 @@ export const projects = [
       "Deterministic over-the-shoulder action camera that interpolates and settles before triggering animations and combat rolls.",
       "Custom WebGL rendering architecture with geometry/material caching and realistic continuous tracked vehicle wheel kinematics.",
     ],
+    contribution: {
+      role: "Sole designer and developer responsible for the game design, 3D WebGL graphics pipeline, rules engine, and user interface.",
+      approach: "Built from scratch in TypeScript and Three.js, translating tabletop wargaming concepts into a performant, browser-native WebGL game without relying on heavy external game engines.",
+      decisions: "Architected a custom WebGL render loop with geometry and material caching to minimize draw calls and sustain high frame rates across diverse hardware. Implemented an asynchronous deterministic action camera system that interpolates over-the-shoulder and fully settles before triggering unit animations and combat rolls. Programmed mathematical line-of-sight raycasting, grid-based pathfinding, and multi-weapon equipment profiles across 10 distinct playable factions. Designed realistic continuous tracked vehicle kinematics and dynamic battlefield environments with particle weather effects.",
+      testing: "Verified through interactive in-browser gameplay sessions, performance profiling of Three.js frame rates and draw calls, and functional validation of dice mechanics and line-of-sight calculations.",
+      outcome: "Fully playable browser-based 3D tactical skirmish game deployed live at ascensiontactics.jsondev.uk with an open-source repository on GitHub (46lemonlime/ascension_tactics).",
+    },
     verificationNote:
       "Verified repository & live demo: Full TypeScript and Three.js source code on GitHub, deployed live at ascensiontactics.jsondev.uk.",
     repoUrl: "https://github.com/46lemonlime/ascension_tactics",
@@ -443,6 +478,13 @@ export const projects = [
       "HandLab Desktop Companion: Extended desktop edition built to provide advanced functionality beyond the online platform.",
       "Private Source Repositories: Developed and maintained in private repositories; live web application deployed publicly at handlab.uk.",
     ],
+    contribution: {
+      role: "Sole architect and lead developer of the entire HandLab ecosystem, responsible for both HandLab Online (web application) and HandLab Desktop (companion desktop tool).",
+      approach: "Developed as a specialized, full-stack analytics suite to address advanced poker study needs, combining browser-based visual matrix manipulation with desktop queue processing and relational persistence.",
+      decisions: "HandLab Online: Built with React, TypeScript, and Tailwind CSS. Implemented a 13×13 interactive pre-flop range matrix, positional solver charts, mathematical EV calculators, Monte Carlo simulations, and a multi-board / Run It Twice hand replayer. Ingestion & Persistence: Engineered an AST-based PokerStars hand history parser with card tokenization, and a Supabase PostgreSQL backend with keyset cursor pagination (played_at DESC, id DESC) and database-enforced idempotency (UNIQUE(user_id, site, site_hand_id)). HandLab Desktop: Built with Tauri 2 (Rust) and React 19 + TypeScript, leveraging a local SQLite database for offline queue management and chunked desktop synchronization.",
+      testing: "Supported by an extensive automated test suite with over 250 unit and integration tests verifying mathematical parity, multi-pot distribution, rake attribution, tokenization, and state transitions (including 259/259 automated tests passing in the hand history and stats engine).",
+      outcome: "HandLab Online is deployed live in production at handlab.uk. HandLab Desktop is actively maintained in companion development. Both source repositories are managed privately.",
+    },
     verificationNote:
       "Verified public deployment: HandLab Online is live at handlab.uk. Source repositories for both online and desktop applications are private.",
     repoUrl: null,

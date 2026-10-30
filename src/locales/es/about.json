@@ -30,8 +30,17 @@
       }
     }
   },
+  "approach": {
+    "eyebrow": "02 // FILOSOFÍA Y FLUJO DE TRABAJO",
+    "title": "Enfoque de desarrollo",
+    "description": "Mi visión hacia la ingeniería de software, la resolución de problemas y el uso responsable de herramientas de desarrollo modernas.",
+    "paragraph1": "Adopto un enfoque independiente y práctico para construir software, desde la conceptualización inicial y la planificación técnica hasta la implementación, las pruebas y el despliegue.",
+    "paragraph2": "Asimismo, integro herramientas modernas de desarrollo asistido por IA en mi flujo de trabajo. Las utilizo para explorar soluciones, acelerar la implementación, resolver problemas y mejorar la productividad.",
+    "paragraph3": "Independientemente de las herramientas empleadas, asumo la total responsabilidad del software que entrego. Esto implica comprender la implementación subyacente, evaluar las soluciones generadas, tomar decisiones técnicas y validar rigurosamente el producto final.",
+    "paragraph4": "Creo firmemente que el desarrollo de software eficaz va más allá de escribir código: se trata de comprender los problemas, diseñar soluciones sólidas y entregar software que realmente funcione."
+  },
   "experience": {
-    "eyebrow": "02 // EXPERIENCIA PROFESIONAL",
+    "eyebrow": "03 // EXPERIENCIA PROFESIONAL",
     "title": "Historial en Operaciones y Atención al Cliente",
     "description": "Roles verificados en gestión de cuentas reguladas y operaciones bilingües de clientes, aportando comunicación sólida, rigor normativo y enfoque en métricas a equipos de software.",
     "roles": {
@@ -59,7 +68,7 @@
     }
   },
   "testimonials": {
-    "eyebrow": "03 // RECOMENDACIONES",
+    "eyebrow": "04 // RECOMENDACIONES",
     "title": "Recomendaciones Profesionales",
     "description": "Comentarios de directores y gerentes con los que he colaborado en operaciones, contacto con clientes y equipos enfocados en cumplimiento normativo.",
     "quotes": {

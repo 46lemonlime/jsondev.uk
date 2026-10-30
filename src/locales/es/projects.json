@@ -21,7 +21,14 @@
     "problemTitle": "Desafío Operativo",
     "solutionEyebrow": "02 // ENFOQUE E IMPLEMENTACIÓN",
     "solutionTitle": "Solución Técnica",
-    "highlightsEyebrow": "03 // DETALLES CLAVE",
+    "contributionEyebrow": "03 // ROL Y RESPONSABILIDAD",
+    "contributionTitle": "Desarrollo y contribución",
+    "contributionRoleTitle": "Mi rol",
+    "contributionApproachTitle": "Enfoque de desarrollo",
+    "contributionDecisionsTitle": "Decisiones técnicas e implementación",
+    "contributionTestingTitle": "Pruebas y validación",
+    "contributionOutcomeTitle": "Resultado",
+    "highlightsEyebrow": "04 // DETALLES CLAVE",
     "highlightsTitle": "Puntos Destacados y Alcance",
     "prevProject": "← Proyecto Anterior",
     "nextProject": "Proyecto Siguiente →",
@@ -49,6 +56,13 @@
         "Implementación de enrutamiento híbrido del lado del cliente con redirecciones retrocompatibles para enlaces antiguos.",
         "Diseñado con una identidad visual oscura con acentos verde caribeño, elementos HTML semánticos, enfoque de teclado visible y soporte para movimiento reducido."
       ],
+      "contribution": {
+        "role": "Único diseñador y desarrollador humano responsable del ciclo completo del sitio web del portafolio, desde la conceptualización y arquitectura de componentes hasta el despliegue y mantenimiento continuo.",
+        "approach": "Desarrollado de forma independiente combinando implementación práctica con herramientas modernas de desarrollo asistido por IA para acelerar la creación de código, refactorizar componentes y agilizar la verificación. Mantuve la autoría y supervisión sobre la dirección arquitectónica, la revisión de código, la validación manual y automatizada, y la calidad final del producto.",
+        "decisions": "Estructurado como una Single-Page Application (SPA) modular con React 18, empaquetado con Vite y diseñado bajo un sistema visual técnico en verde caribeño. Diseñé e implementé un entorno de consola Bash simulada (/terminal y /es/terminal) con un sistema de archivos virtual en memoria, despachador de comandos y autocompletado con tabulador que se ejecuta estrictamente en el cliente sin comandos reales del sistema ni peticiones de red por seguridad. Integré arquitectura bilingüe completa (i18next) con rutas localizadas, etiquetas hreflang y SEO multilingüe dinámico, centralizando los datos en constantes declarativas.",
+        "testing": "Validado mediante suites de pruebas unitarias automatizadas en Node para el sistema de archivos virtual y la lógica de autocompletado, automatización en navegadores headless para control de regresiones visuales en resoluciones de escritorio y móviles, y verificaciones de compilación para producción.",
+        "outcome": "Portafolio web bilingüe activo en producción, desplegado en Vercel en jsondev.uk con repositorio de código abierto en GitHub (46lemonlime/jsondev.uk)."
+      },
       "verificationNote": "Verificado en repositorio: El código fuente completo reside en este espacio de trabajo y está desplegado en jsondev.uk."
     },
     "call-progress-tracker": {
@@ -65,6 +79,13 @@
         "Desarrollada en VBA para ejecutarse de forma nativa en entornos ofimáticos estándar sin requerir instalaciones externas.",
         "Centrada en estructurar el flujo de atención y respaldar a los agentes en sus estándares de calidad y KPIs."
       ],
+      "contribution": {
+        "role": "Creador y desarrollador único. Concebí, diseñé y desarrollé la aplicación mientras trabajaba como asesor de servicio al cliente en un centro de llamadas.",
+        "approach": "Desarrollado por necesidad operativa directa para resolver cuellos de botella reales durante llamadas de atención al cliente de alto volumen, estructurando los requisitos de cada etapa en una interfaz accesible.",
+        "decisions": "Construido de forma nativa en Visual Basic for Applications (VBA) para ejecutarse en el entorno de escritorio estándar de Microsoft Office, eliminando la necesidad de instalaciones con permisos de administrador o excepciones de TI en un entorno corporativo regulado. Diseñó formularios y puntos de control secuenciales para guiar a los agentes por verificaciones obligatorias de cumplimiento, protocolos de seguridad y plantillas de notas sin interrumpir la llamada.",
+        "testing": "Validado mediante uso operativo diario personal durante interacciones reales con clientes, refinando iterativamente la disposición de controles, accesibilidad por teclado y densidad de información según el ritmo de llamada y auditorías de calidad.",
+        "outcome": "Herramienta de productividad de escritorio interna que optimizó los flujos de gestión de llamadas y el cumplimiento de KPIs. El código fuente y capturas permanecen privados por motivos de confidencialidad laboral."
+      },
       "verificationNote": "Código fuente y capturas: Creado para un entorno interno de centro de contacto; el repositorio público y las capturas confidenciales del entorno laboral no están publicados."
     },
     "poker-strategy-display": {
@@ -81,6 +102,13 @@
         "Estructurada en torno a una presentación visual nítida de matrices estratégicas definidas por el usuario.",
         "Creada como herramienta personal para fomentar la toma de decisiones disciplinada y rutinas de estudio sólidas."
       ],
+      "contribution": {
+        "role": "Diseñador y desarrollador único. Diseñé e implementé la aplicación como proyecto personal para estructurar y agilizar las rutinas de estudio de póker.",
+        "approach": "Desarrollado de manera independiente para solucionar la lentitud de consultar hojas de cálculo y notas estáticas, centrándose en la consulta visual rápida de matrices de decisión pre-flop y post-flop.",
+        "decisions": "Desarrollado como interfaz de escritorio dedicada en VBA, organizando tablas de rangos personalizadas en un panel de consulta rápida. Estructuró las matrices con alto contraste visual para permitir la identificación inmediata de rangos de apertura por posición, estrategias de 3-bet y defensa durante las sesiones de estudio.",
+        "testing": "Verificado mediante sesiones prácticas personales de estudio y revisión de manos, garantizando una navegación ágil entre tablas posicionales y una visualización exacta de las matrices.",
+        "outcome": "Aplicación de escritorio personal completada y utilizada para análisis estratégico. El repositorio público y capturas de interfaz se encuentran pendientes de revisión."
+      },
       "verificationNote": "Código fuente y capturas: Aplicación personal de escritorio en VBA; el repositorio público y las capturas de pantalla están pendientes de revisión por parte del autor."
     },
     "smart-file-organizer": {
@@ -98,6 +126,13 @@
         "Subsistema determinista de rollback que invierte las rutas operadas y restituye los archivos conservando un informe detallado de reversión.",
         "Registro estructurado clave=valor e historial cronológico de reportes en JSON con filtrado por ámbito e inspección por índice."
       ],
+      "contribution": {
+        "role": "Autor y desarrollador único responsable del diseño arquitectónico, la especificación de la CLI y la implementación del motor central del paquete Python smartorg.",
+        "approach": "Diseñado bajo una filosofía de contratos previos (contract-first), estableciendo modelos de datos estrictos y separando responsabilidades entre descubrimiento, clasificación por reglas, ejecución de planes y reversión de cambios.",
+        "decisions": "Desarrollado en Python 3.10+ con dataclasses tipadas para garantizar contratos inmutables entre los componentes del sistema. Implementó un modo de simulación (dry-run) que calcula las operaciones sin modificar el sistema de archivos real. Construyó un subsistema de reversión determinista que registra las operaciones como transformaciones inversas, permitiendo deshacer cambios con un solo comando. Integró configuración de reglas en YAML, aislamiento atómico de errores por archivo y reportes cronológicos estructurados en JSON.",
+        "testing": "Probado mediante verificación en modo dry-run sobre estructuras complejas de directorios, pruebas de manejo de errores en archivos bloqueados o con restricciones de permisos, y validación automatizada del mecanismo de reversión para garantizar la restitución íntegra de archivos sin pérdida de datos.",
+        "outcome": "Paquete Python de código abierto publicado en GitHub (46lemonlime/smart-file-organizer) con interfaz de línea de comandos completa, documentación y especificaciones de contratos."
+      },
       "verificationNote": "Repositorio verificado: Paquete de código abierto en Python con contratos completos de flujo, puntos de entrada CLI y documentación en GitHub."
     },
     "ascension-tactics": {
@@ -115,6 +150,13 @@
         "Cámara de acción sobre el hombro determinista que interpola y se estabiliza antes de activar animaciones y tiradas de dados.",
         "Arquitectura de renderizado WebGL propia con caché de mallas/materiales y cinemática realista continua para vehículos oruga."
       ],
+      "contribution": {
+        "role": "Diseñador y desarrollador único responsable del diseño del juego, la arquitectura gráfica 3D en WebGL, el motor de reglas y la interfaz de usuario.",
+        "approach": "Construido desde cero en TypeScript y Three.js, trasladando mecánicas de juegos de mesa tácticos a una experiencia WebGL fluida y nativa del navegador, sin depender de motores externos pesados.",
+        "decisions": "Diseñó un bucle de renderizado personalizado en WebGL con reutilización de geometrías y materiales en caché para minimizar llamadas de dibujado (draw calls) y mantener altas tasas de cuadros. Implementó un sistema de cámara de acción determinista que se posiciona sobre el hombro y se asienta por completo antes de iniciar animaciones o tiradas de combate. Programó cálculos de línea de visión mediante raycasting, navegación en cuadrícula y perfiles de equipamiento multi-arma para 10 facciones jugables distintas, además de cinemáticas para vehículos oruga y efectos climáticos por partículas.",
+        "testing": "Verificado mediante sesiones interactivas en navegador, análisis de rendimiento de tasas de refresco y llamadas de dibujado en Three.js, y validación funcional de mecánicas de dados y cálculos de línea de visión.",
+        "outcome": "Juego táctico 3D en navegador totalmente operativo y desplegado en ascensiontactics.jsondev.uk, con repositorio de código abierto en GitHub (46lemonlime/ascension_tactics)."
+      },
       "verificationNote": "Repositorio y demo verificados: Código fuente completo en TypeScript y Three.js en GitHub, desplegado y jugable en ascensiontactics.jsondev.uk."
     },
     "handlab": {
@@ -134,6 +176,13 @@
         "HandLab Desktop Companion: Edición de escritorio complementaria desarrollada para proporcionar capacidades analíticas avanzadas fuera del navegador.",
         "Repositorios de Código Privados: Desarrollado y mantenido en repositorios privados; aplicación web disponible públicamente en handlab.uk."
       ],
+      "contribution": {
+        "role": "Arquitecto y desarrollador principal de todo el ecosistema HandLab, responsable tanto de HandLab Online (aplicación web) como de HandLab Desktop (herramienta de escritorio complementaria).",
+        "approach": "Desarrollado como una plataforma integral de análisis avanzado para estudio de póker, combinando manipulación visual de matrices en navegador con procesamiento de colas en escritorio y persistencia relacional.",
+        "decisions": "HandLab Online: Construido con React, TypeScript y Tailwind CSS. Implementó una matriz visual interactiva de rangos 13×13, tablas posicionales de estrategia, calculadoras matemáticas de EV, simulaciones Monte Carlo y un reproductor de manos multi-board (Run It Twice). Ingesta y persistencia: Desarrolló un parser AST para historiales de manos de PokerStars con normalización de cartas, y un backend en Supabase PostgreSQL con paginación por cursores (played_at DESC, id DESC) e idempotencia estricta en base de datos. HandLab Desktop: Construido con Tauri 2 (Rust) y React 19 + TypeScript, utilizando SQLite local para la gestión de colas de procesamiento fuera de línea y sincronización por lotes.",
+        "testing": "Respaldado por una exhaustiva suite de pruebas automatizadas con más de 250 pruebas unitarias y de integración que verifican paridad matemática, reparto de múltiples botes, atribución de comisión (rake), tokenización de cartas y transiciones de estado (incluidas 259/259 pruebas automatizadas superadas en el motor de estadísticas e historial).",
+        "outcome": "HandLab Online se encuentra activo en producción en handlab.uk. HandLab Desktop se encuentra en desarrollo activo como aplicación complementaria. Ambos repositorios se gestionan de forma privada."
+      },
       "verificationNote": "Despliegue público verificado: HandLab Online está disponible en handlab.uk. Los repositorios de código fuente de las aplicaciones web y de escritorio son privados.",
       "applications": {
         "handlab-online": {

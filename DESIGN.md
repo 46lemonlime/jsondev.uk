@@ -174,6 +174,20 @@ flowchart TD
   - Active: Solid Caribbean Green `#00CC99`.
 - **Implementation**: Standard `scrollbar-color: #30342C #101110; scrollbar-width: thin;` coupled with WebKit pseudo-elements (`::-webkit-scrollbar*`, 8px width) for universal cross-browser consistency.
 
+### I. Project Development & Contribution Card
+- **Surface & Hierarchy**: Rendered in a single elevated surface card (`bg-surface`, `border-borderSubtle`, `rounded-2xl`, `p-7`) directly below the technical solution section and above key highlights.
+- **Heading**: Eyebrow in uppercase monospace accent (`font-mono text-[12px] font-semibold text-accent`) followed by Space Grotesk section heading (`font-display font-semibold text-[20px]`).
+- **Internal Grid**: Responsive two-column CSS grid (`grid-cols-1 md:grid-cols-2 gap-6`).
+  - *My Role* & *Development Approach* occupy adjacent columns on desktop.
+  - *Technical Decisions & Implementation* spans full width (`md:col-span-2`) for comfortable narrative reading.
+  - *Testing & Validation* & *Outcome* occupy adjacent columns.
+- **Sub-headers**: Uniform uppercase monospace styling (`font-mono text-[12px] font-semibold text-accent tracking-wider mb-2`).
+- **Strict Anti-Pattern**: **No AI badges, icons, or visual flair.** Information about AI-assisted workflows is conveyed strictly through honest, professional typography without decorative embellishments.
+
+### J. Development Approach Section (About Page)
+- **Layout Architecture**: 12-column responsive grid (`lg:grid-cols-12 gap-10 items-start`) matching the Technical Skills section pattern. Left column (5 cols) hosts `SectionHeader` with sequential eyebrow (`02 // PHILOSOPHY & WORKFLOW`), title (`Development Approach`), and description. Right column (7 cols) hosts a cohesive elevated surface card (`p-7 sm:p-9 space-y-5`).
+- **Typography & Emphasis**: First three paragraphs use `paragraph` and `paragraph2` styling (`text-textSecondary text-[15px] leading-[1.6]`). Concluding sentence is separated by a subtle top border (`border-t border-borderSubtle pt-4`) and highlighted in primary text (`text-textPrimary font-medium`).
+
 ---
 
 ## 5. Consistency & Anti-Pattern Rules

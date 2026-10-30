@@ -30,8 +30,17 @@
       }
     }
   },
+  "approach": {
+    "eyebrow": "02 // PHILOSOPHY & WORKFLOW",
+    "title": "Development Approach",
+    "description": "How I approach software engineering, problem-solving, and the responsible use of modern development tools.",
+    "paragraph1": "I take an independent, hands-on approach to building software, from initial ideas and technical planning through to implementation, testing and deployment.",
+    "paragraph2": "I also embrace modern AI-assisted development tools as part of my workflow. I use them to explore solutions, accelerate implementation, troubleshoot problems and improve productivity.",
+    "paragraph3": "Regardless of the tools used, I take responsibility for the software I deliver. This means understanding the underlying implementation, evaluating generated solutions, making technical decisions and validating the finished product.",
+    "paragraph4": "I believe effective software development is about more than writing code. It is about understanding problems, designing solutions and delivering software that works."
+  },
   "experience": {
-    "eyebrow": "02 // PROFESSIONAL EXPERIENCE",
+    "eyebrow": "03 // PROFESSIONAL EXPERIENCE",
     "title": "Operations & Customer Service History",
     "description": "Verified roles across regulated account management and bilingual customer operations, bringing strong communication, compliance discipline, and KPI focus to software teams.",
     "roles": {
@@ -59,7 +68,7 @@
     }
   },
   "testimonials": {
-    "eyebrow": "03 // ENDORSEMENTS",
+    "eyebrow": "04 // ENDORSEMENTS",
     "title": "Professional Recommendations",
     "description": "Feedback from managers and directors I have worked with across operations, customer contact, and compliance-focused teams.",
     "quotes": {
