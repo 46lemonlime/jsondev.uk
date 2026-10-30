@@ -13,7 +13,10 @@ import {
   executeCommand,
   INITIAL_SHELL_STATE,
   formatPromptPath,
+  ALLOWED_COMMANDS,
+  virtualFs,
 } from "../commandEngine";
+import { getAutocompleteResult } from "../autocomplete";
 
 const TerminalView = () => {
   const { t, i18n } = useTranslation("terminal");
@@ -22,9 +25,9 @@ const TerminalView = () => {
   const [history, setHistory] = useState([]);
   const [cmdHistory, setCmdHistory] = useState([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
-  const [showBanner, setShowBanner] = useState(true);
 
   const inputRef = useRef(null);
+  const tabStateRef = useRef({ count: 0, lastInput: "" });
 
   // Focus input on mount without causing any page scroll jump
   useEffect(() => {
@@ -37,6 +40,7 @@ const TerminalView = () => {
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
+      tabStateRef.current = { count: 0, lastInput: "" };
       e.preventDefault();
       const trimmed = inputVal.trim();
       if (!trimmed) return;
@@ -62,10 +66,9 @@ const TerminalView = () => {
       if (!result) return;
 
       // Special handling for clear command:
-      // Clears visible terminal output and welcome banner without resetting cwd, history, or session state
+      // Clears visible terminal interactive output without resetting cwd, history, or session state
       if (result.type === "clear") {
         setHistory([]);
-        setShowBanner(false);
         setHistoryIndex(-1);
         setInputVal("");
         return;
@@ -134,6 +137,68 @@ const TerminalView = () => {
         setHistoryIndex(-1);
         setInputVal("");
       }
+    } else if (e.key === "Tab") {
+      e.preventDefault();
+      const res = getAutocompleteResult(
+        inputVal,
+        shellState,
+        virtualFs,
+        ALLOWED_COMMANDS
+      );
+
+      if (!res || res.type === "none") {
+        tabStateRef.current = { count: 0, lastInput: inputVal };
+        return;
+      }
+
+      if (res.type === "complete") {
+        setInputVal(res.newInput);
+        tabStateRef.current = { count: 0, lastInput: "" };
+        return;
+      }
+
+      if (res.type === "extend") {
+        setInputVal(res.newInput);
+        tabStateRef.current = { count: 1, lastInput: res.newInput };
+        return;
+      }
+
+      if (res.type === "multiple") {
+        if (
+          tabStateRef.current.count >= 1 &&
+          tabStateRef.current.lastInput === inputVal
+        ) {
+          // Consecutive Tab press: display candidates in terminal output
+          const timestamp = new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+          });
+
+          const entry = {
+            id: `${Date.now()}-${Math.random().toString(36).substring(2, 7)}`,
+            command: inputVal,
+            timestamp,
+            user: shellState.user,
+            hostname: shellState.hostname,
+            cwd: shellState.cwd,
+            result: {
+              type: "tab_candidates",
+              data: {
+                candidates: res.candidates,
+              },
+            },
+          };
+
+          setHistory((prev) => [...prev, entry]);
+          tabStateRef.current = { count: 0, lastInput: inputVal };
+        } else {
+          tabStateRef.current = { count: 1, lastInput: inputVal };
+        }
+      }
+    } else {
+      // Non-Tab keypress resets the consecutive Tab counter
+      tabStateRef.current = { count: 0, lastInput: "" };
     }
   };
 
@@ -412,6 +477,43 @@ const TerminalView = () => {
           </div>
         );
 
+      case "tree":
+        return (
+          <div className="font-mono text-[12px] sm:text-[13px] leading-relaxed mt-1 overflow-x-auto whitespace-pre select-none">
+            {data.lines.map((item, idx) => (
+              <div key={`tree-${idx}`}>
+                <span className="text-textMuted">{item.prefix}</span>
+                <span
+                  className={
+                    item.isDir ? "text-accent font-semibold" : "text-textPrimary"
+                  }
+                >
+                  {item.name}
+                </span>
+              </div>
+            ))}
+            <div className="text-textMuted pt-1.5">{data.summary}</div>
+          </div>
+        );
+
+      case "tab_candidates":
+        return (
+          <div className="flex flex-wrap gap-x-6 gap-y-1 font-mono text-[13px] text-textSecondary mt-1 select-none">
+            {data.candidates.map((c, idx) => (
+              <span
+                key={`tab-c-${idx}`}
+                className={
+                  c.endsWith("/")
+                    ? "text-accent font-semibold"
+                    : "text-textPrimary"
+                }
+              >
+                {c}
+              </span>
+            ))}
+          </div>
+        );
+
       case "error":
         return (
           <div className="space-y-0.5 mt-1 font-mono text-[13px]">
@@ -468,46 +570,6 @@ const TerminalView = () => {
         aria-live="polite"
         className="flex-1 min-h-[380px] p-4 sm:p-6 space-y-3 cursor-text bg-canvas/40"
       >
-        {/* Initial ASCII-Art Welcome Screen (renders once per fresh session; cleared by 'clear' command) */}
-        {showBanner && (
-          <div className="select-none font-mono text-[12px] sm:text-[13px] leading-relaxed text-textSecondary mb-4 overflow-x-auto pb-3 border-b border-borderSubtle/60">
-            {/* 1. JsonDev ASCII Wordmark */}
-            <pre className="font-mono text-accent text-[8px] xs:text-[9.5px] sm:text-[11px] md:text-[12px] leading-tight mb-3 overflow-x-auto select-none font-bold whitespace-pre">
-{`    /$$$$$  /$$$$$$   /$$$$$$  /$$   /$$ /$$$$$$$  /$$$$$$$$ /$$    /$$
-   |__  $$ /$$__  $$ /$$__  $$| $$$ | $$| $$__  $$| $$_____/| $$   | $$
-      | $$| $$  \\__/| $$  \\ $$| $$$$| $$| $$  \\ $$| $$      | $$   | $$
-      | $$|  $$$$$$ | $$  | $$| $$ $$ $$| $$  | $$| $$$$$   |  $$ / $$/
- /$$  | $$ \\____  $$| $$  | $$| $$  $$$$| $$  | $$| $$__/    \\  $$ $$/ 
-| $$  | $$ /$$  \\ $$| $$  | $$| $$\\  $$$| $$  | $$| $$        \\  $$$/  
-|  $$$$$$/|  $$$$$$/|  $$$$$$/| $$ \\  $$| $$$$$$$/| $$$$$$$$   \\  $/   
- \\______/  \\______/  \\______/ |__/  \\__/|_______/ |________/    \\_/       `}
-            </pre>
-
-            {/* 2. Welcome prose */}
-            <div className="text-textPrimary font-semibold text-[13px]">
-              {t("welcome.title")}
-            </div>
-
-            {/* 3. Separator line */}
-            <div className="text-borderSubtle text-[11px] my-1 select-none">
-              ----------------------------------------------------------------------
-            </div>
-
-            {/* 4. Help hint */}
-            <div className="text-textSecondary text-[12px]">
-              {t("welcome.hint")}
-            </div>
-
-            {/* 5. Terminal CLI Illustration */}
-            <pre className="font-mono text-emerald-400/80 text-[10px] sm:text-[11px] leading-tight mt-3 overflow-x-auto select-none">
-{`+---------------------------------------------------------+
-| [guest@jsondev.uk:~] Simulated UNIX Portfolio Shell     |
-| Virtual FS: /home/guest/projects, skills, about, contact |
-+---------------------------------------------------------+`}
-            </pre>
-          </div>
-        )}
-
         {/* Command & Output History */}
         {history.map((item) => (
           <div key={item.id} className="space-y-1 pt-1">

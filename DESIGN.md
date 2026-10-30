@@ -159,8 +159,10 @@ flowchart TD
 - **Window Chrome**: Elevated surface (`#20231E`) container with subtle border (`#30342C`) and 16px (`rounded-2xl`) corner radius. Sits on the dark canvas with subtle depth shadows.
 - **Titlebar Header**: Surface (`#181A17`) bar with macOS-inspired window controls (Close `#FF5F56`, Minimize `#FFBD2E`, Expand `#27C93F`), monospace session title (`guest@jsondev.uk: ~ (bash)`), and right-aligned telemetry indicator with animated Caribbean Green pulse dot. No clear button in header to maintain clean telemetry balance.
 - **Terminal Canvas**: Translucent dark fill (`bg-canvas/40`) with natural vertical height expansion. Free of nested vertical scrollbars to prevent double-scrollbar artifacts.
+- **Two-Column Hero Layout**: Sits directly above the terminal window. Left column renders telemetry badge, title, subtitle, and portfolio description. Right column persistently presents the 8-line ASCII wordmark in Caribbean Green (`#00CC99`), welcome heading and version label, separator rule, and CLI illustration card.
 - **Typographic System**: Strict monospace typography throughout (`JetBrains Mono`, `monospace`). Prompt format: `guest@jsondev.uk:<path>$` with Caribbean Green user/host/dollar (`#00CC99`), Bright Mint directory (`#17D1A3`), and primary text input (`#F1F2EC`).
-- **Initial Welcome Screen**: High-fidelity 8-line ASCII wordmark in Caribbean Green (`#00CC99`), session welcome prose, version label, separator, and CLI illustration box. Displays once per session; cleanly cleared by `clear` command without resetting session or command history.
+- **Input Placeholder**: Subtle muted placeholder (`Type "help" to view available commands.` in English / `Escribe "help" para ver los comandos disponibles.` in Spanish) rendered in `text-textMuted` (`#72776C`), disappearing immediately on user input.
+- **Virtual Tree Visual Hierarchy**: Hierarchical directory trees rendered via `tree` visually distinguish nodes using theme tokens: directories in bold Caribbean Green (`text-accent font-semibold`), regular files in primary text (`text-textPrimary`), and tree branching glyphs (`├──`, `└──`, `│`) in subtle muted tone (`text-textMuted`).
 - **Focus Stability**: Always maintains `preventScroll: true` on input focus to eliminate unwanted vertical page shifts.
 
 ### H. Primary Website Scrollbar

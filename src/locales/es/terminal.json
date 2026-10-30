@@ -10,7 +10,7 @@
     "hint": "Escribe \"help\" para ver los comandos disponibles."
   },
   "promptAriaLabel": "Entrada de comando de la terminal",
-  "inputPlaceholder": "Escribe un comando (ej. 'help', 'ls', 'pwd', 'whoami', 'projects')...",
+  "inputPlaceholder": "Escribe \"help\" para ver los comandos disponibles.",
   "stats": {
     "node": "Nodo: Entorno Web",
     "status": "Estado: En línea",
@@ -35,6 +35,9 @@
     },
     "cd": {
       "desc": "Cambia el directorio de trabajo simulado."
+    },
+    "tree": {
+      "desc": "Lista el contenido del directorio virtual en formato de árbol."
     },
     "about": {
       "desc": "Muestra información de trayectoria y visión general del desarrollador.",

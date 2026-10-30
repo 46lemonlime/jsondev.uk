@@ -1,5 +1,12 @@
 
 10.2026
+- Implemented keyboard Tab autocomplete for simulated Bash shell supporting commands (13 registered) and virtual filesystem paths
+- Added longest common prefix (LCP) completion and double-Tab candidate listing without submitting or clearing input line
+- Implemented directory path completion with trailing slashes and restricted 'cd' completion strictly to directory targets
+- Implemented virtual 'tree' command with options (-a, -L depth, combined flags -aL) and structured ASCII connector rendering
+- Styled virtual 'tree' output with distinct directory/file colours (bold accent green for dirs, primary text for files) and summary counts
+- Refactored Terminal page hero to responsive two-column layout placing persistent ASCII wordmark and system card beside page intro
+- Transferred terminal help instruction into subtle input placeholder with bilingual localization (English / Spanish)
 - Implemented Interactive Terminal view at /terminal and /es/terminal with bilingual routing and SEO metadata
 - Added Terminal navigation item in desktop Navbar and mobile drawer positioned between About and Contact
 - Implemented simulated Bash shell command engine and deterministic in-memory virtual filesystem (ls, cd, pwd, whoami, echo, clear, history, about, projects, skills, contact)

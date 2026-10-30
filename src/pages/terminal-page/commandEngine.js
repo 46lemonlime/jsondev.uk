@@ -7,8 +7,8 @@
  * @responsibility Tokenize user input, validate commands against allowlist, and return structured output objects.
  */
 
-import { projects } from "../../constants";
-import { createVirtualFs, executeLs, executeCd } from "./virtualFs";
+import { projects } from "../../constants/index.js";
+import { createVirtualFs, executeLs, executeCd, executeTree } from "./virtualFs";
 
 export const ALLOWED_COMMANDS = [
   "help",
@@ -19,6 +19,7 @@ export const ALLOWED_COMMANDS = [
   "history",
   "ls",
   "cd",
+  "tree",
   "about",
   "projects",
   "skills",
@@ -141,6 +142,7 @@ export function executeCommand(rawInput, context) {
           { cmd: "echo [text]", desc: t("commands.echo.desc") },
           { cmd: "ls [-a] [-l] [path]", desc: t("commands.ls.desc") },
           { cmd: "cd [dir]", desc: t("commands.cd.desc") },
+          { cmd: "tree [-a] [-L n] [path]", desc: t("commands.tree.desc") },
           { cmd: "clear", desc: t("commands.clear.desc") },
           { cmd: "history", desc: t("commands.history.desc") },
           { cmd: "about", desc: t("commands.about.desc") },
@@ -191,6 +193,11 @@ export function executeCommand(rawInput, context) {
   // Command: cd
   if (command === "cd") {
     return executeCd(args, shellState.cwd, shellState.prevCwd, fs);
+  }
+
+  // Command: tree
+  if (command === "tree") {
+    return executeTree(args, shellState.cwd, fs, language);
   }
 
   // Command: about

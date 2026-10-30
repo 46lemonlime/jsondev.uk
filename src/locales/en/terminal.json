@@ -10,7 +10,7 @@
     "hint": "Type \"help\" to view available commands."
   },
   "promptAriaLabel": "Terminal command input",
-  "inputPlaceholder": "Type a command (e.g. 'help', 'ls', 'pwd', 'whoami', 'projects')...",
+  "inputPlaceholder": "Type \"help\" to view available commands.",
   "stats": {
     "node": "Node: Web Environment",
     "status": "Status: Online",
@@ -35,6 +35,9 @@
     },
     "cd": {
       "desc": "Change simulated working directory."
+    },
+    "tree": {
+      "desc": "List virtual directory contents in a tree-like format."
     },
     "about": {
       "desc": "Display developer background and foundational overview.",

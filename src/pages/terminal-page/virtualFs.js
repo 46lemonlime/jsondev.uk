@@ -6,7 +6,7 @@
  * @responsibility Maintain virtual directory tree, validate paths, and format ls/cd responses.
  */
 
-import { projects } from "../../constants";
+import { projects } from "../../constants/index.js";
 
 /**
  * Constructs the deterministic, read-only virtual filesystem tree.
@@ -117,6 +117,7 @@ export function createVirtualFs() {
             history: { name: "history", type: "file", size: 1024 },
             ls: { name: "ls", type: "file", size: 1024 },
             cd: { name: "cd", type: "file", size: 1024 },
+            tree: { name: "tree", type: "file", size: 1024 },
             about: { name: "about", type: "file", size: 1024 },
             projects: { name: "projects", type: "file", size: 1024 },
             skills: { name: "skills", type: "file", size: 1024 },
@@ -382,6 +383,175 @@ export function executeLs(args, cwd, fs) {
     type: "ls_short",
     data: {
       entries: entries.map((e) => ({ name: e.name, isDir: e.isDir })),
+    },
+  };
+}
+
+/**
+ * Executes a simulated 'tree' command on the virtual filesystem.
+ * Supports -a (all files including hidden), -L <level> (recursion depth limit),
+ * combined flags (-aL, -La), and path resolution.
+ * @param {string[]} args - Command line arguments.
+ * @param {string} cwd - Current working directory.
+ * @param {Object} fs - Virtual filesystem tree.
+ * @param {string} language - Current UI language ("en" or "es").
+ * @returns {Object} Result payload { type: "tree" | "error" | "text", data }.
+ */
+export function executeTree(args, cwd, fs, language = "en") {
+  let showAll = false;
+  let maxDepth = Infinity;
+  let targetArg = null;
+
+  for (let i = 0; i < args.length; i++) {
+    const arg = args[i];
+
+    if (arg === "--help") {
+      return {
+        type: "text",
+        data: {
+          text: "usage: tree [-a] [-L level] [path]",
+        },
+      };
+    }
+
+    if (arg.startsWith("-") && arg.length > 1) {
+      let j = 1;
+      while (j < arg.length) {
+        const char = arg[j];
+        if (char === "a") {
+          showAll = true;
+          j++;
+        } else if (char === "L") {
+          let levelStr = arg.slice(j + 1);
+          if (levelStr.length > 0) {
+            j = arg.length;
+          } else {
+            if (i + 1 >= args.length) {
+              return {
+                type: "error",
+                data: {
+                  message: "tree: -L: option requires an argument\nusage: tree [-a] [-L level] [path]",
+                },
+              };
+            }
+            i++;
+            levelStr = args[i];
+            j = arg.length;
+          }
+
+          const parsedLevel = parseInt(levelStr, 10);
+          if (isNaN(parsedLevel) || parsedLevel <= 0 || String(parsedLevel) !== levelStr.trim()) {
+            return {
+              type: "error",
+              data: {
+                message: "tree: Invalid level, must be greater than 0.",
+              },
+            };
+          }
+          maxDepth = parsedLevel;
+        } else {
+          return {
+            type: "error",
+            data: {
+              message: `tree: invalid option -- '${char}'\nusage: tree [-a] [-L level] [path]`,
+            },
+          };
+        }
+      }
+    } else if (!targetArg) {
+      targetArg = arg;
+    } else {
+      return {
+        type: "error",
+        data: {
+          message: `tree: too many arguments\nusage: tree [-a] [-L level] [path]`,
+        },
+      };
+    }
+  }
+
+  const displayTarget = targetArg || ".";
+  const resolvedPath = targetArg ? resolvePath(cwd, targetArg) : cwd;
+
+  if (!resolvedPath) {
+    return {
+      type: "error",
+      data: {
+        message: `tree: [error opening dir] ${displayTarget}: No such file or directory`,
+      },
+    };
+  }
+
+  const node = getNode(fs, resolvedPath);
+  if (!node) {
+    return {
+      type: "error",
+      data: {
+        message: `tree: [error opening dir] ${displayTarget}: No such file or directory`,
+      },
+    };
+  }
+
+  if (node.type !== "dir") {
+    return {
+      type: "error",
+      data: {
+        message: `tree: [error opening dir] ${displayTarget}: Not a directory`,
+      },
+    };
+  }
+
+  const treeLines = [{ prefix: "", name: displayTarget, isDir: true }];
+  let dirCount = 0;
+  let fileCount = 0;
+
+  function traverse(currentNode, prefix, currentDepth) {
+    const childKeys = Object.keys(currentNode.children || {}).sort((a, b) =>
+      a.localeCompare(b, undefined, { sensitivity: "base" })
+    );
+
+    const filteredKeys = childKeys.filter((k) => showAll || !k.startsWith("."));
+
+    filteredKeys.forEach((key, index) => {
+      const isLast = index === filteredKeys.length - 1;
+      const connector = isLast ? "└── " : "├── ";
+      const childNode = currentNode.children[key];
+      const isDir = childNode.type === "dir";
+
+      treeLines.push({
+        prefix: prefix + connector,
+        name: key,
+        isDir,
+      });
+
+      if (isDir) {
+        dirCount++;
+        if (currentDepth < maxDepth) {
+          const nextPrefix = prefix + (isLast ? "    " : "│   ");
+          traverse(childNode, nextPrefix, currentDepth + 1);
+        }
+      } else {
+        fileCount++;
+      }
+    });
+  }
+
+  traverse(node, "", 1);
+
+  const isEs = language === "es";
+  const dirLabel = isEs
+    ? dirCount === 1 ? "directorio" : "directorios"
+    : dirCount === 1 ? "directory" : "directories";
+  const fileLabel = isEs
+    ? fileCount === 1 ? "archivo" : "archivos"
+    : fileCount === 1 ? "file" : "files";
+  const summary = `${dirCount} ${dirLabel}, ${fileCount} ${fileLabel}`;
+
+  return {
+    type: "tree",
+    data: {
+      lines: treeLines,
+      summary,
     },
   };
 }
