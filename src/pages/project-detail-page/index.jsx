@@ -6,21 +6,19 @@
  */
 
 import React from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import styles from "../../style";
 import { projects } from "../../constants";
 import { Button, Badge } from "../../components";
 import Error from "../error-page";
+import { useLanguage } from "../../utils/language";
 
 const ProjectDetail = ({ projectSlug }) => {
   const { slug: routeSlug } = useParams();
-  const location = useLocation();
   const { t } = useTranslation(["projects", "common"]);
-
-  const isSpanish =
-    location.pathname === "/es" || location.pathname.startsWith("/es/");
+  const { isSpanish, localizePath } = useLanguage();
 
   const activeSlug = projectSlug || routeSlug;
   const projectIndex = projects.findIndex((p) => p.slug === activeSlug);
@@ -35,77 +33,60 @@ const ProjectDetail = ({ projectSlug }) => {
   const nextProject =
     projectIndex < projects.length - 1 ? projects[projectIndex + 1] : projects[0];
 
-  const prevLink = isSpanish ? `/es${prevProject.link}` : prevProject.link;
-  const nextLink = isSpanish ? `/es${nextProject.link}` : nextProject.link;
-  const backLink = isSpanish ? "/es/projects" : "/projects";
+  const prevLink = localizePath(prevProject.link);
+  const nextLink = localizePath(nextProject.link);
+  const backLink = localizePath("/projects");
 
-  const techList = Array.isArray(project.stack)
-    ? project.stack
-    : (project.title || "")
-        .split(",")
-        .map((t) => t.trim())
-        .filter(Boolean);
+  const techList = Array.isArray(project.stack) ? project.stack : [];
+  const categoryKeys = Array.isArray(project.categoryKeys)
+    ? project.categoryKeys
+    : [];
 
-  const categoryList =
-    Array.isArray(project.categories) && project.categories.length > 0
-      ? Array.from(new Set(project.categories))
-      : project.category
-      ? [project.category]
-      : [];
-
+  const projectName = t(`items.${project.slug}.name`, {
+    defaultValue: project.name || "",
+  });
   const projectSubtitle = t(`items.${project.slug}.subtitle`, {
-    defaultValue: project.subtitle,
+    defaultValue: "",
   });
   const projectOverview = t(`items.${project.slug}.overview`, {
-    defaultValue: project.overview || project.content,
+    defaultValue: "",
   });
   const projectType = t(`items.${project.slug}.projectType`, {
-    defaultValue: project.projectType || categoryList.join(" // "),
+    defaultValue: "",
   });
-  const projectProblem = project.problem
-    ? t(`items.${project.slug}.problem`, { defaultValue: project.problem })
-    : null;
-  const projectSolution = project.solution
-    ? t(`items.${project.slug}.solution`, { defaultValue: project.solution })
-    : null;
-  const projectHighlights = Array.isArray(project.highlights)
-    ? t(`items.${project.slug}.highlights`, {
-        returnObjects: true,
-        defaultValue: project.highlights,
-      })
-    : [];
-  const verificationNote = project.verificationNote
-    ? t(`items.${project.slug}.verificationNote`, {
-        defaultValue: project.verificationNote,
-      })
-    : null;
+  const projectProblem = t(`items.${project.slug}.problem`, {
+    defaultValue: "",
+  });
+  const projectSolution = t(`items.${project.slug}.solution`, {
+    defaultValue: "",
+  });
+  const projectHighlights = t(`items.${project.slug}.highlights`, {
+    returnObjects: true,
+    defaultValue: [],
+  });
+  const verificationNote = t(`items.${project.slug}.verificationNote`, {
+    defaultValue: "",
+  });
 
-  const projectContribution = project.contribution || {};
-  const contributionRole = projectContribution.role
-    ? t(`items.${project.slug}.contribution.role`, {
-        defaultValue: projectContribution.role,
-      })
-    : null;
-  const contributionApproach = projectContribution.approach
-    ? t(`items.${project.slug}.contribution.approach`, {
-        defaultValue: projectContribution.approach,
-      })
-    : null;
-  const contributionDecisions = projectContribution.decisions
-    ? t(`items.${project.slug}.contribution.decisions`, {
-        defaultValue: projectContribution.decisions,
-      })
-    : null;
-  const contributionTesting = projectContribution.testing
-    ? t(`items.${project.slug}.contribution.testing`, {
-        defaultValue: projectContribution.testing,
-      })
-    : null;
-  const contributionOutcome = projectContribution.outcome
-    ? t(`items.${project.slug}.contribution.outcome`, {
-        defaultValue: projectContribution.outcome,
-      })
-    : null;
+  const contributionRole = t(`items.${project.slug}.contribution.role`, {
+    defaultValue: "",
+  });
+  const contributionApproach = t(
+    `items.${project.slug}.contribution.approach`,
+    { defaultValue: "" }
+  );
+  const contributionDecisions = t(
+    `items.${project.slug}.contribution.decisions`,
+    { defaultValue: "" }
+  );
+  const contributionTesting = t(
+    `items.${project.slug}.contribution.testing`,
+    { defaultValue: "" }
+  );
+  const contributionOutcome = t(
+    `items.${project.slug}.contribution.outcome`,
+    { defaultValue: "" }
+  );
 
   const hasContributionSection = Boolean(
     contributionRole ||
@@ -113,6 +94,17 @@ const ProjectDetail = ({ projectSlug }) => {
       contributionDecisions ||
       contributionTesting ||
       contributionOutcome
+  );
+
+  const statusKey = project.statusKey;
+  const statusLabel = statusKey
+    ? t(`badges.${statusKey}`, {
+        ns: "common",
+        defaultValue: "",
+      })
+    : "";
+  const isLiveStatus = Boolean(
+    statusKey && statusKey.toLowerCase().includes("live")
   );
 
   return (
@@ -130,27 +122,20 @@ const ProjectDetail = ({ projectSlug }) => {
             </Link>
 
             <div className="flex flex-wrap items-center gap-2">
-              {categoryList.map((cat) => (
-                <Badge key={cat} variant="neutral">
-                  {t(`categories.${cat}`, {
+              {categoryKeys.map((catKey) => (
+                <Badge key={catKey} variant="neutral">
+                  {t(`categories.${catKey}`, {
                     ns: "common",
-                    defaultValue: cat,
+                    defaultValue: catKey,
                   })}
                 </Badge>
               ))}
-              {project.status && (
+              {statusLabel && (
                 <Badge
-                  variant={
-                    project.status.toLowerCase().includes("live")
-                      ? "accent"
-                      : "neutral"
-                  }
-                  pulse={project.status.toLowerCase().includes("live")}
+                  variant={isLiveStatus ? "accent" : "neutral"}
+                  pulse={isLiveStatus}
                 >
-                  {t(`badges.${project.status}`, {
-                    ns: "common",
-                    defaultValue: project.status,
-                  })}
+                  {statusLabel}
                 </Badge>
               )}
             </div>
@@ -160,7 +145,7 @@ const ProjectDetail = ({ projectSlug }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start mb-12 relative z-[1]">
             <div className="md:col-span-2">
               <p className={styles.subheading}>{projectType}</p>
-              <h1 className={`${styles.heading1} mt-2`}>{project.name}</h1>
+              <h1 className={`${styles.heading1} mt-2`}>{projectName}</h1>
               {projectSubtitle && (
                 <p className="font-display font-medium text-[20px] text-textPrimary mt-3">
                   {projectSubtitle}
@@ -178,7 +163,8 @@ const ProjectDetail = ({ projectSlug }) => {
                   >
                     {project.slug === "handlab"
                       ? t("detail.buttons.visitHandLabOnline")
-                      : project.projectType?.toLowerCase().includes("game")
+                      : projectType?.toLowerCase().includes("game") ||
+                        projectType?.toLowerCase().includes("juego")
                       ? t("detail.buttons.playLiveDemo")
                       : t("detail.buttons.visitLiveSite")}
                   </Button>
@@ -204,7 +190,7 @@ const ProjectDetail = ({ projectSlug }) => {
                 <div className="w-16 h-16 rounded-2xl bg-surfaceElevated border border-borderSubtle flex items-center justify-center p-3 shrink-0">
                   <img
                     src={project.img}
-                    alt={`${project.name} icon`}
+                    alt={`${projectName} icon`}
                     width="44"
                     height="44"
                     className="w-11 h-11 object-contain"
@@ -265,32 +251,33 @@ const ProjectDetail = ({ projectSlug }) => {
                 {project.applications.map((app) => {
                   const appName = t(
                     `items.${project.slug}.applications.${app.id}.name`,
-                    { defaultValue: app.name }
+                    { defaultValue: app.id }
                   );
                   const appBadge = t(
                     `items.${project.slug}.applications.${app.id}.badge`,
-                    { defaultValue: app.badge }
+                    { defaultValue: "" }
                   );
                   const appStatus = t(
                     `items.${project.slug}.applications.${app.id}.status`,
-                    { defaultValue: app.status }
+                    { defaultValue: "" }
                   );
                   const appDescription = t(
                     `items.${project.slug}.applications.${app.id}.description`,
-                    { defaultValue: app.description }
+                    { defaultValue: "" }
                   );
                   const appCapabilities = t(
                     `items.${project.slug}.applications.${app.id}.capabilities`,
                     {
                       returnObjects: true,
-                      defaultValue: app.capabilities || [],
+                      defaultValue: [],
                     }
                   );
                   const appCtaLabel = t(
                     `items.${project.slug}.applications.${app.id}.ctaLabel`,
                     {
-                      defaultValue:
-                        app.ctaLabel || t("buttons.visitApplication", { ns: "common" }),
+                      defaultValue: app.liveUrl
+                        ? t("buttons.visitApplication", { ns: "common" })
+                        : null,
                     }
                   );
 
@@ -330,7 +317,7 @@ const ProjectDetail = ({ projectSlug }) => {
                         )}
                       </div>
 
-                      {app.liveUrl && (
+                      {app.liveUrl && appCtaLabel && (
                         <div className="mt-6 pt-5 border-t border-borderSubtle">
                           <Button
                             href={app.liveUrl}

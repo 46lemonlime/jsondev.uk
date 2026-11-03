@@ -12,6 +12,7 @@ import { useTranslation } from "react-i18next";
 import styles from "../../style";
 import { close, logo, menu, cv } from "../../assets";
 import { navLinks } from "../../constants";
+import { useLanguage } from "../../utils/language";
 
 /**
  * Mapping from base path to translation key in common.json under "nav".
@@ -65,9 +66,7 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { t } = useTranslation();
-
-  const { pathname } = location;
-  const isSpanish = pathname === "/es" || pathname.startsWith("/es/");
+  const { pathname, isSpanish, localizePath } = useLanguage();
 
   // Close mobile drawer automatically on route transition
   useEffect(() => {
@@ -93,16 +92,8 @@ const Navbar = () => {
       return;
     }
 
-    let newPathname;
-    if (targetLang === "es") {
-      newPathname = pathname === "/" ? "/es" : `/es${pathname}`;
-    } else {
-      const stripped = pathname.replace(/^\/es/, "");
-      newPathname = stripped === "" ? "/" : stripped;
-    }
-
     navigate({
-      pathname: newPathname,
+      pathname: localizePath(pathname, targetLang === "es"),
       search: location.search,
       hash: location.hash,
     });
@@ -111,10 +102,7 @@ const Navbar = () => {
   /**
    * Resolves the localized target path for a navigation item.
    */
-  const getLocalizedLink = (basePath) => {
-    if (!isSpanish) return basePath;
-    return basePath === "/" ? "/es" : `/es${basePath}`;
-  };
+  const getLocalizedLink = (basePath) => localizePath(basePath);
 
   return (
     <nav

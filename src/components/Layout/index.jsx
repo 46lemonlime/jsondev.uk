@@ -8,6 +8,8 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import ScrollToTop from "./ScrollToTop";
+import LanguageSync from "./LanguageSync";
+import SEOSync from "./SEOSync";
 
 const Layout = ({ children }) => {
   return (
@@ -29,6 +31,8 @@ const Layout = ({ children }) => {
       </a>
       <Header />
       <ScrollToTop />
+      <LanguageSync />
+      <SEOSync />
       <main id="main-content" className="flex-1 w-full relative z-[1]">
         {children}
       </main>

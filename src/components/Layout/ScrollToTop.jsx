@@ -1,31 +1,29 @@
 /**
  * @file src/components/Layout/ScrollToTop.jsx
- * @description Automatically scrolls the window to the top on route transitions, synchronizes
- * the i18n language and html[lang] attribute with the authoritative URL path, and dynamically
- * applies localized SEO metadata, Open Graph tags, canonical links, and hreflang alternates.
- * @responsibility Synchronize window scroll position, document language, and SEO metadata with React Router history.
+ * @description Viewport scroll manager that resets window scroll position to the top on route transitions.
+ * @responsibility Restore window scroll position when navigating to a new pathname.
  */
 
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import i18n from "../../i18n";
-import { resolveSEOMetadata, applySEOMetadata } from "./seo";
+
+/**
+ * Resets the window scroll position to the top-left (0, 0).
+ * Safely handles environments where window or scrollTo is unavailable.
+ *
+ * @param {Function} [scrollFn] - Optional scroll implementation (defaults to window.scrollTo).
+ */
+export function handleScrollToTop(scrollFn = typeof window !== "undefined" ? window.scrollTo : null) {
+  if (typeof scrollFn === "function") {
+    scrollFn(0, 0);
+  }
+}
 
 function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-
-    const isSpanish = pathname === "/es" || pathname.startsWith("/es/");
-    const targetLang = isSpanish ? "es" : "en";
-
-    if (i18n.language !== targetLang) {
-      i18n.changeLanguage(targetLang);
-    }
-
-    const metadata = resolveSEOMetadata(pathname, targetLang);
-    applySEOMetadata(metadata);
+    handleScrollToTop();
   }, [pathname]);
 
   return null;

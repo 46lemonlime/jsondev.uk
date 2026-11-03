@@ -1,4 +1,18 @@
 
+11.2026
+- Configured automated testing baseline using Vitest and React Testing Library (178 passing tests across 8 suites)
+- Decoupled route effects in Layout: extracted ScrollToTop (pathname-only scroll reset), LanguageSync (authoritative URL language sync), and SEOSync (title, description, canonical & hreflang sync)
+- Added dedicated route effects test suite verifying query-string and hash preservation
+- Added shared useLanguage hook and path localization helper in src/utils/language.js
+- Extracted simulated terminal output rendering into pure presentation component TerminalOutput.jsx
+- Decoupled terminal output formatting from commandEngine orchestration and VirtualFs filesystem traversal
+- Refactored Contact page composition to page-level component, isolating ContactForm validation from ContactInfo presentation (SRP)
+- Refactored project catalog data model in constants: separated structural metadata from localized presentation content in projects.json
+- Eliminated redundant legacy category fields and duplicate English presentation strings from src/constants/index.js
+- Implemented machine-readable statusKey architecture for project lifecycle status badges (activeLive, completed, completedMaintained, activeLiveDemo)
+- Fixed Spanish project status badge defect on /es/projects/:slug, ensuring 100% Spanish localization parity without falling back to English strings
+- Added comprehensive project data model and status localization test suite with 46 automated tests
+
 10.2026
 - Added structured Development & Contribution section across all six project detail pages communicating sole human contributor role, development approach, technical decisions, testing, and outcomes
 - Added Development Approach section to the About page articulating hands-on engineering mindset, technical responsibility, and transparent use of AI-assisted tools as productivity accelerators

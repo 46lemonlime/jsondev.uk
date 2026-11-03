@@ -100,6 +100,7 @@ Exact package versions matching [`package.json`](./package.json):
 | `autoprefixer` | `^10.4.14` | Vendor prefix parser for CSS rules |
 | `@types/react` | `^18.0.28` | TypeScript definitions for React |
 | `@types/react-dom` | `^18.0.11` | TypeScript definitions for React DOM |
+| `vitest` | `^0.34.6` | Next-generation unit and component test runner |
 
 ---
 
@@ -148,6 +149,12 @@ npm run build
 
 # Boots a local static server to preview the production build in dist/
 npm run preview
+
+# Runs the complete automated test suite (178 passing tests across 8 suites)
+npm test
+
+# Starts the Vitest test runner in interactive watch mode
+npm run test:watch
 ```
 
 ---
@@ -169,24 +176,34 @@ jsondev.uk/
 │   │   ├── cv.pdf                # Authentic curriculum vitae document
 │   │   └── index.js              # Centralized asset export registry with backward-compatibility aliases
 │   ├── components/               # Shared reusable UI primitives
-│   │   ├── Layout/               # Header, Footer, Navbar, ScrollToTop, and seo.js helper
+│   │   ├── Layout/               # Layout shell and decoupled route effects
+│   │   │   ├── LanguageSync.jsx  # Syncs active i18next language with authoritative URL route
+│   │   │   ├── SEOSync.jsx       # Updates document title, meta descriptions, canonical & hreflang
+│   │   │   ├── ScrollToTop.jsx   # Handles window scroll reset on pathname changes only
+│   │   │   ├── Navbar.jsx        # Sticky navigation header with desktop/mobile drawer
+│   │   │   ├── Footer.jsx        # Semantic footer landmark and quick links
+│   │   │   ├── seo.js            # Route SEO resolver helper
+│   │   │   └── routeEffects.test.js # Test suite for isolated route effects
 │   │   ├── Badge.jsx             # Status tag component (neutral, accent, telemetry, pink)
 │   │   ├── Button.jsx            # Polymorphic button/anchor primitive
 │   │   ├── FeedbackCard.jsx      # Testimonial quote card
 │   │   ├── GetRoadmap.jsx        # Notion CS roadmap CTA button
 │   │   ├── SectionHeader.jsx     # Consistent section title component
 │   │   └── index.js              # Barrel export for shared components
-│   ├── constants/                # Single source of truth for site content
-│   │   └── index.js              # Nav links, projects catalog, history, stats
+│   ├── constants/                # Single source of truth for structural site metadata
+│   │   ├── index.js              # Projects catalog, capabilities, work history, stats
+│   │   └── projects.test.js      # 46 tests verifying project schema, statusKey, and translations
 │   ├── i18n.js                   # i18next configuration, language detection, and namespace loading
 │   ├── locales/                  # Localized translation catalogs
-│   │   ├── en/                   # English translations (common, home, about, projects, contact, terminal)
-│   │   └── es/                   # Spanish translations (common, home, about, projects, contact, terminal)
+│   │   ├── en/                   # English translations (common, home, about, projects, contact, terminal, errors)
+│   │   └── es/                   # Spanish translations (common, home, about, projects, contact, terminal, errors)
 │   ├── pages/                    # Route-level view modules (code-split)
 │   │   ├── about-page/           # Narrative background, skills, verified work history
 │   │   │   └── components/       # AboutIntro, DevelopmentApproach, FeatureCard, Testimonials
 │   │   ├── contact-page/         # Message composer & verified contact info
-│   │   │   └── components/       # ContactForm.jsx & ContactInfo.jsx (SRP)
+│   │   │   ├── components/       # ContactForm.jsx & ContactInfo.jsx (separated SRP)
+│   │   │   ├── contactPage.test.js # Contact page composition and form isolation tests
+│   │   │   └── index.jsx         # Page-level composition of form and contact aside
 │   │   ├── error-page/           # Localized HTTP 404 recovery view
 │   │   ├── home-page/            # Developer-first landing page
 │   │   │   └── components/       # Hero, Stats, Projects, Products, GetInTouch
@@ -194,16 +211,23 @@ jsondev.uk/
 │   │   │   └── components/       # ProjectCard.jsx primitive
 │   │   ├── project-detail-page/  # Dynamic single project view (/projects/:slug)
 │   │   └── terminal-page/        # Interactive simulated Bash shell (/terminal)
-│   │       ├── components/       # TerminalView.jsx (window chrome, history, input)
+│   │       ├── components/       # TerminalView.jsx & TerminalOutput.jsx (presentation extraction)
 │   │       ├── autocomplete.js   # Tab completion engine (LCP, commands, virtual paths)
 │   │       ├── commandEngine.js  # Dispatcher for simulated POSIX built-ins and tree command
 │   │       ├── virtualFs.js      # In-memory virtual filesystem tree, path resolver & tree engine
-│   │       └── index.jsx         # Responsive two-column hero wrapper with localized SEO
+│   │       ├── TerminalOutput.test.js # Output rendering presentation tests
+│   │       ├── commandEngine.test.js  # Command execution tests
+│   │       ├── autocomplete.test.js   # Tab completion unit tests
+│   │       └── virtualFs.test.js      # Filesystem operations tests
 │   ├── routes/                   # Application routing and chunking
 │   │   └── App.jsx               # Case-sensitive canonical English and Spanish routes, 404
+│   ├── utils/                    # Shared utility hooks and helpers
+│   │   ├── language.js           # useLanguage hook and path localization helper
+│   │   └── language.test.js      # Language utility test suite
 │   ├── index.css                 # Tailwind base styles, font faces, theme vars, reduced-motion
 │   ├── main.jsx                  # React 18 DOM mount entry point
 │   └── style.js                  # Shared typographic and layout token utility
+├── COMPLETELIST.txt              # Engineering changelog by month
 ├── DESIGN.md                     # Comprehensive design system specification & rules
 ├── index.html                    # Root HTML document and Google Fonts configuration
 ├── package.json                  # Dependencies, metadata, and scripts
@@ -220,21 +244,22 @@ jsondev.uk/
 ## 8. Architecture and Design Decisions
 
 - **Single Source of Truth**: All dynamic content (project catalog, employment timeline, technical capabilities, social channels, and navigation items) is declared in [`src/constants/index.js`](./src/constants/index.js). Adding or revising projects automatically propagates across the homepage, archive, detail pages, and document titles.
+- **Project Data Model & Status Badge Localization**: Structural project metadata ([`src/constants/index.js`](./src/constants/index.js)) is cleanly separated from localized presentation copy ([`src/locales/{en,es}/projects.json`](./src/locales/en/projects.json)). Project records declare stable, machine-readable `statusKey` identifiers (`activeLive`, `completed`, `completedMaintained`, `activeLiveDemo`) rather than hardcoded presentation strings, guaranteeing full localization parity across English and Spanish project detail routes.
+- **Route Effects Isolation**: Side-effects triggered during navigation are decoupled into dedicated, single-purpose components in [`src/components/Layout/`](./src/components/Layout/): `ScrollToTop.jsx` (resets viewport scroll strictly on pathname changes), `LanguageSync.jsx` (synchronizes i18next with the authoritative URL prefix), and `SEOSync.jsx` (updates document `<title>`, `<meta name="description">`, Open Graph, canonical `<link rel="canonical">`, and bidirectional hreflang `<link rel="alternate" hreflang="...">` tags).
 - **Structured Project Development & Contribution Architecture**: All six project detail views feature a dedicated, responsive `Development & Contribution` section (`/projects/:slug` and `/es/projects/:slug`). Built on an extensible `contribution` data model in `src/constants/index.js` and localized JSON catalogs, it explicitly communicates sole human contributor responsibility, technical workflow, architectural decisions, testing validation, and outcomes without resorting to generic disclaimers, unverified practices, or decorative AI badges.
 - **Engineering Philosophy & Development Approach**: Documented on the About page via a dedicated [`DevelopmentApproach.jsx`](./src/pages/about-page/components/DevelopmentApproach.jsx) component (`02 // PHILOSOPHY & WORKFLOW`). Articulates an independent, hands-on engineering mindset from ideation to deployment, transparently incorporating modern AI-assisted tools for productivity and troubleshooting while emphasizing rigorous personal ownership over code evaluation, architecture, and working software delivery.
-- **Bilingual i18n Architecture**: Powered by `i18next` and `react-i18next` in [`src/i18n.js`](./src/i18n.js). Content is segmented into six dedicated JSON namespaces (`common`, `home`, `about`, `projects`, `contact`, `terminal`) under `src/locales/en/` and `src/locales/es/`. Language selection syncs with URL paths (`/` for English, `/es` for Spanish) and persists in `localStorage`.
-- **Multilingual SEO Framework**: Managed dynamically through [`src/components/Layout/seo.js`](./src/components/Layout/seo.js) via the `useLocalizeDocument` hook called in `ScrollToTop.jsx`. Automatically computes and applies localized page `<title>`, `<meta name="description">`, Open Graph tags, canonical `<link rel="canonical">`, and `<link rel="alternate" hreflang="...">` tags for `en`, `es`, and `x-default`.
-- **Simulated Bash Shell, Autocomplete & Virtual Filesystem**: Implemented in [`src/pages/terminal-page/`](./src/pages/terminal-page/) as a strictly simulated, frontend-only command line environment. An in-memory virtual filesystem ([`virtualFs.js`](./src/pages/terminal-page/virtualFs.js)) models `/home/guest` and directory nodes derived from [`src/constants/index.js`](./src/constants/index.js). The dispatch engine ([`commandEngine.js`](./src/pages/terminal-page/commandEngine.js)) parses POSIX flags (`ls -la`), executes virtual filesystem commands (`tree [-a] [-L n] [path]`, `cd`, `pwd`), resolves traversals (`cd ..`, `cd ~`, `cd -`), and renders portfolio data safely without host execution, `eval()`, or backend transmission. The autocomplete subsystem ([`autocomplete.js`](./src/pages/terminal-page/autocomplete.js)) provides keyboard Tab completion with longest common prefix reduction for 13 built-in commands and path targets, including trailing slash directory cues, `cd` directory filtering, and double-Tab candidate listings. The page features a responsive two-column hero layout with persistent ASCII branding and bilingual input placeholder guidance (`Type "help" to view available commands.`), expanding naturally with page height while preserving focus stability (`preventScroll: true`).
+- **Bilingual i18n Architecture**: Powered by `i18next` and `react-i18next` in [`src/i18n.js`](./src/i18n.js). Content is segmented into dedicated JSON namespaces (`common`, `home`, `about`, `projects`, `contact`, `terminal`, `errors`) under `src/locales/en/` and `src/locales/es/`. Language state is authoritatively driven by the URL path (`/` for English, `/es` for Spanish) with helper utilities in [`src/utils/language.js`](./src/utils/language.js).
+- **Simulated Bash Shell, Autocomplete & Virtual Filesystem**: Implemented in [`src/pages/terminal-page/`](./src/pages/terminal-page/) as a strictly simulated, frontend-only command line environment. An in-memory virtual filesystem ([`virtualFs.js`](./src/pages/terminal-page/virtualFs.js)) models `/home/guest` and directory nodes derived from [`src/constants/index.js`](./src/constants/index.js). The dispatch engine ([`commandEngine.js`](./src/pages/terminal-page/commandEngine.js)) parses POSIX flags (`ls -la`), executes virtual filesystem commands (`tree [-a] [-L n] [path]`, `cd`, `pwd`), resolves traversals (`cd ..`, `cd ~`, `cd -`), and renders portfolio data safely without host execution, `eval()`, or backend transmission. The autocomplete subsystem ([`autocomplete.js`](./src/pages/terminal-page/autocomplete.js)) provides keyboard Tab completion with longest common prefix reduction for 13 built-in commands and path targets. Output formatting is cleanly decoupled into [`TerminalOutput.jsx`](./src/pages/terminal-page/components/TerminalOutput.jsx).
 - **Dark Technical Page Scrollbar**: Primary page scrollbar rules declared in [`src/index.css`](./src/index.css) apply the Canvas (`#101110`) track, Border Subtle (`#30342C`) thumb, and Caribbean Green (`#00CC99`) active hover states across WebKit and standard W3C scrollbar properties without polluting nested elements.
 - **Brand System & Semantic Palette**: Governed by [`DESIGN.md`](./DESIGN.md) as the repository-wide specification. Enforces a 4-step decision hierarchy for colour usage (Caribbean Green for primary actions/brand identity, Vivid Pink for the hero name and deliberate secondary highlights, Semantic status tokens for runtime telemetry, and Dark Neutrals as standard defaults).
 - **Dedicated Project Identity Badges**: Each project in the catalog has its own dedicated SVG identity badge rendered at 36×36 px (in cards) and 44×44 px (in detail metadata cards). Smart File Organizer and Ascension Tactics feature custom monochrome `#00CC99` vector icons rather than borrowing section feature icons.
 - **Component-Driven Composition**: UI primitives ([`Button.jsx`](./src/components/Button.jsx), [`Badge.jsx`](./src/components/Badge.jsx), [`SectionHeader.jsx`](./src/components/SectionHeader.jsx), [`ProjectCard.jsx`](./src/pages/portfolio-page/components/ProjectCard.jsx)) isolate styling and presentation logic, ensuring consistent design language across all views.
 - **Hero Typography & Two-Scale Scaling**: The hero name leverages locally bundled **Silkscreen Bold** with a calculated 1.5× scale ratio between the primary line (“Jeison Porfirio”) and secondary line (“Plaza Sanchez”), rendered with crisp solid brand colours rather than gradients or synthetic strokes.
 - **Single Responsibility Principle (SRP)**:
-  - Form validation and clipboard state are managed in [`ContactForm.jsx`](./src/pages/contact-page/components/ContactForm.jsx), while static location and verified profiles are isolated in [`ContactInfo.jsx`](./src/pages/contact-page/components/ContactInfo.jsx).
-  - Navigation links and CV actions are decoupled from sticky header glassmorphism styles.
+  - Form validation and clipboard state are managed exclusively in [`ContactForm.jsx`](./src/pages/contact-page/components/ContactForm.jsx), while static location and verified profiles are isolated in [`ContactInfo.jsx`](./src/pages/contact-page/components/ContactInfo.jsx), composed cleanly at the page level in [`src/pages/contact-page/index.jsx`](./src/pages/contact-page/index.jsx).
+  - Terminal output formatting is extracted into [`TerminalOutput.jsx`](./src/pages/terminal-page/components/TerminalOutput.jsx), separating visual presentation from terminal interaction state.
 - **Open/Closed Principle (OCP)**:
-  - Project archive filtering uses declarative `categoryKeys` and `categories` arrays on project data, supporting multi-category membership (e.g., HandLab under both `Web Application` and `Desktop & Tooling`) without hardcoded component arrays or duplicate project records.
+  - Project archive filtering uses declarative `categoryKeys` on project data, supporting multi-category membership (e.g., HandLab under both `Web Application` and `Desktop & Tooling`) without hardcoded component arrays or duplicate project records.
 - **Performance & Lazy Loading**: Secondary routes are split into separate JavaScript chunks using `React.lazy` and `Suspense`, preventing unnecessary overhead on initial landing load.
 - **Controlled Legacy Cleanup**: Obsolete legacy URL redirects, redundant single-project page wrappers, and unused template graphics have been removed. All canonical routes enforce native `caseSensitive` matching, safely directing legacy, mixed-case, or invalid URLs to the 404 error page.
 - **Accessibility & UX**:
@@ -309,7 +334,15 @@ This behavior is configured in [`vercel.json`](./vercel.json):
 
 - **Code Conventions**: Follow standard JavaScript (ES6+) and modern React function components with hooks.
 - **Component Header Documentation**: Every handwritten file contains a standardized JSDoc file header documenting `@file`, `@description`, and `@responsibility`.
-- **Honest Test & Linting Status**: No automated test runner (such as Jest or Vitest) or linter (such as ESLint) is currently configured in `package.json`. Code quality and integrity are maintained through static architecture reviews, explicit typing definitions, and production build verification.
+- **Automated Testing Suite**: Automated tests are powered by **Vitest** and **React Testing Library**. The repository maintains 178 passing tests across 8 dedicated test suites verifying:
+  - Project data schema, canonical catalog integrity, `statusKey` machine-readable identifiers, and complete EN/ES translation parity (`src/constants/projects.test.js`).
+  - Decoupled route effects (`ScrollToTop`, `LanguageSync`, `SEOSync`) with query/hash preservation (`src/components/Layout/routeEffects.test.js`).
+  - Language detection and path localization utilities (`src/utils/language.test.js`).
+  - Contact page composition, independent aside presentation, and form isolation (`src/pages/contact-page/contactPage.test.js`).
+  - Simulated terminal POSIX commands, flag parsing, and route navigation (`src/pages/terminal-page/commandEngine.test.js`).
+  - In-memory virtual filesystem traversals and `tree` hierarchy (`src/pages/terminal-page/virtualFs.test.js`).
+  - Keyboard Tab autocomplete engine, longest common prefix reduction, and candidate display (`src/pages/terminal-page/autocomplete.test.js`).
+  - Terminal output formatting and visual presentation separation (`src/pages/terminal-page/components/TerminalOutput.test.js`).
 - **Accessibility Discipline**: Always include accessible names (`aria-label`, visible text, or `aria-labelledby`), semantic landmarks, and preserve keyboard focus visibility.
 
 ---

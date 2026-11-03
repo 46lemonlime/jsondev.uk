@@ -221,13 +221,27 @@ export function executeCommand(rawInput, context) {
         data: {
           header: t("commands.projects.header"),
           slugHint: t("commands.projects.slugHint"),
-          projects: projects.map((p) => ({
-            slug: p.slug,
-            name: p.name,
-            category: Array.isArray(p.categories)
-              ? p.categories[0]
-              : p.category || "Project",
-          })),
+          projects: projects.map((p) => {
+            const catKey =
+              Array.isArray(p.categoryKeys) && p.categoryKeys.length > 0
+                ? p.categoryKeys[0]
+                : "web";
+            const name = t(`projects:items.${p.slug}.name`, {
+              lng: language,
+              ns: "projects",
+              defaultValue: p.name || p.slug,
+            });
+            const category = t(`common:categories.${catKey}`, {
+              lng: language,
+              ns: "common",
+              defaultValue: catKey,
+            });
+            return {
+              slug: p.slug,
+              name,
+              category,
+            };
+          }),
         },
       };
     }
@@ -246,16 +260,38 @@ export function executeCommand(rawInput, context) {
     }
 
     const detailRoute = language === "es" ? `/es${found.link}` : found.link;
+    const catKey =
+      Array.isArray(found.categoryKeys) && found.categoryKeys.length > 0
+        ? found.categoryKeys[0]
+        : "web";
+
+    const name = t(`projects:items.${found.slug}.name`, {
+      lng: language,
+      ns: "projects",
+      defaultValue: found.name || found.slug,
+    });
+    const category = t(`common:categories.${catKey}`, {
+      lng: language,
+      ns: "common",
+      defaultValue: catKey,
+    });
+    const summary = t(`projects:items.${found.slug}.overview`, {
+      lng: language,
+      ns: "projects",
+      defaultValue: t(`projects:items.${found.slug}.content`, {
+        lng: language,
+        ns: "projects",
+        defaultValue: "",
+      }),
+    });
 
     return {
       type: "project_detail",
       data: {
-        name: found.name,
+        name,
         slug: found.slug,
-        category: Array.isArray(found.categories)
-          ? found.categories[0]
-          : found.category || "Project",
-        summary: found.overview || found.content || "",
+        category,
+        summary,
         stack: Array.isArray(found.stack) ? found.stack : [],
         liveUrl: found.liveUrl || null,
         repoUrl: found.repoUrl || null,

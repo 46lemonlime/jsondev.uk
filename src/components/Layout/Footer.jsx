@@ -6,12 +6,13 @@
  */
 
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import styles from "../../style";
 import { logo } from "../../assets";
 import { footerLinks, socialMedia } from "../../constants";
+import { useLanguage } from "../../utils/language";
 
 const NAV_LINK_NAMES = {
   "/": "home",
@@ -23,9 +24,7 @@ const NAV_LINK_NAMES = {
 
 const Footer = () => {
   const { t } = useTranslation("common");
-  const location = useLocation();
-  const isSpanish =
-    location.pathname === "/es" || location.pathname.startsWith("/es/");
+  const { isSpanish, localizePath } = useLanguage();
 
   return (
     <footer className={`bg-surface/60 border-t border-borderSubtle ${styles.paddingX} ${styles.flexCenter} mt-20`}>
@@ -87,14 +86,7 @@ const Footer = () => {
                           );
                         }
 
-                        const targetLink =
-                          isSpanish &&
-                          item.link.startsWith("/") &&
-                          !item.link.startsWith("/es")
-                            ? item.link === "/"
-                              ? "/es"
-                              : `/es${item.link}`
-                            : item.link;
+                        const targetLink = localizePath(item.link);
 
                         return (
                           <li key={item.name}>

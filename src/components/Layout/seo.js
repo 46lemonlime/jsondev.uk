@@ -85,11 +85,11 @@ export function resolveSEOMetadata(pathname, lang = "en") {
     if (matchingProject) {
       const projectName = i18n.t(`projects:items.${slug}.name`, {
         lng: lang,
-        defaultValue: matchingProject.name,
+        defaultValue: matchingProject.name || slug,
       });
       const projectDesc = i18n.t(`projects:items.${slug}.content`, {
         lng: lang,
-        defaultValue: matchingProject.content,
+        defaultValue: "",
       });
       const title = `${projectName} | JsonDev`;
       const description = projectDesc;

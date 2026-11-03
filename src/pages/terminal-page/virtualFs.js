@@ -14,17 +14,25 @@ import { projects } from "../../constants/index.js";
  * @returns {Object} Root filesystem node.
  */
 export function createVirtualFs() {
-  // Build project files dynamically from existing public constants
+  // Build project files dynamically from structural project constants
   const projectChildren = {};
   projects.forEach((p) => {
     const filename = `${p.slug}.md`;
+    const primaryCat =
+      Array.isArray(p.categoryKeys) && p.categoryKeys.length > 0
+        ? p.categoryKeys[0]
+        : "web";
+    // Deterministic simulated documentation size based on structural tech stack weight
+    const stackWeight = Array.isArray(p.stack) ? p.stack.length * 48 : 128;
+    const simulatedSize = 1024 + stackWeight;
+
     projectChildren[filename] = {
       name: filename,
       type: "file",
-      size: (p.content ? p.content.length * 4 : 512) + (p.stack ? p.stack.length * 32 : 128),
+      size: simulatedSize,
       slug: p.slug,
-      title: p.name,
-      category: Array.isArray(p.categories) ? p.categories[0] : p.category || "Project",
+      title: p.name || p.slug,
+      category: primaryCat,
     };
   });
 

@@ -15,15 +15,11 @@ import { Badge } from "../../../components";
  * @param {Object} props
  * @param {string} props.img - Dedicated project identity icon badge SVG source (rendered at 36x36; not a screenshot).
  * @param {string} props.name - Display title of the project.
- * @param {string[]} [props.categories] - Array of human-readable category labels.
- * @param {string} [props.category] - Legacy single category label.
- * @param {string[]} [props.categoryKeys] - Array of filter category keys.
- * @param {string} [props.categoryKey] - Legacy single filter key.
- * @param {string} [props.projectType] - Project subtype/classification badge.
- * @param {string} [props.title] - Comma-delimited fallback tech stack string.
+ * @param {string[]} [props.categoryKeys] - Array of filter category keys ('web' | 'desktop').
+ * @param {string} [props.projectType] - Project subtype/classification badge fallback.
  * @param {string[]} [props.stack] - Array of technology names.
- * @param {string} props.content - Summary description.
- * @param {string} [props.context] - Brief context sentence.
+ * @param {string} [props.content] - Summary description fallback.
+ * @param {string} [props.context] - Brief context sentence fallback.
  * @param {string} props.link - Destination route path.
  * @param {string|null} [props.liveUrl] - Verified live website or demo URL.
  * @param {string|null} [props.repoUrl] - Verified public source repository URL.
@@ -33,12 +29,8 @@ import { Badge } from "../../../components";
 const ProjectCard = ({
   img,
   name,
-  categories,
-  category,
   categoryKeys,
-  categoryKey,
   projectType,
-  title,
   stack,
   content,
   context,
@@ -54,29 +46,22 @@ const ProjectCard = ({
     location.pathname === "/es" || location.pathname.startsWith("/es/");
 
   const HeadingTag = headingLevel;
-  const techList = Array.isArray(stack)
-    ? stack
-    : (title || "").split(",").map((item) => item.trim()).filter(Boolean);
-
-  const categoryList =
-    Array.isArray(categories) && categories.length > 0
-      ? Array.from(new Set(categories))
-      : category
-      ? [category]
-      : [];
+  const techList = Array.isArray(stack) ? stack : [];
+  const activeCategoryKeys = Array.isArray(categoryKeys) ? categoryKeys : [];
 
   const slug = (link || "").replace(/^\/(es\/)?projects\//, "");
+  const cardName = slug
+    ? t(`items.${slug}.name`, { defaultValue: name })
+    : name;
   const cardContent = slug
-    ? t(`items.${slug}.content`, { defaultValue: content })
-    : content;
-  const cardContext =
-    slug && context
-      ? t(`items.${slug}.context`, { defaultValue: context })
-      : context;
-  const cardProjectType =
-    slug && projectType
-      ? t(`items.${slug}.projectType`, { defaultValue: projectType })
-      : projectType;
+    ? t(`items.${slug}.content`, { defaultValue: content || "" })
+    : content || "";
+  const cardContext = slug
+    ? t(`items.${slug}.context`, { defaultValue: context || "" })
+    : context || "";
+  const cardProjectType = slug
+    ? t(`items.${slug}.projectType`, { defaultValue: projectType || "" })
+    : projectType || "";
 
   const targetLink =
     isSpanish && link && link.startsWith("/") && !link.startsWith("/es")
@@ -88,9 +73,11 @@ const ProjectCard = ({
   const finalCtaLabel =
     ctaLabel || t("buttons.viewDetails", { ns: "common" });
 
-  const liveText = projectType?.toLowerCase().includes("game")
-    ? t("buttons.liveDemo", { ns: "common" })
-    : t("buttons.liveSite", { ns: "common" });
+  const liveText =
+    cardProjectType?.toLowerCase().includes("game") ||
+    cardProjectType?.toLowerCase().includes("juego")
+      ? t("buttons.liveDemo", { ns: "common" })
+      : t("buttons.liveSite", { ns: "common" });
 
   return (
     <article className="project-card rounded-2xl p-7 flex flex-col justify-between h-full">
@@ -100,20 +87,20 @@ const ProjectCard = ({
             <img
               loading="lazy"
               src={img}
-              alt={`${name} icon`}
+              alt={`${cardName} icon`}
               width="36"
               height="36"
               className="w-9 h-9 object-contain"
             />
           </div>
           <div className="flex flex-col items-end gap-1.5 flex-1 min-w-0">
-            {categoryList.length > 0 && (
+            {activeCategoryKeys.length > 0 && (
               <div className="flex flex-wrap justify-end gap-1.5">
-                {categoryList.map((cat) => (
-                  <Badge key={cat} variant="neutral">
-                    {t(`categories.${cat}`, {
+                {activeCategoryKeys.map((catKey) => (
+                  <Badge key={catKey} variant="neutral">
+                    {t(`categories.${catKey}`, {
                       ns: "common",
-                      defaultValue: cat,
+                      defaultValue: catKey,
                     })}
                   </Badge>
                 ))}
@@ -127,7 +114,7 @@ const ProjectCard = ({
           </div>
         </div>
 
-        <HeadingTag className={styles.heading4}>{name}</HeadingTag>
+        <HeadingTag className={styles.heading4}>{cardName}</HeadingTag>
         <p className={`${styles.paragraph2} mt-3`}>{cardContent}</p>
 
         {cardContext && (

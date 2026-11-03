@@ -7,7 +7,8 @@
  */
 
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useLanguage } from "../utils/language";
 
 const variants = {
   primary:
@@ -44,16 +45,8 @@ const Button = ({
   children,
   ...rest
 }) => {
-  const location = useLocation();
-  const isSpanish =
-    location.pathname === "/es" || location.pathname.startsWith("/es/");
-
-  const localizedTo =
-    to && isSpanish && to.startsWith("/") && !to.startsWith("/es")
-      ? to === "/"
-        ? "/es"
-        : `/es${to}`
-      : to;
+  const { localizePath } = useLanguage();
+  const localizedTo = to ? localizePath(to) : to;
 
   const baseClasses = `inline-flex items-center justify-center gap-2 py-3.5 px-6 font-sans text-[16px] leading-[1.2] rounded-[10px] transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
     variants[variant] || variants.primary
